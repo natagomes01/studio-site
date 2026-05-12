@@ -5,14 +5,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
 
-/* GT Sectra Display — brand serif (uploaded by user) */
-@font-face {
-  font-family: "GT Sectra Display";
-  src: url("/fonts/GT-Sectra-Display-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+/* GT Sectra Display — declared in BaseLayout.astro (base-aware @font-face) */
 
 :root {
   /* ---------- BRAND CORE ---------- */

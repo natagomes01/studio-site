@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '@i18n/index';
-import { t, altLocale, localizedPath, anchor } from '@i18n/index';
+import { t, altLocale, localizedHref, withBase, anchor } from '@i18n/index';
 
 interface Props {
   locale: Locale;
@@ -9,8 +9,9 @@ interface Props {
 const { locale } = Astro.props;
 const s = t(locale);
 const other = altLocale(locale);
-const altHref = localizedPath(other);
-const homeHref = localizedPath(locale);
+const altHref = localizedHref(other);
+const homeHref = localizedHref(locale);
+const logoSrc = withBase('/logo-horizontal.svg');
 const labelPt = 'PT';
 const labelEn = 'EN';
 const currentLabel = locale === 'pt-br' ? labelPt : labelEn;
@@ -19,7 +20,7 @@ const altLabel = other === 'pt-br' ? labelPt : labelEn;
 <div class="alb-top-stripe" aria-hidden="true"></div>
 <nav class="alb-nav" aria-label={locale === 'pt-br' ? 'Navegação principal' : 'Main navigation'}>
   <a href={homeHref} class="alb-nav__logo" aria-label="Albatroz Studio">
-    <img src="/logo-horizontal.svg" alt="Albatroz Studio" />
+    <img src={logoSrc} alt="Albatroz Studio" />
   </a>
   <div class="alb-nav__right">
     <ul class="alb-nav__links">

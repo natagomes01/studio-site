@@ -23,6 +23,17 @@ export function localizedPath(locale: Locale, path: string = ''): string {
   return clean ? `/en/${clean}` : '/en/';
 }
 
+export function withBase(path: string): string {
+  const baseUrl = import.meta.env.BASE_URL;
+  const trimmedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+  const normalized = path.startsWith('/') ? path : `/${path}`;
+  return `${trimmedBase}${normalized}` || '/';
+}
+
+export function localizedHref(locale: Locale, path: string = ''): string {
+  return withBase(localizedPath(locale, path));
+}
+
 export const anchors = {
   'pt-br': { contact: '#contato', protocol: '#protocolo', cases: '#cases', pain: '#dores' },
   en: { contact: '#contact', protocol: '#protocol', cases: '#cases', pain: '#pain' },
