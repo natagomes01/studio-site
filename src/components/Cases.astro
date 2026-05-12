@@ -1,0 +1,63 @@
+---
+import type { Locale } from '@i18n/index';
+import { t, anchor } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).cases;
+const contactHref = anchor(locale, 'contact');
+---
+<section class="alb-cases" id="cases">
+  <header class="alb-cases__header">
+    <div class="reveal">
+      <span class="alb-section-eyebrow">{s.eyebrow}</span>
+      <h2 class="alb-cases__heading">
+        {s.headlineLine1}
+        <br />
+        <span class="alb-cases__heading-2">{s.headlineLine2}</span>
+      </h2>
+      <hr class="alb-divider" style="margin-top: 24px" />
+    </div>
+    <p class="alb-cases__intro reveal reveal--delay-2">{s.intro}</p>
+  </header>
+  <div class="alb-cases__grid">
+    {s.items.map((item, i) => (
+      <article class={`alb-case reveal reveal--delay-${(i % 4) + 1}`} style={`--case-accent: ${item.accent}`}>
+        <div class="alb-case__media" aria-hidden="true">
+          <span class="alb-case__index">CASE {String(i + 1).padStart(2, '0')}</span>
+        </div>
+        <div class="alb-case__body">
+          <span class="alb-case__segment">{item.segment}</span>
+          <h3 class="alb-case__name">{item.name}</h3>
+          <hr class="alb-case__rule" />
+          <div class="alb-case__stats">
+            {item.stats.map((stat) => (
+              <div class="alb-case__stat">
+                <span class="alb-case__stat-value">{stat.value}</span>
+                <span class="alb-case__stat-label">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+          <p class="alb-case__copy">{item.body}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div class="alb-cases__pattern reveal">
+    <h3 class="alb-cases__pattern-title">{s.pattern.title}</h3>
+    <p class="alb-cases__pattern-body">{s.pattern.body}</p>
+  </div>
+
+  <div class="alb-cases__cta reveal">
+    <a class="alb-btn alb-btn--primary" href={contactHref}>
+      <span>{s.cta}</span>
+      <svg class="alb-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="square" stroke-linejoin="miter"/>
+      </svg>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+---
+import type { Locale } from '@i18n/index';
+import { t } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).form;
+const sectionId = locale === 'pt-br' ? 'contato' : 'contact';
+---
+<section class="alb-contact" id={sectionId}>
+  <div class="alb-contact__inner reveal">
+    <h2 class="alb-contact__title">{s.title}</h2>
+    <form class="alb-form" data-locale={locale} novalidate>
+      <div class="alb-form__field">
+        <label class="alb-form__label" for="alb-form-name">{s.nameLabel}</label>
+        <input id="alb-form-name" class="alb-form__input" name="name" type="text" placeholder={s.namePlaceholder} required />
+      </div>
+      <div class="alb-form__field">
+        <label class="alb-form__label" for="alb-form-company">{s.companyLabel}</label>
+        <input id="alb-form-company" class="alb-form__input" name="company" type="text" placeholder={s.companyPlaceholder} required />
+      </div>
+      <div class="alb-form__field">
+        <label class="alb-form__label" for="alb-form-email">{s.emailLabel}</label>
+        <input id="alb-form-email" class="alb-form__input" name="email" type="email" placeholder={s.emailPlaceholder} required />
+      </div>
+      <div class="alb-form__field">
+        <label class="alb-form__label" for="alb-form-whatsapp">{s.whatsappLabel}</label>
+        <input id="alb-form-whatsapp" class="alb-form__input" name="whatsapp" type="tel" placeholder={s.whatsappPlaceholder} required />
+      </div>
+      <div class="alb-form__field alb-form__field--full">
+        <label class="alb-form__label" for="alb-form-context">{s.contextLabel}</label>
+        <textarea id="alb-form-context" class="alb-form__textarea" name="context" placeholder={s.contextPlaceholder} required></textarea>
+      </div>
+      <div class="alb-form__submit-wrap">
+        <button type="submit" class="alb-btn alb-btn--primary" data-default-label={s.submit} data-loading-label={s.submitting}>
+          <span>{s.submit}</span>
+          <svg class="alb-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="square" stroke-linejoin="miter"/>
+          </svg>
+        </button>
+      </div>
+      <p class="alb-form__feedback" data-success-msg={s.success} data-error-msg={s.error} hidden></p>
+    </form>
+  </div>
+</section>
+
+<script>
+  const forms = document.querySelectorAll<HTMLFormElement>('form.alb-form');
+  forms.forEach((form) => {
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const feedback = form.querySelector<HTMLParagraphElement>('.alb-form__feedback');
+      if (!submit || !feedback) return;
+
+      const defaultLabel = submit.dataset.defaultLabel ?? submit.textContent ?? '';
+      const loadingLabel = submit.dataset.loadingLabel ?? defaultLabel;
+      const successMsg = feedback.dataset.successMsg ?? '';
+      const errorMsg = feedback.dataset.errorMsg ?? '';
+
+      submit.disabled = true;
+      const submitText = submit.querySelector('span');
+      if (submitText) submitText.textContent = loadingLabel;
+      feedback.hidden = true;
+
+      const data = new FormData(form);
+      const payload: Record<string, string> = {};
+      data.forEach((v, k) => { payload[k] = v.toString(); });
+      payload.locale = form.dataset.locale ?? 'pt-br';
+
+      try {
+        // TODO: wire to real endpoint (e.g., /api/contact, n8n webhook, Resend)
+        await new Promise((resolve) => setTimeout(resolve, 600));
+        feedback.textContent = successMsg;
+        feedback.classList.remove('alb-form__feedback--error');
+        feedback.classList.add('alb-form__feedback--success');
+        feedback.hidden = false;
+        form.reset();
+      } catch {
+        feedback.textContent = errorMsg;
+        feedback.classList.remove('alb-form__feedback--success');
+        feedback.classList.add('alb-form__feedback--error');
+        feedback.hidden = false;
+      } finally {
+        submit.disabled = false;
+        if (submitText) submitText.textContent = defaultLabel;
+      }
+    });
+  });
+</script>

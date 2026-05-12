@@ -1,0 +1,256 @@
+/* =========================================================
+   ALBATROZ STUDIO — Colors & Type
+   Mecanismo Único PAI — Protocolo de Ativação de Inteligência em Vendas
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
+
+/* GT Sectra Display — brand serif (uploaded by user) */
+@font-face {
+  font-family: "GT Sectra Display";
+  src: url("/fonts/GT-Sectra-Display-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- BRAND CORE ---------- */
+  --c-army:        #696858;   /* Primary brand — army / oliva */
+  --c-offwhite:    #F2EDE4;   /* Off-white quente — backgrounds */
+  --c-charcoal:    #202020;   /* Carvão — body text */
+  --c-slate:       #5F6870;   /* Slate — apoio / quiet */
+  --c-orange:      #F04500;   /* CTA / Accent principal */
+
+  /* ---------- DARK SCALE ---------- */
+  --c-dark-1:      #202020;   /* primary — Carvão */
+  --c-dark-2:      #3D3D3D;   /* secondary 1 */
+  --c-dark-3:      #686868;   /* secondary 2 */
+  --c-dark-4:      #A8A8A8;   /* secondary 3 */
+
+  /* ---------- MEDIUM (army) SCALE ---------- */
+  --c-medium-1:    #696858;   /* primary — army */
+  --c-medium-2:    #7A7A68;   /* oliva escuro */
+  --c-medium-3:    #989880;   /* khaki médio */
+  --c-medium-4:    #BEBEBD;   /* sage / khaki claro */
+
+  /* ---------- LIGHT (slate) SCALE ---------- */
+  --c-light-1:     #5F6870;   /* primary — slate */
+  --c-light-2:     #7A8890;   /* slate médio */
+  --c-light-3:     #A0ACB4;   /* slate claro */
+
+  /* ---------- BACKGROUNDS ---------- */
+  --c-bg:          #F2EDE4;   /* off-white quente */
+  --c-bg-warm:     #E8DDD0;   /* bege claro — gradient dest. */
+  --c-bg-army:     #696858;
+  --c-bg-dark:     #202020;
+  --c-paper:       #FCFCFC;
+
+  /* ---------- ACCENT (CTA) SCALE ---------- */
+  --c-accent-500:  #F04500;   /* laranja vivo */
+  --c-accent-400:  #F07040;   /* coral médio */
+  --c-accent-300:  #F09070;   /* coral claro */
+  --c-accent-200:  #F5A888;   /* salmão */
+  --c-accent-100:  #FFB8A0;   /* pêssego claro */
+
+  /* ---------- SOCIAL (uso restrito) ---------- */
+  --c-ig-yellow:   #FEDA77;
+  --c-ig-red:      #E1306C;
+
+  /* ---------- SEMANTIC ---------- */
+  --fg-strong:     var(--c-charcoal);
+  --fg-default:    var(--c-charcoal);
+  --fg-muted:      var(--c-slate);
+  --fg-quiet:      var(--c-medium-3);
+  --fg-on-army:    var(--c-offwhite);
+  --fg-on-dark:    var(--c-offwhite);
+  --fg-accent:     var(--c-accent-500);
+
+  --bg-page:       var(--c-bg);
+  --bg-card:       var(--c-paper);
+  --bg-band:       var(--c-bg-warm);
+
+  --border-rule:   var(--c-charcoal);
+  --border-accent: var(--c-accent-500);
+  --border-quiet:  rgba(32,32,32,.12);
+
+  /* ---------- TYPE ---------- */
+  --font-headline:  "Anton", "Helvetica Neue Condensed Bold", "Impact", sans-serif;
+  --font-highlight: "GT Sectra Display", Georgia, "Times New Roman", serif;
+  --font-body:      "Raleway", "Helvetica Neue", Arial, sans-serif;
+  --font-mono:      "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Headline (Anton) is condensed and tall — runs hot, uses tighter line-heights */
+  --lh-display:    0.92;
+  --lh-tight:      1.10;
+  --lh-snug:       1.25;
+  --lh-body:       1.55;
+  --lh-loose:      1.7;
+
+  --ls-display:   -0.01em;
+  --ls-caps:       0.12em;   /* labels and eyebrow caps */
+  --ls-caps-loose: 0.18em;
+
+  /* ---------- SPACING (1u = 8px, Fibonacci-ish from Figma: 1,2,3,5,8,13) ---------- */
+  --u: 8px;
+  --space-xxs: calc(var(--u) * 1);   /* 8 */
+  --space-xs:  calc(var(--u) * 2);   /* 16 — XS in Figma */
+  --space-s:   calc(var(--u) * 3);   /* 24 */
+  --space-m:   calc(var(--u) * 5);   /* 40 — Medium 5u */
+  --space-l:   calc(var(--u) * 8);   /* 64 */
+  --space-xl:  calc(var(--u) * 13);  /* 104 — Fibonacci */
+  --space-xxl: calc(var(--u) * 21);  /* 168 */
+
+  /* ---------- RADII ---------- */
+  --r-none:    0;
+  --r-sm:      2px;
+  --r-md:      4px;
+  --r-lg:      8px;
+  --r-pill:    999px;
+
+  /* ---------- ELEVATION ---------- */
+  --shadow-skeu:  10px 10px 86px 1px rgba(113, 83, 25, 0.10);
+  --shadow-drop:  0 6px 24px rgba(32, 32, 32, 0.08);
+  --shadow-text-bevel: 0 1px 0 rgba(255,255,255,.18), 0 -1px 0 rgba(0,0,0,.18);
+
+  /* ---------- MOTION ---------- */
+  --ease-out:     cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out:  cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:     140ms;
+  --dur-base:     220ms;
+  --dur-slow:     420ms;
+}
+
+/* =========================================================
+   Base + semantic type classes
+   ========================================================= */
+html, body {
+  background: var(--bg-page);
+  color: var(--fg-default);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headline — Anton, all-caps, condensed, tight */
+.h-display, h1.display, .type-display {
+  font-family: var(--font-headline);
+  font-weight: 400;       /* Anton ships only at 400 */
+  font-size: clamp(56px, 8.5vw, 144px);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  text-transform: uppercase;
+  color: var(--fg-strong);
+}
+
+/* H1 / H2 / H3 — Highlight (GT Sectra Display Bold) for editorial feel */
+h1, .h1 {
+  font-family: var(--font-highlight);
+  font-weight: 700;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.005em;
+  color: var(--fg-strong);
+}
+h2, .h2 {
+  font-family: var(--font-highlight);
+  font-weight: 700;
+  font-size: clamp(32px, 3.4vw, 48px);
+  line-height: var(--lh-tight);
+  color: var(--fg-strong);
+}
+h3, .h3 {
+  font-family: var(--font-highlight);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: var(--lh-snug);
+  color: var(--fg-strong);
+}
+
+/* Section headers — Anton variant for impact */
+.h-section {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: 64px;
+  line-height: var(--lh-display);
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: var(--fg-strong);
+}
+
+/* Eyebrow / caps label */
+.eyebrow, .caps {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.eyebrow--accent { color: var(--fg-accent); }
+
+/* Body */
+p, .p, .body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: var(--lh-body);
+  color: var(--fg-default);
+}
+.p--lg, .body-lg {
+  font-size: 18px;
+  line-height: 1.6;
+}
+.p--sm, .body-sm {
+  font-size: 14px;
+  line-height: 1.55;
+}
+.body-bold, b, strong { font-weight: 700; }
+
+/* Lead — large body, Highlight italic feel */
+.lead {
+  font-family: var(--font-highlight);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--fg-strong);
+}
+
+/* Mono / code-style labels (used for system labels in Figma) */
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  color: var(--fg-muted);
+}
+
+/* Links */
+a { color: var(--fg-accent); text-decoration: none; transition: opacity var(--dur-fast) var(--ease-out); }
+a:hover { opacity: 0.7; }
+
+/* Selection */
+::selection { background: var(--c-accent-500); color: #fff; }
+
+/* =========================================================
+   Utilities
+   ========================================================= */
+.rule         { height: 1px; background: var(--border-rule); border: 0; }
+.rule--accent { height: 3px; background: var(--border-accent); border: 0; width: 220px; }
+.divider      { width: 220px; height: 3px; background: var(--c-accent-500); display: block; }
+
+.bg-offwhite { background: var(--c-offwhite); }
+.bg-army     { background: var(--c-army); color: var(--fg-on-army); }
+.bg-dark     { background: var(--c-charcoal); color: var(--fg-on-dark); }
+.bg-orange   { background: var(--c-accent-500); color: #fff; }
+
+/* Top accent bar — appears across web (orange 7px stripe) */
+.top-stripe {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 7px;
+  background: var(--c-accent-500);
+  z-index: 9999;
+}

@@ -1,0 +1,49 @@
+---
+import type { Locale } from '@i18n/index';
+import { t, anchor } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).protocol;
+const contactHref = anchor(locale, 'contact');
+---
+<section class="alb-proto" id={locale === 'pt-br' ? 'protocolo' : 'protocol'}>
+  <header class="alb-proto__header">
+    <div class="reveal">
+      <span class="alb-section-eyebrow">{s.eyebrow}</span>
+      <h2 class="alb-proto__heading">
+        {s.headlineLine1}
+        <br />
+        <span class="alb-proto__heading-2">{s.headlineLine2}</span>
+      </h2>
+      <hr class="alb-divider" style="margin-top: 24px" />
+    </div>
+    <p class="alb-proto__intro reveal reveal--delay-2">{s.intro}</p>
+  </header>
+  <ol class="alb-proto__list">
+    {s.steps.map((step, i) => (
+      <li class={`alb-proto__step reveal reveal--delay-${(i % 4) + 1}`}>
+        <div class="alb-proto__num">{String(i + 1).padStart(2, '0')}</div>
+        <div class="alb-proto__copy">
+          <h3 class="alb-proto__title">{step.title}</h3>
+          <p class="alb-proto__body">{step.body}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+  <div class="alb-proto__close reveal">
+    <p>{s.closing}</p>
+    <p>{s.closingTail}</p>
+  </div>
+  <div class="alb-proto__cta reveal">
+    <a class="alb-btn alb-btn--primary" href={contactHref}>
+      <span>{s.cta}</span>
+      <svg class="alb-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="square" stroke-linejoin="miter"/>
+      </svg>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+import type { Locale } from '@i18n/index';
+import { t, altLocale, localizedPath, anchor } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale);
+const other = altLocale(locale);
+const altHref = localizedPath(other);
+const homeHref = localizedPath(locale);
+const labelPt = 'PT';
+const labelEn = 'EN';
+const currentLabel = locale === 'pt-br' ? labelPt : labelEn;
+const altLabel = other === 'pt-br' ? labelPt : labelEn;
+---
+<div class="alb-top-stripe" aria-hidden="true"></div>
+<nav class="alb-nav" aria-label={locale === 'pt-br' ? 'Navegação principal' : 'Main navigation'}>
+  <a href={homeHref} class="alb-nav__logo" aria-label="Albatroz Studio">
+    <img src="/logo-horizontal.svg" alt="Albatroz Studio" />
+  </a>
+  <div class="alb-nav__right">
+    <ul class="alb-nav__links">
+      <li><a href={anchor(locale, 'protocol')}>{s.nav.pillars}</a></li>
+      <li><a href={anchor(locale, 'cases')}>{s.nav.projects}</a></li>
+      <li><a href={anchor(locale, 'contact')}>{s.nav.contact}</a></li>
+    </ul>
+    <div class="alb-lang" aria-label={locale === 'pt-br' ? 'Selecionar idioma' : 'Select language'}>
+      <span class="alb-lang__current" aria-current="true">{currentLabel}</span>
+      <span class="alb-lang__sep" aria-hidden="true">|</span>
+      <a class="alb-lang__alt" href={altHref} data-target-locale={other}>{altLabel}</a>
+    </div>
+  </div>
+</nav>

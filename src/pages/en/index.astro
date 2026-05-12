@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import LangBanner from '@components/LangBanner.astro';
+import Nav from '@components/Nav.astro';
+import Hero from '@components/Hero.astro';
+import ProofBar from '@components/ProofBar.astro';
+import PainPoints from '@components/PainPoints.astro';
+import Cases from '@components/Cases.astro';
+import Protocol from '@components/Protocol.astro';
+import ContactForm from '@components/ContactForm.astro';
+import Footer from '@components/Footer.astro';
+
+const locale = 'en' as const;
+---
+<BaseLayout locale={locale}>
+  <LangBanner slot="banner" locale={locale} />
+  <Nav locale={locale} />
+  <main>
+    <Hero locale={locale} />
+    <ProofBar locale={locale} />
+    <PainPoints locale={locale} />
+    <Cases locale={locale} />
+    <Protocol locale={locale} />
+    <ContactForm locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>

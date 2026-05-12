@@ -1,0 +1,51 @@
+---
+import type { Locale } from '@i18n/index';
+import { t, anchor } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).footer;
+const contactHref = anchor(locale, 'contact');
+---
+<footer class="alb-footer">
+  <div class="alb-footer__top">
+    <div class="alb-stamp" aria-hidden="true">
+      <svg viewBox="0 0 200 200" width="200" height="200">
+        <defs>
+          <path id="alb-circle" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
+        </defs>
+        <text fill="#F2EDE4" style="font-family: GT Sectra Display, Georgia, serif; font-weight: 700; font-size: 16px; letter-spacing: 0.18em">
+          <textPath href="#alb-circle" startOffset="0">ALBATROZ STUDIO · ALBATROZ STUDIO · </textPath>
+        </text>
+        <image href="/albatroz-symbol.svg" x="50" y="78" width="100" height="44" style="filter: brightness(0) invert(91%) sepia(11%) saturate(220%) hue-rotate(0deg)" />
+      </svg>
+    </div>
+    <div class="alb-footer__cols">
+      <div class="alb-footer__col">
+        <span class="alb-footer__h">ALBATROZ</span>
+        <p>{s.address.line1}<br />{s.address.line2}<br />{s.address.line3}</p>
+      </div>
+      <div class="alb-footer__col">
+        <span class="alb-footer__h">{s.socialLabel}</span>
+        <ul>
+          <li><a href="https://www.instagram.com/natagomes01/" target="_blank" rel="noreferrer noopener">INSTAGRAM</a></li>
+          <li><a href="https://www.linkedin.com/in/natagomes01" target="_blank" rel="noreferrer noopener">LINKEDIN</a></li>
+          <li><a href="mailto:nata@albatroz.studio">EMAIL</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="alb-footer__cta-row">
+    <a class="alb-footer__cta" href={contactHref}>
+      <span class="alb-footer__cta-text">{s.contactCta.toUpperCase()}</span>
+      <svg class="alb-footer__cta-arrow" viewBox="0 0 32 32" width="56" height="56" aria-hidden="true">
+        <path d="M24 8 L8 24 M8 14 L8 24 L18 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"/>
+      </svg>
+    </a>
+  </div>
+  <div class="alb-footer__watermark" aria-hidden="true">ALBATROZ</div>
+  <p class="alb-footer__legal">{s.legal}</p>
+</footer>

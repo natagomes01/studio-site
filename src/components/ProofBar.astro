@@ -1,0 +1,21 @@
+---
+import type { Locale } from '@i18n/index';
+import { t } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const items = t(locale).proofBar;
+---
+<aside class="alb-proofbar" aria-label={locale === 'pt-br' ? 'Prova social' : 'Social proof'}>
+  <div class="alb-proofbar__inner">
+    {items.map((item, i) => (
+      <div class={`alb-proofbar__item reveal reveal--delay-${Math.min(i + 1, 4)}`}>
+        <span class="alb-proofbar__metric">{item.metric}</span>
+        <span class="alb-proofbar__context">{item.context}</span>
+      </div>
+    ))}
+  </div>
+</aside>

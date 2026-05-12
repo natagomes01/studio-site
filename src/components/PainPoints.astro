@@ -1,0 +1,43 @@
+---
+import type { Locale } from '@i18n/index';
+import { t } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).pain;
+---
+<section class="alb-pain" id={locale === 'pt-br' ? 'dores' : 'pain'}>
+  <header class="alb-pain__header">
+    <div class="reveal">
+      <span class="alb-section-eyebrow">{s.eyebrow}</span>
+      <h2 class="alb-pain__heading">
+        {s.headlineLine1}
+        <br />
+        <span class="alb-pain__heading-2">{s.headlineLine2}</span>
+      </h2>
+      <hr class="alb-divider" style="margin-top: 24px" />
+    </div>
+    <div class="alb-pain__intro reveal reveal--delay-2">
+      <p>{s.intro}</p>
+      <p>{s.introTail}</p>
+    </div>
+  </header>
+  <ol class="alb-pain__list">
+    {s.items.map((item, i) => (
+      <li class={`alb-pain__item reveal reveal--delay-${(i % 4) + 1}`}>
+        <span class="alb-pain__index">{String(i + 1).padStart(2, '0')}</span>
+        <div>
+          <h3 class="alb-pain__title">{item.title}</h3>
+          <p class="alb-pain__body">{item.body}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+  <div class="alb-pain__close reveal">
+    <p>{s.closing}</p>
+    <p>{s.closingTail}</p>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+import type { Locale } from '@i18n/index';
+import { t, anchor } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).hero;
+const contactHref = anchor(locale, 'contact');
+const protocolHref = anchor(locale, 'protocol');
+
+// Convert **bold** markers in subheadline to <strong>
+const subhtml = s.subheadline.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+---
+<section class="alb-hero" id="topo">
+  <div class="alb-hero__inner">
+    <span class="alb-hero__eyebrow reveal">{s.eyebrow}</span>
+    <h1 class="alb-hero__title reveal reveal--delay-1">
+      {s.headlineLine1}
+      <span class="alb-hero__title-line2">{s.headlineLine2}</span>
+    </h1>
+    <p class="alb-hero__sub reveal reveal--delay-2" set:html={subhtml}></p>
+    <div class="alb-hero__ctas reveal reveal--delay-3">
+      <a class="alb-btn alb-btn--primary" href={contactHref}>
+        <span>{s.ctaPrimary}</span>
+        <svg class="alb-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="square" stroke-linejoin="miter"/>
+        </svg>
+      </a>
+      <a class="alb-btn alb-btn--ghost" href={protocolHref}>{s.ctaSecondary}</a>
+    </div>
+    <p class="alb-hero__support reveal reveal--delay-4">{s.support}</p>
+  </div>
+</section>
