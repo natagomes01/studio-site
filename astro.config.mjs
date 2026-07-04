@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-const base = process.env.BASE_PATH ?? '/albatroz.studio/';
+const base = process.env.BASE_PATH ?? '/';
 
 export default defineConfig({
   site: 'https://albatroz.studio',
