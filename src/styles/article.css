@@ -1,0 +1,357 @@
+/* =========================================================
+   ALBATROZ SITE — long-form article (guia) styles
+   Loaded only by article pages; home pages never import this.
+   ========================================================= */
+
+.alb-article {
+  padding: 148px 24px 96px;
+}
+.alb-article__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ---------- Article header ---------- */
+.alb-article__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-accent-500);
+  display: block;
+  margin-bottom: 20px;
+}
+.alb-article__title {
+  font-family: var(--font-highlight);
+  font-weight: 700;
+  font-size: clamp(32px, 6vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--c-charcoal);
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+.alb-article__subtitle {
+  font-family: var(--font-highlight);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(18px, 2.4vw, 22px);
+  line-height: 1.45;
+  color: var(--c-army);
+  margin: 0 0 28px;
+  text-wrap: pretty;
+}
+.alb-article__byline {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--c-charcoal);
+  margin: 0 0 10px;
+}
+.alb-article__dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--c-slate);
+  margin: 0 0 8px;
+}
+.alb-article__capture {
+  border-left: 3px solid var(--c-accent-500);
+  padding-left: 10px;
+  font-weight: 600;
+  color: var(--c-charcoal);
+}
+
+/* ---------- Body typography ---------- */
+.alb-article h2 {
+  font-family: var(--font-highlight);
+  font-weight: 700;
+  font-size: clamp(25px, 4.4vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.008em;
+  color: var(--c-charcoal);
+  margin: 72px 0 20px;
+  text-wrap: balance;
+}
+.alb-article h2::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--c-accent-500);
+  margin-bottom: 20px;
+}
+.alb-article h3 {
+  font-family: var(--font-highlight);
+  font-weight: 700;
+  font-size: clamp(21px, 3vw, 25px);
+  line-height: 1.2;
+  color: var(--c-charcoal);
+  margin: 44px 0 14px;
+}
+.alb-article [id] {
+  scroll-margin-top: 104px;
+}
+.alb-article p {
+  font-size: 17px;
+  line-height: var(--lh-loose);
+  color: var(--c-charcoal);
+  margin: 0 0 18px;
+  text-wrap: pretty;
+}
+.alb-article ul,
+.alb-article ol {
+  margin: 0 0 18px;
+  padding-left: 24px;
+}
+.alb-article li {
+  font-size: 17px;
+  line-height: var(--lh-loose);
+  color: var(--c-charcoal);
+  margin: 0 0 10px;
+}
+.alb-article li > ol,
+.alb-article li > ul {
+  margin: 10px 0 0;
+}
+.alb-article li::marker {
+  font-weight: 700;
+  color: var(--c-army);
+}
+.alb-article a {
+  overflow-wrap: anywhere;
+}
+
+/* Inline emphasis from the guide source:
+   ~~ironia~~ keeps the strike visible; ++destaque++ is the brand highlight. */
+.alb-article s {
+  text-decoration-color: var(--c-accent-500);
+  text-decoration-thickness: 2px;
+}
+.alb-article mark {
+  background: linear-gradient(0deg, rgba(240, 69, 0, 0.18), rgba(240, 69, 0, 0.18));
+  color: inherit;
+  padding: 0.05em 0.2em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ---------- Callouts ---------- */
+.alb-callout {
+  background: var(--c-paper);
+  border: 1px solid var(--border-quiet);
+  border-left: 4px solid var(--c-accent-500);
+  padding: 22px 26px;
+  margin: 28px 0;
+}
+.alb-callout p:last-child,
+.alb-callout ol:last-child,
+.alb-callout ul:last-child {
+  margin-bottom: 0;
+}
+.alb-callout--notice {
+  background: var(--c-bg-warm);
+}
+.alb-callout--note {
+  margin: 14px 0 4px;
+  padding: 14px 18px;
+  font-size: 16px;
+}
+.alb-callout--quote {
+  background: var(--c-charcoal);
+  border: 0;
+  border-left: 4px solid var(--c-accent-500);
+  color: var(--c-offwhite);
+  padding: 28px 30px;
+}
+.alb-article .alb-callout--quote p {
+  font-family: var(--font-highlight);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--c-offwhite);
+}
+.alb-callout--quote strong {
+  font-style: normal;
+}
+
+/* ---------- Table of contents ---------- */
+.alb-toc {
+  background: var(--c-paper);
+  border: 1px solid var(--border-quiet);
+  padding: 26px 28px;
+  margin: 40px 0 8px;
+}
+.alb-toc__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-army);
+  margin: 0 0 16px;
+}
+.alb-toc ol {
+  list-style: none;
+  counter-reset: alb-toc;
+  margin: 0;
+  padding: 0;
+}
+.alb-toc li {
+  counter-increment: alb-toc;
+  display: flex;
+  gap: 12px;
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.alb-toc li::before {
+  content: counter(alb-toc, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--c-accent-500);
+  padding-top: 3px;
+}
+.alb-toc a {
+  color: var(--c-charcoal);
+  font-weight: 500;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.alb-toc a:hover {
+  color: var(--c-accent-500);
+  opacity: 1;
+}
+
+/* ---------- Tables ---------- */
+/* Every table scrolls inside its own container; the page never scrolls sideways. */
+.alb-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 26px 0;
+  border: 1px solid rgba(32, 32, 32, 0.14);
+  background: var(--c-paper);
+}
+.alb-table-wrap table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 520px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.alb-table-wrap--wide table {
+  min-width: 680px;
+}
+.alb-table-wrap th {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  background: var(--c-army);
+  color: var(--c-offwhite);
+  padding: 12px 16px;
+  white-space: nowrap;
+}
+.alb-table-wrap td {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(32, 32, 32, 0.10);
+  vertical-align: top;
+  color: var(--c-charcoal);
+}
+.alb-table-wrap tbody tr:nth-child(even) {
+  background: rgba(32, 32, 32, 0.03);
+}
+
+/* ---------- CTA blocks ---------- */
+.alb-art-cta {
+  background: var(--c-charcoal);
+  color: var(--c-offwhite);
+  padding: 34px 32px;
+  margin: 44px 0;
+}
+.alb-article .alb-art-cta__title {
+  font-family: var(--font-highlight);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.2;
+  color: var(--c-offwhite);
+  margin: 0 0 10px;
+}
+.alb-article .alb-art-cta__text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--c-offwhite);
+  opacity: 0.88;
+  margin: 0 0 22px;
+}
+.alb-art-cta .alb-btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+@media (min-width: 560px) {
+  .alb-art-cta .alb-btn {
+    width: auto;
+  }
+}
+
+/* ---------- Contact links (Fale comigo) ---------- */
+.alb-art-contact {
+  list-style: none;
+  padding: 0;
+}
+.alb-article .alb-art-contact {
+  padding-left: 0;
+}
+.alb-art-contact li {
+  margin: 0 0 8px;
+}
+
+/* ---------- Sources + footnote ---------- */
+.alb-art-sources li {
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+.alb-art-foot {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(32, 32, 32, 0.16);
+}
+.alb-article .alb-art-foot p {
+  font-family: var(--font-highlight);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--c-slate);
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .alb-article {
+    padding: 120px 20px 72px;
+  }
+  .alb-article h2 {
+    margin-top: 56px;
+  }
+  .alb-toc {
+    padding: 22px 20px;
+  }
+  .alb-art-cta {
+    padding: 28px 22px;
+  }
+  .alb-callout {
+    padding: 18px 20px;
+  }
+  .alb-callout--quote {
+    padding: 22px 22px;
+  }
+}

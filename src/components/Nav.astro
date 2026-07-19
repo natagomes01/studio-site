@@ -4,13 +4,21 @@ import { t, altLocale, localizedHref, withBase, anchor, whatsappUrl } from '@i18
 
 interface Props {
   locale: Locale;
+  /** On internal pages, section anchors must point back to the home page. */
+  anchorsToHome?: boolean;
+  /** Hide the PT|EN switcher on pages that exist in a single language. */
+  showLang?: boolean;
+  /** Page-specific WhatsApp message (e.g. so leads identify which page they came from). */
+  waMessage?: string;
 }
 
-const { locale } = Astro.props;
+const { locale, anchorsToHome = false, showLang = true, waMessage } = Astro.props;
 const s = t(locale);
 const other = altLocale(locale);
 const altHref = localizedHref(other);
 const homeHref = localizedHref(locale);
+const sectionHref = (key: Parameters<typeof anchor>[1]) =>
+  anchorsToHome ? `${homeHref}${anchor(locale, key)}` : anchor(locale, key);
 const logoSrc = withBase('/logo-horizontal.svg');
 const labelPt = 'PT';
 const labelEn = 'EN';
@@ -24,14 +32,14 @@ const altLabel = other === 'pt-br' ? labelPt : labelEn;
   </a>
   <div class="alb-nav__right">
     <ul class="alb-nav__links">
-      <li><a href={anchor(locale, 'protocol')}>{s.nav.pillars}</a></li>
-      <li><a href={anchor(locale, 'cases')}>{s.nav.projects}</a></li>
-      <li><a href={whatsappUrl(locale)} target="_blank" rel="noreferrer noopener">{s.nav.contact}</a></li>
+      <li><a href={sectionHref('protocol')}>{s.nav.pillars}</a></li>
+      <li><a href={sectionHref('cases')}>{s.nav.projects}</a></li>
+      <li><a href={whatsappUrl(locale, waMessage)} target="_blank" rel="noreferrer noopener">{s.nav.contact}</a></li>
     </ul>
-    <div class="alb-lang" aria-label={locale === 'pt-br' ? 'Selecionar idioma' : 'Select language'}>
+    {showLang && <div class="alb-lang" aria-label={locale === 'pt-br' ? 'Selecionar idioma' : 'Select language'}>
       <span class="alb-lang__current" aria-current="true">{currentLabel}</span>
       <span class="alb-lang__sep" aria-hidden="true">|</span>
       <a class="alb-lang__alt" href={altHref} data-target-locale={other}>{altLabel}</a>
-    </div>
+    </div>}
   </div>
 </nav>

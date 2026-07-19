@@ -6,15 +6,25 @@ import '@styles/site.css';
 
 interface Props {
   locale: Locale;
+  /** Page-specific overrides; when omitted the layout describes the home. */
+  title?: string;
+  description?: string;
+  /** Site-relative path (e.g. '/guia-whatsapp-2026/') for canonical + og:url. */
+  path?: string;
+  ogType?: string;
+  /** Single-language pages have no alternate version to point hreflang at. */
+  noAltLocale?: boolean;
 }
 
-const { locale } = Astro.props;
+const { locale, noAltLocale = false, ogType = 'website' } = Astro.props;
 const s = t(locale);
+const title = Astro.props.title ?? s.meta.title;
+const description = Astro.props.description ?? s.meta.description;
 const other = altLocale(locale);
 const altHref = localizedHref(other);
 const htmlLang = locale === 'pt-br' ? 'pt-BR' : 'en';
 const altHrefLang = other === 'pt-br' ? 'pt-BR' : 'en';
-const canonical = new URL(localizedPath(locale), Astro.site ?? 'https://albatroz.studio').toString();
+const canonical = new URL(Astro.props.path ?? localizedPath(locale), Astro.site ?? 'https://albatroz.studio').toString();
 const altUrl = new URL(localizedPath(other), Astro.site ?? 'https://albatroz.studio').toString();
 const faviconHref = withBase('/favicon.png');
 const fontHref = withBase('/fonts/GT-Sectra-Display-Bold.otf');
@@ -24,19 +34,20 @@ const fontHref = withBase('/fonts/GT-Sectra-Display-Bold.otf');
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{s.meta.title}</title>
-    <meta name="description" content={s.meta.description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang={altHrefLang} href={altUrl} />
-    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site ?? 'https://albatroz.studio').toString()} />
+    {!noAltLocale && <link rel="alternate" hreflang={altHrefLang} href={altUrl} />}
+    {!noAltLocale && <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site ?? 'https://albatroz.studio').toString()} />}
     <link rel="icon" type="image/png" href={faviconHref} />
     <style set:html={`@font-face{font-family:"GT Sectra Display";src:url("${fontHref}") format("opentype");font-weight:700;font-style:normal;font-display:swap;}`}></style>
-    <meta property="og:title" content={s.meta.title} />
-    <meta property="og:description" content={s.meta.description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={htmlLang.replace('-', '_')} />
     <meta name="twitter:card" content="summary_large_image" />
+    <slot name="head" />
   </head>
   <body>
     <slot name="banner" />

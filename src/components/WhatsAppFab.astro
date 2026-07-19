@@ -4,10 +4,12 @@ import { whatsappUrl } from '@i18n/index';
 
 interface Props {
   locale: Locale;
+  /** Page-specific WhatsApp message (e.g. so leads identify which page they came from). */
+  waMessage?: string;
 }
 
-const { locale } = Astro.props;
-const href = whatsappUrl(locale);
+const { locale, waMessage } = Astro.props;
+const href = whatsappUrl(locale, waMessage);
 const label = locale === 'pt-br' ? 'Falar no WhatsApp' : 'Chat on WhatsApp';
 ---
 <a

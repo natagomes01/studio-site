@@ -4,11 +4,13 @@ import { t, whatsappUrl, withBase } from '@i18n/index';
 
 interface Props {
   locale: Locale;
+  /** Page-specific WhatsApp message (e.g. so leads identify which page they came from). */
+  waMessage?: string;
 }
 
-const { locale } = Astro.props;
+const { locale, waMessage } = Astro.props;
 const s = t(locale).footer;
-const contactHref = whatsappUrl(locale);
+const contactHref = whatsappUrl(locale, waMessage);
 const symbolHref = withBase('/albatroz-symbol.svg');
 ---
 <footer class="alb-footer">

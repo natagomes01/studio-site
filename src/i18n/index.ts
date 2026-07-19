@@ -51,8 +51,8 @@ export const whatsapp = {
   },
 } as const satisfies { phone: string; message: Record<Locale, string> };
 
-export function whatsappUrl(locale: Locale): string {
-  return `https://wa.me/${whatsapp.phone}?text=${encodeURIComponent(whatsapp.message[locale])}`;
+export function whatsappUrl(locale: Locale, message?: string): string {
+  return `https://wa.me/${whatsapp.phone}?text=${encodeURIComponent(message ?? whatsapp.message[locale])}`;
 }
 
 export type { Locale, Strings } from './types';
