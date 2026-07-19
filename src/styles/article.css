@@ -32,11 +32,10 @@
   text-wrap: balance;
 }
 .alb-article__subtitle {
-  font-family: var(--font-highlight);
-  font-weight: 400;
-  font-style: italic;
-  font-size: clamp(18px, 2.4vw, 22px);
-  line-height: 1.45;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(17px, 2.2vw, 20px);
+  line-height: 1.55;
   color: var(--c-army);
   margin: 0 0 28px;
   text-wrap: pretty;
@@ -75,16 +74,8 @@
   line-height: 1.15;
   letter-spacing: -0.008em;
   color: var(--c-charcoal);
-  margin: 72px 0 20px;
+  margin: 28px 0 20px;
   text-wrap: balance;
-}
-.alb-article h2::before {
-  content: "";
-  display: block;
-  width: 56px;
-  height: 3px;
-  background: var(--c-accent-500);
-  margin-bottom: 20px;
 }
 .alb-article h3 {
   font-family: var(--font-highlight);
@@ -170,14 +161,10 @@
   padding: 28px 30px;
 }
 .alb-article .alb-callout--quote p {
-  font-family: var(--font-highlight);
-  font-style: italic;
-  font-size: 19px;
-  line-height: 1.55;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
   color: var(--c-offwhite);
-}
-.alb-callout--quote strong {
-  font-style: normal;
 }
 
 /* ---------- Table of contents ---------- */
@@ -229,8 +216,107 @@
   opacity: 1;
 }
 
+/* ---------- Section divider (déco: fio + losango, do deck da marca) ---------- */
+.alb-art-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 72px 0 0;
+}
+.alb-art-divider::before,
+.alb-art-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(32, 32, 32, 0.18);
+}
+.alb-art-divider__gem {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background: var(--c-accent-500);
+  transform: rotate(45deg);
+}
+.alb-art-divider__num {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--c-army);
+}
+
+/* ---------- Albatroz planando (gullPath do deck, batida de asa contida) ---------- */
+.alb-gull {
+  display: block;
+  margin-top: 28px;
+  overflow: visible;
+}
+.alb-gull--close {
+  margin: 56px auto 0;
+}
+.alb-gull__echo path {
+  stroke: var(--c-army);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0.3;
+}
+.alb-gull__wing {
+  stroke: var(--c-accent-500);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  transform-box: view-box;
+  transform-origin: 70px 37px;
+}
+.alb-gull__wing--l {
+  animation: alb-gull-flap-l 3.4s var(--ease-in-out) infinite alternate;
+}
+.alb-gull__wing--r {
+  animation: alb-gull-flap-r 3.4s var(--ease-in-out) infinite alternate;
+}
+@keyframes alb-gull-flap-l {
+  from { transform: rotate(3.5deg); }
+  to   { transform: rotate(-3.5deg); }
+}
+@keyframes alb-gull-flap-r {
+  from { transform: rotate(-3.5deg); }
+  to   { transform: rotate(3.5deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .alb-gull__wing--l,
+  .alb-gull__wing--r { animation: none; }
+}
+
+/* ---------- Reading progress (o stripe laranja se preenche de carvão) ---------- */
+.alb-read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 7px;
+  width: 0;
+  background: var(--c-charcoal);
+  z-index: 101;
+  pointer-events: none;
+}
+
 /* ---------- Tables ---------- */
 /* Every table scrolls inside its own container; the page never scrolls sideways. */
+.alb-table-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--c-slate);
+  opacity: 0.85;
+  margin: 26px 0 0;
+}
+.alb-table-hint + .alb-table-wrap {
+  margin-top: 8px;
+}
+@media (min-width: 760px) {
+  /* No desktop a tabela cabe inteira; a dica de arrastar é só para mobile. */
+  .alb-table-hint { display: none; }
+  .alb-table-hint + .alb-table-wrap { margin-top: 26px; }
+}
 .alb-table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -326,9 +412,8 @@
   border-top: 1px solid rgba(32, 32, 32, 0.16);
 }
 .alb-article .alb-art-foot p {
-  font-family: var(--font-highlight);
-  font-style: italic;
-  font-size: 15px;
+  font-family: var(--font-body);
+  font-size: 14px;
   line-height: 1.6;
   color: var(--c-slate);
   margin: 0;
@@ -339,7 +424,7 @@
   .alb-article {
     padding: 120px 20px 72px;
   }
-  .alb-article h2 {
+  .alb-art-divider {
     margin-top: 56px;
   }
   .alb-toc {

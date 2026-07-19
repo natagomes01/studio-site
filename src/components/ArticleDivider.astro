@@ -1,0 +1,17 @@
+---
+/**
+ * Divisor de seção editorial — linha fina com losango laranja, vocabulário
+ * déco do deck da marca (mira-animator: fineDivider). Com `num`, exibe o
+ * número da seção, espelhando o índice do artigo.
+ */
+interface Props {
+  num?: string;
+}
+
+const { num } = Astro.props;
+---
+<div class="alb-art-divider" aria-hidden="true">
+  <span class="alb-art-divider__gem"></span>
+  {num && <span class="alb-art-divider__num">{num}</span>}
+  {num && <span class="alb-art-divider__gem"></span>}
+</div>

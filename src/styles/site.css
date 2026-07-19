@@ -993,5 +993,6 @@ em { font-style: italic; }
   .alb-footer__top { grid-template-columns: 1fr; gap: 32px; }
   .alb-footer__cols { grid-template-columns: 1fr; gap: 32px; }
   .alb-footer__cta-row { justify-content: flex-start; }
-  .alb-footer__cta { margin-top: 48px; }
+  /* Em telas estreitas o CTA quebra em duas linhas em vez de estourar a largura. */
+  .alb-footer__cta { margin-top: 48px; white-space: normal; }
 }

@@ -3,6 +3,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Nav from '@components/Nav.astro';
 import Footer from '@components/Footer.astro';
 import WhatsAppFab from '@components/WhatsAppFab.astro';
+import ArticleDivider from '@components/ArticleDivider.astro';
+import GullMark from '@components/GullMark.astro';
 import { whatsappUrl } from '@i18n/index';
 import '@styles/article.css';
 
@@ -51,6 +53,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
   </Fragment>
 
   <Nav locale={locale} anchorsToHome showLang={false} waMessage={waMessage} />
+  <div class="alb-read-progress" aria-hidden="true"></div>
 
   <main>
     <article class="alb-article">
@@ -65,6 +68,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
             <span>Publicado em 18 de julho de 2026</span>
             <span class="alb-article__capture">Dados da Meta capturados em 17 de julho de 2026</span>
           </div>
+          <GullMark />
         </header>
 
         <aside class="alb-callout alb-callout--notice">
@@ -94,6 +98,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           </ol>
         </nav>
 
+        <ArticleDivider num="01" />
+
         <h2 id="regra-do-jogo">Se você vende pelo WhatsApp, a regra do jogo muda <s>mais uma vez</s> em outubro</h2>
 
         <p>E quase tudo que vi circulando sobre isso está pela metade.</p>
@@ -109,6 +115,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <li>por que nessa mudança é a hora de tomar uma decisão que a maioria dos seus concorrentes não vai tomar.</li>
         </ol>
 
+        <ArticleDivider num="02" />
+
         <h2 id="resumo-expresso">O resumo expresso</h2>
 
         <ol>
@@ -119,6 +127,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <li>Você <strong>não é obrigado</strong> a usar a IA da Meta. Dá pra ter um sistema próprio, mais eficiente e talvez mais barato, treinado pro seu negócio, e usar o WhatsApp só como canal de entrega.</li>
         </ol>
         <p>O resto do guia detalha cada ponto, com os números.</p>
+
+        <ArticleDivider num="03" />
 
         <h2 id="vocabulario">Primeiro, o vocabulário da API Oficial (só o necessário)</h2>
 
@@ -136,8 +146,11 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         </ul>
         <p>Guarde essas quatro. O guia inteiro gira em torno delas.</p>
 
+        <ArticleDivider num="04" />
+
         <h2 id="linha-do-tempo">A linha do tempo</h2>
 
+        <p class="alb-table-hint"><span aria-hidden="true">👉</span> Arrasta para o lado para ver mais informações</p>
         <div class="alb-table-wrap">
           <table>
             <thead>
@@ -177,6 +190,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
 
         <p>Os dois marcos que mexem com quase todo negócio brasileiro são <strong>agosto</strong> (IA da Meta) e, principalmente, <strong>outubro</strong> (a conversa deixa de ser grátis).</p>
 
+        <ArticleDivider num="05" />
+
         <h2 id="conta-em-reais">O que muda pro seu bolso: a conta em R$</h2>
 
         <p>Hoje, uma conversa de atendimento não custa nada em entrega, desde que o contato tenha enviado a primeira mensagem.</p>
@@ -184,6 +199,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p>A tarifa da mensagem de conversa vai ser <strong>a mesma da mensagem de utilidade</strong>. A Meta já disse isso por escrito; falta só o carimbo formal na tabela, prometido até 1º de setembro. Para o Brasil, essa tarifa hoje é de <strong>R$ 0,035 por mensagem</strong>.</p>
         <p>Na prática:</p>
 
+        <p class="alb-table-hint"><span aria-hidden="true">👉</span> Arrasta para o lado para ver mais informações</p>
         <div class="alb-table-wrap">
           <table>
             <thead>
@@ -238,6 +254,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <a class="alb-btn alb-btn--primary" href={waHref} {...extLink}>Chame aqui no WhatsApp agora</a>
         </aside>
 
+        <ArticleDivider num="06" />
+
         <h2 id="quem-faz-trafego-escapa">O detalhe que ninguém te contou: <mark>quem faz tráfego ainda escapa</mark></h2>
 
         <p>Essa mesma cliente falou comigo um dia que ninguém tinha explicado pra ela essas regras que vou te falar aqui agora.</p>
@@ -266,6 +284,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <li>Essa regra é boa hoje. A Meta muda regra o tempo todo. Depender dela pra sempre é arriscado. O foco aqui é <strong>saber de onde seu cliente entra e quanto cada porta custa</strong>, e ter um sistema que enxergue isso por você.</li>
         </ol>
 
+        <ArticleDivider num="07" />
+
         <h2 id="ia-da-meta">A IA da Meta: cara, e ainda engessada</h2>
 
         <p>A partir de agosto de 2026, a Meta passa a oferecer uma <strong>inteligência artificial própria</strong> que responde o cliente no seu lugar. Parece que resolve tudo sem esforço. Tem dois problemas:</p>
@@ -273,6 +293,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p>A IA da Meta é cobrada por consumo de processamento, e consome muito, relendo a conversa inteira toda vez. No <strong>exemplo da própria Meta</strong>, responder "que horas vocês abrem?" em quatro mensagens custa de <strong>US$ 0,16 a US$ 0,20</strong>. Convertendo pelo câmbio que a própria Meta usa nas tabelas (cerca de R$ 5,10 por dólar), isso é <strong>quase R$ 1,00 para responder que horas a loja abre</strong>.</p>
         <p>Compare com ter o <strong>seu próprio sistema</strong>, que responde a mesma pergunta e entrega pelo WhatsApp oficial do mesmo jeito:</p>
 
+        <p class="alb-table-hint"><span aria-hidden="true">👉</span> Arrasta para o lado para ver mais informações</p>
         <div class="alb-table-wrap">
           <table>
             <thead>
@@ -309,6 +330,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <p><strong>Minha conclusão de engenheiro:</strong> hoje a IA da Meta é, ao mesmo tempo, <strong>mais cara e menos flexível</strong> do que um sistema dedicado, que é exatamente o que a gente constrói. Ela pode até melhorar com o tempo. Mas apostar o seu atendimento premium numa máquina genérica que assume coisas sozinha, e ainda cobrar caro por isso, é o pior dos dois mundos.</p>
         </aside>
 
+        <ArticleDivider num="08" />
+
         <h2 id="brasil-paga-mais">Por que o Brasil paga mais que os Estados Unidos</h2>
 
         <p>Como eu opero em mais de um país, estou sempre comparando as tabelas de preços.</p>
@@ -334,10 +357,13 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p>É o segundo país em volume no uso do WhatsApp. Só perde pra Índia.</p>
         <p>Bem, se o cliente está nessa rede, cabe a nós, negócios, montarmos a estratégia para aproveitar essa realidade.</p>
 
+        <ArticleDivider num="09" />
+
         <h2 id="tres-tipos-de-cobranca">Os três tipos de cobrança, sem confundir</h2>
 
         <p>Boa parte da confusão vem de misturar três coisas diferentes. Cada mensagem cai em <strong>uma</strong> delas, nunca em duas ao mesmo tempo.</p>
 
+        <p class="alb-table-hint"><span aria-hidden="true">👉</span> Arrasta para o lado para ver mais informações</p>
         <div class="alb-table-wrap alb-table-wrap--wide">
           <table>
             <thead>
@@ -377,6 +403,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p>Hoje o Brasil é o único mercado do mundo onde ela ainda vale.</p>
         <p>Mais uma vez, quando o assunto é WhatsApp, o Brasil está do lado que paga.</p>
 
+        <ArticleDivider num="10" />
+
         <h2 id="api-oficial-ou-aberta">API oficial ou API aberta: qual delas serve pro seu negócio</h2>
 
         <p>Aqui eu preciso desfazer um mal-entendido que vejo em quase todo conteúdo sobre esse assunto.</p>
@@ -401,6 +429,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <a class="alb-btn alb-btn--primary" href={waHref} {...extLink}>Chame aqui no WhatsApp agora</a>
         </aside>
 
+        <ArticleDivider num="11" />
+
         <h2 id="fato-e-leitura">O que é certo e o que é leitura (pra você confiar no resto)</h2>
 
         <p>Um material sério precisa dizer de onde vem cada afirmação. Neste guia:</p>
@@ -410,6 +440,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         </ul>
         <p>Fato é fato. Leitura é leitura.</p>
         <p>Quem mistura os dois pra te assustar não está informando, está vendendo medo pra ganhar likes.</p>
+
+        <ArticleDivider num="12" />
 
         <h2 id="o-que-fazer-agora">O que fazer agora, na prática</h2>
 
@@ -421,6 +453,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <li><strong>Reveja as tarifas em setembro</strong>, quando a Meta publica os valores definitivos.</li>
         </ol>
 
+        <ArticleDivider num="13" />
+
         <h2 id="verdadeira-escolha">A verdadeira escolha desta mudança</h2>
 
         <p>Repare no que todos os pontos deste guia têm em comum.</p>
@@ -430,6 +464,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p>Um sistema treinado para vender como a sua empresa vende, que responde na hora, qualifica, conduz e recupera o contato que esfriou, usando o WhatsApp oficial só como canal de entrega.</p>
         <p>Você paga só o que precisa, e o controle é seu.</p>
         <p>Eu implanto exatamente isso dentro de empresas de verdade, todos os dias.</p>
+
+        <ArticleDivider num="14" />
 
         <h2 id="onde-eu-entro">Onde eu entro</h2>
 
@@ -454,6 +490,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <li>Site: <a href="https://albatroz.studio/">https://albatroz.studio/</a></li>
         </ul>
 
+        <ArticleDivider num="15" />
+
         <h2 id="resultados">Alguns resultados que já entregamos</h2>
 
         <p>Casos reais de empresas onde implantamos inteligência em vendas:</p>
@@ -466,6 +504,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <li><strong>Cosmético:</strong> R$ 713 mil recuperados em vendas em 2025.</li>
         </ul>
         <p>Cada um recebeu um sistema desenhado para o próprio negócio. Nenhum é cópia do outro.</p>
+
+        <ArticleDivider num="16" />
 
         <h2 id="fontes-oficiais">Fontes oficiais (confira sempre na Meta)</h2>
 
@@ -481,6 +521,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <li>Página comercial de preços (tabela interativa): <a href="https://business.whatsapp.com/products/platform-pricing#rates" {...extLink}>https://business.whatsapp.com/products/platform-pricing#rates</a></li>
         </ul>
 
+        <GullMark class="alb-gull--close" />
+
         <div class="alb-art-foot">
           <p><em>Material informativo produzido pela Albatroz Studio em 17 de julho de 2026. Valores e regras conforme publicação oficial da Meta na data. Confira sempre as fontes acima antes de decidir. Este guia pode ser compartilhado livremente com sua equipe.</em></p>
         </div>
@@ -491,4 +533,18 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
 
   <Footer locale={locale} waMessage={waMessage} />
   <WhatsAppFab locale={locale} waMessage={waMessage} />
+
+  <script>
+    // Barra de progresso de leitura: o stripe do topo se preenche de carvão.
+    const bar = document.querySelector<HTMLElement>('.alb-read-progress');
+    if (bar) {
+      const update = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
+      };
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+    }
+  </script>
 </BaseLayout>
