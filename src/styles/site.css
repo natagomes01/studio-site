@@ -877,7 +877,7 @@ em { font-style: italic; }
   padding-right: 1.1em;
   font-family: var(--font-headline);
   font-weight: 400;
-  font-size: clamp(48px, 8vw, 132px);
+  font-size: clamp(48px, 10vw, 160px);
   line-height: 0.92;
   color: var(--c-offwhite);
   letter-spacing: -0.005em;
@@ -993,6 +993,6 @@ em { font-style: italic; }
   .alb-footer__top { grid-template-columns: 1fr; gap: 32px; }
   .alb-footer__cols { grid-template-columns: 1fr; gap: 32px; }
   .alb-footer__cta-row { justify-content: flex-start; }
-  /* Em telas estreitas o CTA quebra em duas linhas em vez de estourar a largura. */
-  .alb-footer__cta { margin-top: 48px; white-space: normal; }
+  /* Em telas estreitas o CTA quebra em duas linhas, grande, preenchendo o rodapé. */
+  .alb-footer__cta { margin-top: 48px; white-space: normal; font-size: clamp(56px, 18vw, 84px); padding-right: 0; }
 }

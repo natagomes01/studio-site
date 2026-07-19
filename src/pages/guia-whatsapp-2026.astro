@@ -21,6 +21,7 @@ const description =
   'Guia direto sobre a cobrança do WhatsApp Business em 2026: mensagem de serviço paga a partir de outubro, tarifa de R$ 0,035, a janela de 72 horas de quem faz tráfego e o custo real da IA da Meta.';
 
 const publishedDate = '2026-07-18';
+const ogImage = new URL('/og-guia-whatsapp-2026.png', Astro.site ?? 'https://albatroz.studio').toString();
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -28,6 +29,7 @@ const jsonLd = {
   headline: 'O que muda na cobrança da API Oficial do WhatsApp, a partir de Outubro de 2026',
   description,
   inLanguage: 'pt-BR',
+  image: [ogImage],
   datePublished: publishedDate,
   dateModified: publishedDate,
   author: {
@@ -49,6 +51,11 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
   <Fragment slot="head">
     <meta property="article:published_time" content={publishedDate} />
     <meta property="article:author" content="Natã Gomes" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Guia — O que muda na cobrança da API Oficial do WhatsApp a partir de outubro de 2026" />
+    <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
 
@@ -106,7 +113,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p>Você já deve ter visto: "a Meta vai começar a cobrar por cada mensagem que você manda pro cliente no WhatsApp".</p>
         <p>É verdade.</p>
         <p>Mas só essa notícia faz o dono de negócio tomar a decisão errada, correndo para a solução mais cara que existe ou migrando às pressas para algo que ele nem precisava.</p>
-        <p><em>Eu leio a letra miúda da Meta porque é o meu trabalho.</em></p>
+        <p class="alb-art-pull"><em>Eu leio a letra miúda da Meta porque é o meu trabalho.</em></p>
         <p>Juntei os três documentos oficiais onde essa mudança está espalhada, tirei a conta a limpo, e testei na minha própria operação o que a Meta está oferecendo como alternativa. Este guia é o resultado.</p>
         <p>Você vai terminar de ler sabendo três coisas:</p>
         <ol>
@@ -127,6 +134,8 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <li>Você <strong>não é obrigado</strong> a usar a IA da Meta. Dá pra ter um sistema próprio, mais eficiente e talvez mais barato, treinado pro seu negócio, e usar o WhatsApp só como canal de entrega.</li>
         </ol>
         <p>O resto do guia detalha cada ponto, com os números.</p>
+
+        <GullMark class="alb-gull--center" />
 
         <ArticleDivider num="03" />
 
@@ -150,7 +159,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
 
         <h2 id="linha-do-tempo">A linha do tempo</h2>
 
-        <p class="alb-table-hint"><span aria-hidden="true">👉</span> Arrasta para o lado para ver mais informações</p>
+        <p class="alb-table-hint"><svg viewBox="0 0 14 10" width="14" height="10" aria-hidden="true" focusable="false"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Arrasta para o lado para ver mais informações</p>
         <div class="alb-table-wrap">
           <table>
             <thead>
@@ -199,7 +208,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p>A tarifa da mensagem de conversa vai ser <strong>a mesma da mensagem de utilidade</strong>. A Meta já disse isso por escrito; falta só o carimbo formal na tabela, prometido até 1º de setembro. Para o Brasil, essa tarifa hoje é de <strong>R$ 0,035 por mensagem</strong>.</p>
         <p>Na prática:</p>
 
-        <p class="alb-table-hint"><span aria-hidden="true">👉</span> Arrasta para o lado para ver mais informações</p>
+        <p class="alb-table-hint"><svg viewBox="0 0 14 10" width="14" height="10" aria-hidden="true" focusable="false"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Arrasta para o lado para ver mais informações</p>
         <div class="alb-table-wrap">
           <table>
             <thead>
@@ -233,7 +242,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           </table>
         </div>
 
-        <p>Não é o fim do mundo por mensagem. Mas some no volume.</p>
+        <p class="alb-art-pull">Não é o fim do mundo por mensagem. Mas some no volume.</p>
         <p>Uma operação que troca dezenas de milhares de mensagens por mês sai do zero e ganha uma linha de custo que antes não existia.</p>
         <p>É exatamente o caso de uma clínica de estética grande em SP, que é minha cliente. Nos últimos meses, ela tem atendido mais de 100 pessoas por dia, usando nossa plataforma com IA para WhatsApp. E até hoje não havia pago nada extra.</p>
 
@@ -264,7 +273,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p><mark>A Meta confirmou, com todas as letras, que essa janela continua sem cobrança de entrega.</mark></p>
         <p>Na prática: <strong>quem alimenta o atendimento com anúncio sente pouco ou quase nada da mudança de outubro.</strong> A conta que pesa é a de quem depende de conversa fora dessa janela.</p>
         <p>Como eu disse no vocabulário, essa janela não é um presente.</p>
-        <p>Ela é o que o seu investimento em tráfego já comprou.</p>
+        <p class="alb-art-pull">Ela é o que o seu investimento em tráfego já comprou.</p>
         <p>Mas o efeito prático é real: <strong>se você trabalha com tráfego, você tem uma vantagem estrutural que a maioria dos concorrentes não está enxergando.</strong> E vale saber usar.</p>
         <p>Três detalhes pra você não tomar isso como promessa cega:</p>
         <ol>
@@ -293,7 +302,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p>A IA da Meta é cobrada por consumo de processamento, e consome muito, relendo a conversa inteira toda vez. No <strong>exemplo da própria Meta</strong>, responder "que horas vocês abrem?" em quatro mensagens custa de <strong>US$ 0,16 a US$ 0,20</strong>. Convertendo pelo câmbio que a própria Meta usa nas tabelas (cerca de R$ 5,10 por dólar), isso é <strong>quase R$ 1,00 para responder que horas a loja abre</strong>.</p>
         <p>Compare com ter o <strong>seu próprio sistema</strong>, que responde a mesma pergunta e entrega pelo WhatsApp oficial do mesmo jeito:</p>
 
-        <p class="alb-table-hint"><span aria-hidden="true">👉</span> Arrasta para o lado para ver mais informações</p>
+        <p class="alb-table-hint"><svg viewBox="0 0 14 10" width="14" height="10" aria-hidden="true" focusable="false"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Arrasta para o lado para ver mais informações</p>
         <div class="alb-table-wrap">
           <table>
             <thead>
@@ -324,7 +333,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p>Cirurgia plástica, clínica de estética, imobiliária de imóvel de mais de R$ 1 milhão, construtora, academia.</p>
         <p>Ticket alto, mercado premium, cada conversa vale muito e cada palavra conta.</p>
         <p>Esse tipo de operação precisa de regras finas sobre como conduzir o cliente, e a IA da Meta ainda não entrega isso.</p>
-        <p>Está longe. Eu testei.</p>
+        <p class="alb-art-pull">Está longe. Eu testei.</p>
 
         <aside class="alb-callout alb-callout--quote">
           <p><strong>Minha conclusão de engenheiro:</strong> hoje a IA da Meta é, ao mesmo tempo, <strong>mais cara e menos flexível</strong> do que um sistema dedicado, que é exatamente o que a gente constrói. Ela pode até melhorar com o tempo. Mas apostar o seu atendimento premium numa máquina genérica que assume coisas sozinha, e ainda cobrar caro por isso, é o pior dos dois mundos.</p>
@@ -363,7 +372,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
 
         <p>Boa parte da confusão vem de misturar três coisas diferentes. Cada mensagem cai em <strong>uma</strong> delas, nunca em duas ao mesmo tempo.</p>
 
-        <p class="alb-table-hint"><span aria-hidden="true">👉</span> Arrasta para o lado para ver mais informações</p>
+        <p class="alb-table-hint"><svg viewBox="0 0 14 10" width="14" height="10" aria-hidden="true" focusable="false"><path d="M1 5h11M8 1l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Arrasta para o lado para ver mais informações</p>
         <div class="alb-table-wrap alb-table-wrap--wide">
           <table>
             <thead>
@@ -401,7 +410,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
         <p>A própria Meta separa as duas coisas por escrito. Quem usa inteligência no atendimento continua sendo um negócio comum, no primeiro tipo.</p>
         <p>E um sinal que diz muito: essa cobrança de "provedor de IA" foi ligada em vários países da Europa e, em maio de 2026, <strong>desligada em todos, menos no Brasil</strong>.</p>
         <p>Hoje o Brasil é o único mercado do mundo onde ela ainda vale.</p>
-        <p>Mais uma vez, quando o assunto é WhatsApp, o Brasil está do lado que paga.</p>
+        <p class="alb-art-pull">Mais uma vez, quando o assunto é WhatsApp, o Brasil está do lado que paga.</p>
 
         <ArticleDivider num="10" />
 
@@ -438,7 +447,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <li><strong>Está escrito na documentação da Meta:</strong> as datas, a volta da cobrança de conversa em outubro, a tarifa de conversa igual à de utilidade, a janela de 72 horas continuar sem cobrança de entrega, o custo por consumo da IA da Meta, o Brasil ser hoje o único país na cobrança de provedor de IA.</li>
           <li><strong>É leitura minha, a partir dos números e dos meus testes:</strong> o porquê da diferença entre países (mercado mais tributos mais regulação), a IA da Meta ser engessada para ticket alto, e a possibilidade de a Meta ainda mexer no desconto por volume.</li>
         </ul>
-        <p>Fato é fato. Leitura é leitura.</p>
+        <p class="alb-art-pull">Fato é fato. Leitura é leitura.</p>
         <p>Quem mistura os dois pra te assustar não está informando, está vendendo medo pra ganhar likes.</p>
 
         <ArticleDivider num="12" />
@@ -453,13 +462,15 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
           <li><strong>Reveja as tarifas em setembro</strong>, quando a Meta publica os valores definitivos.</li>
         </ol>
 
+        <GullMark class="alb-gull--center" />
+
         <ArticleDivider num="13" />
 
         <h2 id="verdadeira-escolha">A verdadeira escolha desta mudança</h2>
 
         <p>Repare no que todos os pontos deste guia têm em comum.</p>
         <p>A conta que chega em outubro, a IA cara e engessada da Meta, a escolha entre API aberta e oficial, o preço que sobe porque você depende do canal. Tudo aponta para a mesma pergunta:</p>
-        <p><strong>Quem está no controle do seu atendimento? Você, ou a ferramenta de outra pessoa?</strong></p>
+        <p class="alb-art-pull"><strong>Quem está no controle do seu atendimento? Você, ou a ferramenta de outra pessoa?</strong></p>
         <p>Enquanto a maioria vai reagir a essa mudança pagando mais, ou entregando o atendimento para uma máquina genérica que assume coisas sozinha, existe outro caminho: <strong>ter o seu próprio sistema de inteligência em vendas.</strong></p>
         <p>Um sistema treinado para vender como a sua empresa vende, que responde na hora, qualifica, conduz e recupera o contato que esfriou, usando o WhatsApp oficial só como canal de entrega.</p>
         <p>Você paga só o que precisa, e o controle é seu.</p>
@@ -469,7 +480,7 @@ const extLink = { target: '_blank', rel: 'noreferrer noopener' };
 
         <h2 id="onde-eu-entro">Onde eu entro</h2>
 
-        <p>Eu sou o Natã.</p>
+        <p class="alb-art-pull">Eu sou o Natã.</p>
         <p>Engenheiro que coloca inteligência artificial pra rodar dentro das empresas, pai de seis filhos e tocando dois negócios.</p>
         <p>Passo o dia traduzindo a máquina da Meta para o que ela significa na conta do dono, e implantando inteligência de vendas em operações reais, do jeito que este guia mostra.</p>
         <p>Duas situações:</p>
