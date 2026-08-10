@@ -1,0 +1,45 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@components/Nav.astro';
+import Footer from '@components/Footer.astro';
+import WhatsAppFab from '@components/WhatsAppFab.astro';
+import { t, localizedHref, guideHref, whatsappUrl } from '@i18n/index';
+
+// O GitHub Pages serve um único /404.html para o site inteiro, então a página é
+// em português, com uma saída para quem chegou pelo /en/.
+const locale = 'pt-br' as const;
+const s = t(locale).notFound;
+const homeHref = localizedHref(locale);
+const enHref = localizedHref('en');
+const guide = guideHref();
+const waHref = whatsappUrl(locale, 'Olá, Natã. Caí numa página quebrada do site e queria falar com você.');
+---
+<BaseLayout
+  locale={locale}
+  title="Página não encontrada · Albatroz Studio"
+  description="A página que você procurou não existe neste endereço. Volte para a home da Albatroz Studio ou leia o guia da cobrança do WhatsApp em 2026."
+  path="/404"
+  noAltLocale
+  noindex
+>
+  <Nav locale={locale} anchorsToHome showLang={false} />
+  <main>
+    <section class="alb-404">
+      <div class="alb-404__inner">
+        <span class="alb-section-eyebrow">{s.eyebrow}</span>
+        <h1 class="alb-404__title">{s.title}</h1>
+        <p class="alb-404__body">{s.body}</p>
+        <ul class="alb-404__links">
+          <li><a href={homeHref}>{s.ctaHome}</a></li>
+          <li><a href={guide}>{s.ctaGuide}</a></li>
+          <li><a href={waHref} target="_blank" rel="noreferrer noopener">{s.ctaContact}</a></li>
+        </ul>
+        <p class="alb-404__alt-lang">
+          Looking for the English version? <a href={enHref}>albatroz.studio/en</a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} />
+  <WhatsAppFab locale={locale} />
+</BaseLayout>

@@ -55,4 +55,33 @@ export function whatsappUrl(locale: Locale, message?: string): string {
   return `https://wa.me/${whatsapp.phone}?text=${encodeURIComponent(message ?? whatsapp.message[locale])}`;
 }
 
+/** Rotas de conteúdo. O guia existe só em PT; o link é o mesmo nos dois idiomas. */
+export const guidePath = '/guia-whatsapp-2026/';
+
+export function guideHref(): string {
+  return withBase(guidePath);
+}
+
+/** NAP canônico da Albatroz, usado no rodapé, no schema e no link do Maps. */
+export const org = {
+  legalName: 'Albatroz Studio',
+  street: 'Avenida Gisele Constantino, 164, Sala 7A',
+  district: 'Parque Bela Vista',
+  city: 'Votorantim',
+  region: 'SP',
+  postalCode: '18110-650',
+  country: 'BR',
+  telephone: `+${whatsapp.phone}`,
+  email: 'nata@albatroz.studio',
+  founder: 'Natã Gomes',
+  sameAs: [
+    'https://www.instagram.com/natagomes01/',
+    'https://www.linkedin.com/in/natagomes01',
+  ],
+} as const;
+
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${org.street}, ${org.district}, ${org.city} - ${org.region}, ${org.postalCode}`,
+)}`;
+
 export type { Locale, Strings } from './types';

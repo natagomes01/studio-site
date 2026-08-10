@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '@i18n/index';
-import { t, whatsappUrl, withBase } from '@i18n/index';
+import { t, whatsappUrl, withBase, guideHref, mapsUrl } from '@i18n/index';
 
 interface Props {
   locale: Locale;
@@ -10,8 +10,10 @@ interface Props {
 
 const { locale, waMessage } = Astro.props;
 const s = t(locale).footer;
+const responsePromise = t(locale).responsePromise;
 const contactHref = whatsappUrl(locale, waMessage);
 const symbolHref = withBase('/albatroz-symbol.svg');
+const guide = guideHref();
 ---
 <footer class="alb-footer">
   <div class="alb-footer__top">
@@ -29,7 +31,22 @@ const symbolHref = withBase('/albatroz-symbol.svg');
     <div class="alb-footer__cols">
       <div class="alb-footer__col">
         <span class="alb-footer__h">ALBATROZ</span>
-        <p>{s.address.line1}<br />{s.address.line2}<br />{s.address.line3}</p>
+        <p>
+          <a
+            class="alb-footer__address"
+            href={mapsUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label={s.directionsLabel}
+            title={s.directionsLabel}
+          >{s.address.line1}<br />{s.address.line2}<br />{s.address.line3}</a>
+        </p>
+      </div>
+      <div class="alb-footer__col">
+        <span class="alb-footer__h">{s.readingLabel}</span>
+        <ul>
+          <li><a href={guide}>{s.readingLink}</a></li>
+        </ul>
       </div>
       <div class="alb-footer__col">
         <span class="alb-footer__h">{s.socialLabel}</span>
@@ -49,6 +66,7 @@ const symbolHref = withBase('/albatroz-symbol.svg');
       </svg>
     </a>
   </div>
+  <p class="alb-footer__promise">{responsePromise}</p>
   <div class="alb-footer__watermark" aria-hidden="true">ALBATROZ</div>
   <p class="alb-footer__legal">{s.legal}</p>
 </footer>

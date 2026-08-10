@@ -1,0 +1,57 @@
+---
+import type { Locale } from '@i18n/index';
+import { t, org, whatsappUrl, localizedPath } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale);
+const siteUrl = Astro.site ?? 'https://albatroz.studio';
+const abs = (path: string) => new URL(path, siteUrl).toString();
+const pageUrl = abs(localizedPath(locale));
+
+// ProfessionalService herda de LocalBusiness: dá o NAP para o Google Business e
+// mantém o tipo honesto (consultoria, não loja com balcão).
+// Horário de funcionamento fica de fora até o Natã confirmar; schema com dado
+// inventado é pior que schema ausente.
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${abs('/')}#organization`,
+  name: 'Albatroz Studio',
+  legalName: org.legalName,
+  url: abs('/'),
+  mainEntityOfPage: pageUrl,
+  logo: abs('/logo-horizontal.svg'),
+  image: abs(locale === 'pt-br' ? '/og-default.png' : '/og-default-en.png'),
+  description: s.meta.description,
+  telephone: org.telephone,
+  email: org.email,
+  priceRange: '$$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: org.street,
+    addressLocality: org.city,
+    addressRegion: org.region,
+    postalCode: org.postalCode,
+    addressCountry: org.country,
+  },
+  areaServed: { '@type': 'Country', name: 'Brasil' },
+  founder: { '@type': 'Person', name: org.founder },
+  knowsLanguage: ['pt-BR', 'en'],
+  sameAs: org.sameAs,
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      telephone: org.telephone,
+      email: org.email,
+      url: whatsappUrl(locale),
+      availableLanguage: ['pt-BR', 'en'],
+    },
+  ],
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

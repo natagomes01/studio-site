@@ -27,6 +27,7 @@ export const en: Strings = {
     support:
       'Built for companies that already have demand and a team, and that are losing deals in the silence between one message and the next.',
   },
+  responsePromise: 'We reply within one business day, straight on WhatsApp.',
   proofBar: [
     { metric: '80+', context: 'daily conversations · Estética Salomão' },
     { metric: '423', context: 'active students · Gracie Barra SG' },
@@ -160,6 +161,14 @@ export const en: Strings = {
       'The question is not whether your company will need this. It is how much you will keep paying to find out you needed it.',
     cta: 'Activate PAI in your company',
   },
+  reading: {
+    eyebrow: '04 · Reading',
+    heading: 'What Albatroz writes',
+    kicker: 'Guide · in Portuguese · July 18, 2026',
+    title: 'O que muda na cobrança da API Oficial do WhatsApp, a partir de outubro de 2026',
+    body: 'WhatsApp service messages stop being free, the rate lands at R$ 0.035 per conversation, and the 72-hour window changes the math for anyone buying traffic. Written for the Brazilian market, with the Meta source alongside every number.',
+    cta: 'Read the guide',
+  },
   footer: {
     contactCta: 'Get in touch',
     address: {
@@ -167,8 +176,19 @@ export const en: Strings = {
       line2: 'Parque Bela Vista — Votorantim, SP — Brazil',
       line3: 'ZIP 18110-650',
     },
+    directionsLabel: 'Get directions on Google Maps',
     socialLabel: 'Channels',
+    readingLabel: 'Reading',
+    readingLink: 'WhatsApp guide 2026',
     legal: '© Albatroz Studio. All rights reserved.',
+  },
+  notFound: {
+    eyebrow: 'Error 404',
+    title: 'This page does not exist.',
+    body: 'The address moved, or the link that brought you here is broken. Three routes that work, below.',
+    ctaHome: 'Back to the home page',
+    ctaGuide: 'Read the WhatsApp 2026 guide',
+    ctaContact: 'Chat on WhatsApp',
   },
   form: {
     title: 'Get a diagnosis for your company',

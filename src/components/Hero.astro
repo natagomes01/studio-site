@@ -8,6 +8,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const s = t(locale).hero;
+const responsePromise = t(locale).responsePromise;
 const contactHref = whatsappUrl(locale);
 const protocolHref = anchor(locale, 'protocol');
 
@@ -31,6 +32,10 @@ const subhtml = s.subheadline.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
       </a>
       <a class="alb-btn alb-btn--ghost" href={protocolHref}>{s.ctaSecondary}</a>
     </div>
+    <p class="alb-hero__promise reveal reveal--delay-3">
+      <span class="alb-hero__promise-dot" aria-hidden="true"></span>
+      {responsePromise}
+    </p>
     <p class="alb-hero__support reveal reveal--delay-4">{s.support}</p>
   </div>
 </section>

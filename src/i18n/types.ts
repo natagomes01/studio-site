@@ -47,6 +47,8 @@ export interface Strings {
     ctaSecondary: string;
     support: string;
   };
+  /** Promessa de tempo de resposta, mostrada perto dos CTAs de WhatsApp. */
+  responsePromise: string;
   proofBar: ProofItem[];
   pain: {
     eyebrow: string;
@@ -80,11 +82,30 @@ export interface Strings {
     closingTail: string;
     cta: string;
   };
+  reading: {
+    eyebrow: string;
+    heading: string;
+    kicker: string;
+    title: string;
+    body: string;
+    cta: string;
+  };
   footer: {
     contactCta: string;
     address: { line1: string; line2: string; line3: string };
+    directionsLabel: string;
     socialLabel: string;
+    readingLabel: string;
+    readingLink: string;
     legal: string;
+  };
+  notFound: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    ctaHome: string;
+    ctaGuide: string;
+    ctaContact: string;
   };
   form: {
     title: string;

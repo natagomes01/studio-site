@@ -14,9 +14,14 @@ interface Props {
   ogType?: string;
   /** Single-language pages have no alternate version to point hreflang at. */
   noAltLocale?: boolean;
+  /** Site-relative path of the share image; falls back to the locale default. */
+  ogImage?: string;
+  ogImageAlt?: string;
+  /** Keep a page out of the index (e.g. the 404). */
+  noindex?: boolean;
 }
 
-const { locale, noAltLocale = false, ogType = 'website' } = Astro.props;
+const { locale, noAltLocale = false, ogType = 'website', noindex = false } = Astro.props;
 const s = t(locale);
 const title = Astro.props.title ?? s.meta.title;
 const description = Astro.props.description ?? s.meta.description;
@@ -28,6 +33,14 @@ const canonical = new URL(Astro.props.path ?? localizedPath(locale), Astro.site 
 const altUrl = new URL(localizedPath(other), Astro.site ?? 'https://albatroz.studio').toString();
 const faviconHref = withBase('/favicon.png');
 const fontHref = withBase('/fonts/GT-Sectra-Display-Bold.otf');
+const siteUrl = Astro.site ?? 'https://albatroz.studio';
+const defaultOgImage = locale === 'pt-br' ? '/og-default.png' : '/og-default-en.png';
+const ogImage = new URL(Astro.props.ogImage ?? defaultOgImage, siteUrl).toString();
+const defaultOgAlt =
+  locale === 'pt-br'
+    ? 'Albatroz Studio — Você não perde cliente por falta de marketing. Perde por falta de estrutura.'
+    : "Albatroz Studio — You're not losing clients for lack of marketing. You lose them for lack of structure.";
+const ogImageAlt = Astro.props.ogImageAlt ?? defaultOgAlt;
 ---
 <!doctype html>
 <html lang={htmlLang}>
@@ -36,7 +49,9 @@ const fontHref = withBase('/fonts/GT-Sectra-Display-Bold.otf');
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
+    {!noAltLocale && <link rel="alternate" hreflang={htmlLang} href={canonical} />}
     {!noAltLocale && <link rel="alternate" hreflang={altHrefLang} href={altUrl} />}
     {!noAltLocale && <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site ?? 'https://albatroz.studio').toString()} />}
     <link rel="icon" type="image/png" href={faviconHref} />
@@ -46,7 +61,13 @@ const fontHref = withBase('/fonts/GT-Sectra-Display-Bold.otf');
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={htmlLang.replace('-', '_')} />
+    <meta property="og:site_name" content="Albatroz Studio" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
     <slot name="head" />
   </head>
   <body>

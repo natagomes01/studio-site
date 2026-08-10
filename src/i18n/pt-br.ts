@@ -27,6 +27,7 @@ export const ptBr: Strings = {
     support:
       'Para empresas que já têm demanda, já têm equipe e estão perdendo vendas no silêncio entre uma mensagem e outra.',
   },
+  responsePromise: 'Resposta em até 1 dia útil, direto no WhatsApp.',
   proofBar: [
     { metric: '80+', context: 'atendimentos/dia · Estética Salomão' },
     { metric: '423', context: 'alunos ativos · Gracie Barra SG' },
@@ -160,6 +161,14 @@ export const ptBr: Strings = {
       'A pergunta não é se sua empresa vai precisar disso. É quanto você ainda vai pagar para descobrir que precisava.',
     cta: 'Ative o PAI na sua empresa',
   },
+  reading: {
+    eyebrow: '04 · Leitura',
+    heading: 'O que a Albatroz escreve',
+    kicker: 'Guia · 18 de julho de 2026',
+    title: 'O que muda na cobrança da API Oficial do WhatsApp, a partir de outubro de 2026',
+    body: 'A mensagem de serviço deixa de ser gratuita, a tarifa fica em R$ 0,035 por conversa e a janela de 72 horas muda a conta de quem compra tráfego. O guia mostra o número real, com a fonte da Meta, e a decisão que vem depois dele.',
+    cta: 'Ler o guia',
+  },
   footer: {
     contactCta: 'Entre em contato',
     address: {
@@ -167,8 +176,19 @@ export const ptBr: Strings = {
       line2: 'Parque Bela Vista — Votorantim, SP',
       line3: 'CEP 18110-650',
     },
+    directionsLabel: 'Como chegar, no Google Maps',
     socialLabel: 'Redes',
+    readingLabel: 'Leitura',
+    readingLink: 'Guia WhatsApp 2026',
     legal: '© Albatroz Studio. Todos os direitos reservados.',
+  },
+  notFound: {
+    eyebrow: 'Erro 404',
+    title: 'Essa página não existe.',
+    body: 'O endereço mudou de lugar, ou o link que trouxe você até aqui veio quebrado. Abaixo, três caminhos que funcionam.',
+    ctaHome: 'Voltar para a home',
+    ctaGuide: 'Ler o guia do WhatsApp 2026',
+    ctaContact: 'Falar no WhatsApp',
   },
   form: {
     title: 'Diagnóstico para sua empresa',
