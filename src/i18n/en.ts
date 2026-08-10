@@ -27,7 +27,7 @@ export const en: Strings = {
     support:
       'Built for companies that already have demand and a team, and that are losing deals in the silence between one message and the next.',
   },
-  responsePromise: 'We reply within one business day, straight on WhatsApp.',
+  responsePromise: 'Answered in under 24 hours, straight with me on WhatsApp.',
   proofBar: [
     { metric: '80+', context: 'daily conversations · Estética Salomão' },
     { metric: '423', context: 'active students · Gracie Barra SG' },
@@ -169,23 +169,27 @@ export const en: Strings = {
     items: [
       {
         q: 'Is PAI a chatbot?',
-        a: 'No. A chatbot follows a decision tree and breaks on the first question outside the script. PAI is a deployment protocol: the intelligence is trained on your language, your real objections and your sales process, and it carries the conversation to the closing point. It is also not software you install, and not a prompt course.',
+        a: 'No. PAI is a commercial intelligence system, sales intelligence. It answers leads 24 hours a day, so you stop losing the contact that arrives at 2am and the client who has five minutes in the day to talk to anyone. And it gives the owner working metrics: how many arrived, how many were answered, how many moved forward. You start deciding on real numbers. Gut feeling drops out of the equation.',
       },
       {
         q: 'Will the AI replace my sales team?',
-        a: 'It does not replace anyone. It hands the lead over ready, at the right moment, with the full context of the conversation. Your people close, with more time, more information and less friction. In practice the salesperson stops being a receptionist and goes back to selling.',
+        a: 'It will not replace anyone. It speeds things up. Our job is the human-machine handoff: the AI answers fast, lets nobody slip away, and walks the lead to a person. Connection and closing stay with your team. How that is shaped depends on the ticket. Some clients run fully automatic scheduling around the clock and it works very well. A real estate agency, with a bigger ticket, needs the baton passed for a consultative sale. That is what we align in the first analysis call, including whether your business is one I can serve.',
       },
       {
         q: 'Do I have to change systems or move my team off WhatsApp?',
-        a: 'No. Deployment happens in the channel your client already uses. Nobody migrates to a new tool, nobody learns new software.',
+        a: 'Your team stays on WhatsApp, working inside the platform, in sync with the system. And you do not have to change systems. There are three routes, and which one fits depends on how your company runs today: run alongside what you already have, migrate to the Albatroz integrated system, or build a custom deployment inside the system already running at your company. When a system is already in the house, the work is built on top of it.',
       },
       {
         q: 'Does it work in my industry?',
-        a: 'PAI runs today in an aesthetics clinic, a jiu-jitsu academy, a plastic surgery practice and B2B sales of surveying equipment, with a long and technical cycle. Different sizes, different ticket values. What repeats is the pattern: response time drops, conversion rises. Every deployment starts from its own diagnosis, with no template copied from a competitor.',
+        a: 'We already run in clinics, real estate, construction, equipment sales, engineering, gyms, a jiu-jitsu school, spas, digital products, mentorships and an animal protection NGO. The system adapts because it is built on your process rather than on your segment. The real test is different: if you need to answer fast and stop losing opportunities sitting in WhatsApp or SMS, it is for you.',
       },
       {
         q: 'How does it start?',
-        a: 'With a deep diagnosis of the operation. We map the sales flow, find where the money is leaking and design the protocol for your specific business. Training the intelligence and deploying on WhatsApp come after that.',
+        a: 'With a 25-minute call. We survey your business and work out whether we can help your growth right now. Not every company is at the point of deploying a system: one needs more leads coming in, another needs to handle what already arrives, another needs digital presence. The solution is designed per business, so the first step is always the individual analysis.',
+      },
+      {
+        q: 'What does it cost?',
+        a: 'Pricing comes out of the individual conversation, quoted for your case. We publish no price range because every deployment builds a new brain, specific to that business. Off-the-shelf software and SaaS subscriptions have price tables; a solution designed for one operation does not. To reach the number we need to know what you need and what already runs at your company, including whether a system is in place.',
       },
     ],
   },

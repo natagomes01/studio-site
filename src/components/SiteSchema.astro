@@ -14,8 +14,8 @@ const pageUrl = abs(localizedPath(locale));
 
 // ProfessionalService herda de LocalBusiness: dá o NAP para o Google Business e
 // mantém o tipo honesto (consultoria, não loja com balcão).
-// Horário de funcionamento fica de fora até o Natã confirmar; schema com dado
-// inventado é pior que schema ausente.
+// Sem openingHours, por decisão do Natã em 10/08/2026: o atendimento roda pela
+// internet 24 horas, então não existe horário de balcão para declarar.
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',

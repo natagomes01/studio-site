@@ -27,7 +27,7 @@ export const ptBr: Strings = {
     support:
       'Para empresas que já têm demanda, já têm equipe e estão perdendo vendas no silêncio entre uma mensagem e outra.',
   },
-  responsePromise: 'Resposta em até 1 dia útil, direto no WhatsApp.',
+  responsePromise: 'Resposta em menos de 24 horas, direto comigo no WhatsApp.',
   proofBar: [
     { metric: '80+', context: 'atendimentos/dia · Estética Salomão' },
     { metric: '423', context: 'alunos ativos · Gracie Barra SG' },
@@ -169,23 +169,27 @@ export const ptBr: Strings = {
     items: [
       {
         q: 'O PAI é um chatbot?',
-        a: 'Não. Chatbot segue árvore de decisão e quebra na primeira pergunta fora do roteiro. O PAI é um protocolo de implantação: a inteligência é treinada com a sua linguagem, suas objeções reais e o seu processo comercial, e conduz a conversa até o ponto de fechamento. Também não é software que você instala nem curso de prompt.',
+        a: 'Não. O PAI é um sistema de inteligência comercial, inteligência em vendas. Ele responde lead 24 horas por dia, para você não perder o contato que chega de madrugada nem o cliente que tem cinco minutos no dia para falar com alguém. E entrega ao dono métrica funcional: quantos chegaram, quantos foram respondidos, quantos avançaram. Você passa a decidir por número real. O sentimento sai da conta.',
       },
       {
         q: 'A IA vai substituir meu time de vendas?',
-        a: 'Não substitui. Ela entrega o contato pronto, no momento certo, com o contexto completo da conversa. Quem fecha é o time humano, com mais tempo, mais informação e menos atrito. Na prática o vendedor para de ser atendente e volta a ser vendedor.',
+        a: 'Não vai substituir. Ela acelera e otimiza. O trabalho da Albatroz é a integração humano-máquina: a IA responde com velocidade, não deixa ninguém escapar e conduz o contato até o humano. Conexão e fechamento continuam sendo o diferencial do seu time. Como isso se desenha depende do ticket. Tem cliente rodando agendamento automático 24 horas por dia, e funciona muito bem assim. Tem imobiliária, de ticket maior, que precisa da passagem de bastão para uma venda consultiva. É o que a gente alinha na call inicial de análise, inclusive para eu saber se consigo atender o seu negócio.',
       },
       {
         q: 'Preciso trocar de sistema ou tirar meu time do WhatsApp?',
-        a: 'Não. A implantação acontece no canal onde o seu cliente já está. Ninguém migra para ferramenta nova, ninguém aprende software novo.',
+        a: 'Seu time continua no WhatsApp, trabalhando dentro da plataforma, em sinergia com o sistema. E você não precisa trocar de sistema. Existem três caminhos, e qual deles serve depende de como a sua empresa opera hoje: rodar em paralelo ao que você já tem, migrar para o sistema integrado da Albatroz, ou fazer uma implantação personalizada dentro do sistema que já está rodando aí. Quando já existe sistema na casa, o trabalho é feito em cima dele.',
       },
       {
         q: 'Funciona no meu setor?',
-        a: 'O PAI está ativo em clínica de estética, academia de jiu-jitsu, cirurgia plástica e venda B2B de equipamento topográfico, com ciclo longo e técnico. Portes diferentes, tickets diferentes. O que se repete é o padrão: tempo de resposta que cai e conversão que sobe. Cada implantação parte de um diagnóstico próprio, sem template copiado do concorrente.',
+        a: 'Já rodamos em clínica, imobiliária, construtora, venda de equipamentos, engenharia, academia, escola de jiu-jitsu, spa, produto digital, mentoria e ONG de proteção aos animais. O sistema se adapta porque é construído em cima do seu processo, e não em cima do seu segmento. O critério é outro: se você precisa responder com velocidade e parar de perder oportunidade no WhatsApp ou no SMS, serve para você.',
       },
       {
         q: 'Como começa?',
-        a: 'Pelo diagnóstico profundo da operação. Mapeamos o fluxo de vendas, identificamos onde o dinheiro está vazando e desenhamos o protocolo específico para o seu negócio. Só depois disso entra o treinamento da inteligência e a implantação no WhatsApp.',
+        a: 'Por uma call de 25 minutos. A gente faz o levantamento do seu negócio e entende se dá para ajudar o seu crescimento agora. Nem toda empresa está no momento de implantar sistema: uma precisa atrair mais lead, outra precisa dar conta do que já chega, outra precisa de presença digital. A solução é desenhada para cada negócio, então o primeiro passo é sempre a análise individual.',
+      },
+      {
+        q: 'Quanto custa?',
+        a: 'O preço sai na conversa individual, com cotação para o seu caso. Não publicamos faixa porque cada implantação cria um cérebro novo, individual, para aquele negócio. Software de prateleira e assinatura de SaaS têm tabela; solução desenhada para uma operação específica, não. Para chegar no número a gente precisa saber qual é a sua necessidade e o que já opera na sua empresa hoje, inclusive se existe sistema rodando.',
       },
     ],
   },
