@@ -114,22 +114,41 @@ Custo real: uma sessão. Risco: baixo, tudo aditivo, nada quebrou rota existente
 
 ---
 
-## Onda 2: sessão dedicada, precisa de decisão ou dado seu
+## Onda 2: construída em 10 de agosto de 2026, à espera de dois dados
+
+O código está pronto e testado. Falta o que só você tem.
+
+- **GA4.** O `measurementId` em `src/i18n/index.ts` está vazio de propósito. Com a
+  string vazia o site não carrega gtag, não grava cookie e não mostra banner. Cole o
+  `G-XXXXXXXXXX` naquela linha e as três coisas ligam juntas.
+- **Consentimento.** Banner no rodapé da tela com aceitar e recusar, escolha guardada
+  em `localStorage` sob `alb-consent`. O script do Google só é injetado depois do
+  aceite, então nenhuma visita grava `_ga` antes da decisão. Consent Mode v2 entra com
+  tudo negado por padrão.
+- **Política de privacidade.** `/privacidade/` e `/en/privacy/`, nove seções, com base
+  legal citada por artigo da LGPD. O texto se adapta sozinho: enquanto o GA4 estiver
+  desligado, a página diz que o site não roda medição; ligando, o parágrafo de cookies
+  aparece. **Precisa da sua leitura antes de publicar**, e falta decidir se entra o CNPJ
+  da empresa. Prazo de guarda que escrevi: 5 anos para histórico comercial, 14 meses
+  para o GA4.
+- **FAQ.** Cinco perguntas na home, PT e EN, com `FAQPage` no schema. Escrevi as
+  respostas a partir do que já está publicado no seu site, então nada ali é invenção
+  minha. **A pergunta que mais chega de verdade, quanto custa, ficou de fora**, porque
+  só você tem esse número.
+
+### Ainda pendente da onda 2
 
 Cada um destes trava numa informação que não está no repo.
 
 | Item | O que eu preciso de você |
 |---|---|
-| Google Analytics 4 (19) | O Measurement ID, no formato `G-XXXXXXXXXX`. Escolha do Natã em 10/08/2026. Puxa dois itens junto, ver abaixo. |
-| Banner de cookie | Consequência direta do GA4: o `_ga` é cookie de análise, e a LGPD pede base legal e escolha do titular. Banner leve, com aceite e recusa, e o `gtag` só dispara no aceite. |
-| Política de privacidade (18) | Quem é o controlador, qual dado é guardado, por quanto tempo, e o canal do titular. Com GA4 no site ela deixa de ser opcional. Rascunho eu faço; publicar sem sua leitura, não. |
-| FAQ com 5 perguntas (7) | As 5 perguntas que mais chegam no seu WhatsApp antes de fechar. Eu escrevo a resposta na sua voz, você aprova, aí vira `FAQPage`. |
-| Horário e telefone no schema (17) | Horário de funcionamento e se o telefone público é o mesmo do WhatsApp. |
+| Measurement ID do GA4 | O `G-XXXXXXXXXX`. Uma linha em `src/i18n/index.ts` e a medição sobe. |
+| Leitura da política | Confirmar prazos de guarda, e decidir se o CNPJ entra na seção 1. |
+| Preço no FAQ | Se existe faixa que pode ser dita em público, vira a sexta pergunta. |
+| Horário e telefone no schema (17) | Horário de funcionamento e se o telefone público é o mesmo do WhatsApp. O `openingHours` segue fora do schema até lá. |
 | Form + obrigado (4) | Congelado até a decisão A/B do topo. |
 
-Custo: uma sessão de código depois que os dados chegam. GA4, banner e política andam
-juntos, na mesma sessão, porque um obriga o outro. O FAQ e a política pedem uma passada
-de `/humanizador` e `/voz-nata` antes de subir.
+O FAQ e a política pedem uma passada de `/humanizador` e `/voz-nata` antes de subir.
 
 ---
 
@@ -152,11 +171,10 @@ Aqui a sessão não é de código. É de produção.
 
 ## Ordem que eu recomendo
 
-1. Onda 1 inteira, agora, num commit só.
-2. GA4, banner de cookie e política de privacidade, na mesma sessão, assim que o
-   Measurement ID chegar. Tudo o que vier depois merece medição, e sem medição a onda 3
-   vira opinião.
-3. FAQ, que herda o ciclo de escrita e aprovação da política.
+1. ~~Onda 1~~, publicada em 10/08/2026, commit `e8611eb`.
+2. ~~Onda 2~~, construída em 10/08/2026, parada na sua leitura da política e no
+   Measurement ID.
+3. Overflow horizontal no mobile, depois de confirmado em aparelho real.
 4. Decisão A/B do formulário, e o que ela puxa: obrigado e evento de conversão.
 5. Depoimento e primeira página de case.
 6. Foto, quando houver foto.

@@ -1,0 +1,53 @@
+---
+import { analytics, analyticsEnabled } from '@i18n/index';
+
+/**
+ * GA4 atrás de consentimento.
+ *
+ * O gtag.js só é injetado depois que a pessoa aceita, então nenhuma página grava
+ * cookie `_ga` antes disso. O Consent Mode v2 entra com tudo negado para o caso de
+ * a tag ser carregada por outro caminho no futuro.
+ *
+ * A escolha vive em localStorage sob `alb-consent`, com três estados: ausente
+ * (ninguém decidiu), 'granted' e 'denied'.
+ */
+const gaId = analytics.measurementId;
+const enabled = analyticsEnabled();
+---
+{enabled && (
+  <script is:inline define:vars={{ gaId }}>
+    (() => {
+      const KEY = 'alb-consent';
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+      });
+
+      let loaded = false;
+      function loadGa() {
+        if (loaded) return;
+        loaded = true;
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', gaId, { anonymize_ip: true });
+      }
+
+      window.albEnableAnalytics = loadGa;
+
+      let stored = null;
+      try { stored = localStorage.getItem(KEY); } catch { stored = null; }
+      if (stored === 'granted') loadGa();
+    })();
+  </script>
+)}

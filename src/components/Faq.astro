@@ -1,0 +1,58 @@
+---
+import type { Locale } from '@i18n/index';
+import { t, whatsappUrl } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).faq;
+const contactHref = whatsappUrl(locale);
+const sectionId = locale === 'pt-br' ? 'perguntas' : 'faq';
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: locale === 'pt-br' ? 'pt-BR' : 'en',
+  mainEntity: s.items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+<section class="alb-faq" id={sectionId}>
+  <header class="alb-faq__header">
+    <div class="reveal">
+      <span class="alb-section-eyebrow">{s.eyebrow}</span>
+      <h2 class="alb-faq__heading">{s.heading}</h2>
+      <hr class="alb-divider" style="margin-top: 24px" />
+    </div>
+    <p class="alb-faq__intro reveal reveal--delay-2">{s.intro}</p>
+  </header>
+
+  <div class="alb-faq__list">
+    {s.items.map((item, i) => (
+      <details class={`alb-faq__item reveal reveal--delay-${(i % 4) + 1}`} open={i === 0}>
+        <summary class="alb-faq__q">
+          <span>{item.q}</span>
+          <svg class="alb-faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke-linecap="square" stroke-linejoin="miter" />
+          </svg>
+        </summary>
+        <div class="alb-faq__a"><p>{item.a}</p></div>
+      </details>
+    ))}
+  </div>
+
+  <div class="alb-faq__cta reveal">
+    <a class="alb-btn alb-btn--primary" href={contactHref} target="_blank" rel="noreferrer noopener">
+      <span>{t(locale).cases.cta}</span>
+      <svg class="alb-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="square" stroke-linejoin="miter"/>
+      </svg>
+    </a>
+  </div>
+</section>

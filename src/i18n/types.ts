@@ -82,6 +82,18 @@ export interface Strings {
     closingTail: string;
     cta: string;
   };
+  faq: {
+    eyebrow: string;
+    heading: string;
+    intro: string;
+    items: { q: string; a: string }[];
+  };
+  consent: {
+    text: string;
+    privacyLink: string;
+    accept: string;
+    decline: string;
+  };
   reading: {
     eyebrow: string;
     heading: string;
@@ -97,6 +109,7 @@ export interface Strings {
     socialLabel: string;
     readingLabel: string;
     readingLink: string;
+    privacyLink: string;
     legal: string;
   };
   notFound: {

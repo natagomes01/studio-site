@@ -1,0 +1,140 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@components/Nav.astro';
+import Footer from '@components/Footer.astro';
+import WhatsAppFab from '@components/WhatsAppFab.astro';
+import { org, analyticsEnabled } from '@i18n/index';
+import '@styles/article.css';
+
+const locale = 'pt-br' as const;
+const path = '/privacidade/';
+const title = 'Política de privacidade · Albatroz Studio';
+const description =
+  'Como a Albatroz Studio trata os dados de quem entra em contato pelo site: o que é coletado, com que base legal, por quanto tempo e como exercer os direitos previstos na LGPD.';
+
+// Data da última revisão. Atualize a cada alteração de conteúdo desta página.
+const updated = '10 de agosto de 2026';
+const ga = analyticsEnabled();
+---
+<BaseLayout locale={locale} title={title} description={description} path={path} noAltLocale>
+  <Nav locale={locale} anchorsToHome showLang={false} />
+
+  <main>
+    <article class="alb-article">
+      <div class="alb-article__inner">
+        <nav class="alb-crumbs" aria-label="Você está aqui">
+          <ol>
+            <li><a href="/">Albatroz</a></li>
+            <li aria-current="page">Política de privacidade</li>
+          </ol>
+        </nav>
+
+        <header>
+          <span class="alb-article__eyebrow">Documento</span>
+          <h1 class="alb-article__title">Política de privacidade</h1>
+          <p class="alb-article__subtitle">O que a Albatroz Studio coleta, por que coleta e o que você pode exigir a qualquer momento</p>
+          <div class="alb-article__dates">
+            <span>Última atualização em {updated}</span>
+          </div>
+        </header>
+
+        <h2>1. Quem trata os seus dados</h2>
+        <p>
+          O controlador é a Albatroz Studio, com endereço em {org.street}, {org.district},
+          {' '}{org.city}, {org.region}, CEP {org.postalCode}. O canal de contato para
+          qualquer assunto desta política é <a href={`mailto:${org.email}`}>{org.email}</a>.
+        </p>
+
+        <h2>2. O que este site coleta</h2>
+        <p>
+          O site é estático e não tem cadastro, login nem área restrita. A coleta se
+          resume a dois casos.
+        </p>
+        <p>
+          <strong>Quando você fala com a gente.</strong> Os botões da página abrem uma
+          conversa no WhatsApp ou um e-mail. Nesse momento você nos entrega o que
+          escrever: nome, telefone, e-mail e o que contar sobre a sua operação. Esse
+          dado chega pelo canal que você escolheu e fica no histórico dele.
+        </p>
+        {ga ? (
+          <p>
+            <strong>Quando você navega.</strong> Se você aceitar no aviso de cookies,
+            o Google Analytics 4 grava cookies (<code>_ga</code> e <code>_ga_*</code>) para medir páginas
+            vistas, origem da visita e comportamento agregado de navegação. O IP é
+            anonimizado. Enquanto você não aceitar, nenhum cookie de medição é gravado,
+            e recusar mantém o site funcionando por inteiro.
+          </p>
+        ) : (
+          <p>
+            <strong>Quando você navega.</strong> Hoje o site não roda ferramenta de
+            medição e não grava cookie de análise. Se isso mudar, um aviso pedirá o seu
+            aceite antes de qualquer cookie, e esta página será atualizada na mesma data.
+          </p>
+        )}
+
+        <h2>3. Para que usamos</h2>
+        <ul>
+          <li>Responder ao seu contato e conduzir a conversa comercial.</li>
+          <li>Entender qual conteúdo do site traz quem chega, e melhorar o que publicamos.</li>
+        </ul>
+        <p>
+          Não vendemos dado para ninguém. Não enviamos a sua informação para lista de
+          terceiros. Não usamos o que você escreve para treinar modelo de linguagem.
+        </p>
+
+        <h2>4. Com que base legal</h2>
+        <p>
+          O contato comercial se apoia no interesse legítimo e nos procedimentos
+          preliminares de contrato, previstos no artigo 7º, incisos V e IX, da Lei
+          13.709/2018. A medição de audiência se apoia no seu consentimento, artigo 7º,
+          inciso I, recolhido no aviso de cookies e revogável quando você quiser.
+        </p>
+
+        <h2>5. Quem mais vê</h2>
+        <p>
+          A conversa de WhatsApp trafega pela infraestrutura da Meta Platforms e segue
+          também a política dela. A medição de audiência, quando aceita, roda no Google
+          Analytics, do Google LLC, que pode transferir dado para fora do Brasil. O site
+          é hospedado no GitHub Pages, que registra log de acesso próprio.
+        </p>
+
+        <h2>6. Por quanto tempo guardamos</h2>
+        <p>
+          Histórico de conversa comercial: até 5 anos depois do último contato, prazo que
+          acompanha a prescrição civil comum. Dado de navegação no Google Analytics: 14
+          meses, o padrão da ferramenta. Passado o prazo, apagamos ou anonimizamos.
+        </p>
+
+        <h2>7. O que você pode exigir</h2>
+        <p>
+          A LGPD garante a você confirmação do tratamento, acesso, correção, anonimização,
+          portabilidade, eliminação do que foi tratado com consentimento, informação sobre
+          com quem compartilhamos e revogação do consentimento. Escreva para
+          {' '}<a href={`mailto:${org.email}`}>{org.email}</a> e respondemos em até 15 dias.
+        </p>
+        {ga && (
+          <p>
+            Para retirar o consentimento de medição, limpe os dados deste site no seu
+            navegador. O aviso de cookies volta a aparecer na próxima visita e você escolhe
+            de novo.
+          </p>
+        )}
+
+        <h2>8. Segurança</h2>
+        <p>
+          O site roda inteiro em HTTPS. O acesso ao histórico comercial fica restrito a
+          quem trabalha no atendimento da Albatroz.
+        </p>
+
+        <h2>9. Mudanças nesta política</h2>
+        <p>
+          Quando o tratamento mudar, esta página muda junto, e a data de atualização no
+          topo passa a valer como marco. Vale a versão publicada aqui.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <Footer locale={locale} />
+  <WhatsAppFab locale={locale} />
+</BaseLayout>

@@ -1,0 +1,54 @@
+---
+import type { Locale } from '@i18n/index';
+import { t, analyticsEnabled, privacyHref } from '@i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const s = t(locale).consent;
+const enabled = analyticsEnabled();
+const privacy = privacyHref(locale);
+const regionLabel = locale === 'pt-br' ? 'Aviso de cookies' : 'Cookie notice';
+---
+{enabled && (
+  <div class="alb-consent" id="alb-consent" role="region" aria-label={regionLabel} hidden>
+    <p class="alb-consent__text">
+      {s.text}
+      {' '}
+      <a href={privacy}>{s.privacyLink}</a>
+    </p>
+    <div class="alb-consent__actions">
+      <button type="button" class="alb-consent__btn alb-consent__btn--ghost" data-consent="denied">{s.decline}</button>
+      <button type="button" class="alb-consent__btn alb-consent__btn--solid" data-consent="granted">{s.accept}</button>
+    </div>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const KEY = 'alb-consent';
+      const el = document.getElementById('alb-consent');
+      if (!el) return;
+
+      let stored = null;
+      try { stored = localStorage.getItem(KEY); } catch { stored = null; }
+      if (stored === 'granted' || stored === 'denied') return;
+
+      el.hidden = false;
+      document.body.classList.add('has-consent-banner');
+
+      el.querySelectorAll('[data-consent]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const choice = btn.getAttribute('data-consent');
+          try { localStorage.setItem(KEY, choice); } catch { /* modo privado */ }
+          if (choice === 'granted' && typeof window.albEnableAnalytics === 'function') {
+            window.albEnableAnalytics();
+          }
+          el.hidden = true;
+          document.body.classList.remove('has-consent-banner');
+        });
+      });
+    })();
+  </script>
+)}

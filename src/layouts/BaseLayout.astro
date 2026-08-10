@@ -3,6 +3,8 @@ import type { Locale } from '@i18n/index';
 import { t, altLocale, localizedPath, localizedHref, withBase } from '@i18n/index';
 import '@styles/tokens.css';
 import '@styles/site.css';
+import Analytics from '@components/Analytics.astro';
+import ConsentBanner from '@components/ConsentBanner.astro';
 
 interface Props {
   locale: Locale;
@@ -68,11 +70,13 @@ const ogImageAlt = Astro.props.ogImageAlt ?? defaultOgAlt;
     <meta property="og:image:alt" content={ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
+    <Analytics />
     <slot name="head" />
   </head>
   <body>
     <slot name="banner" />
     <slot />
+    <ConsentBanner locale={locale} />
     <script>
       import '@/scripts/reveal.ts';
     </script>

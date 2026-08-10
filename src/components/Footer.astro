@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '@i18n/index';
-import { t, whatsappUrl, withBase, guideHref, mapsUrl } from '@i18n/index';
+import { t, whatsappUrl, withBase, guideHref, mapsUrl, privacyHref } from '@i18n/index';
 
 interface Props {
   locale: Locale;
@@ -14,6 +14,7 @@ const responsePromise = t(locale).responsePromise;
 const contactHref = whatsappUrl(locale, waMessage);
 const symbolHref = withBase('/albatroz-symbol.svg');
 const guide = guideHref();
+const privacy = privacyHref(locale);
 ---
 <footer class="alb-footer">
   <div class="alb-footer__top">
@@ -46,6 +47,7 @@ const guide = guideHref();
         <span class="alb-footer__h">{s.readingLabel}</span>
         <ul>
           <li><a href={guide}>{s.readingLink}</a></li>
+          <li><a href={privacy}>{s.privacyLink}</a></li>
         </ul>
       </div>
       <div class="alb-footer__col">

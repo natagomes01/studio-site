@@ -1,0 +1,138 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@components/Nav.astro';
+import Footer from '@components/Footer.astro';
+import WhatsAppFab from '@components/WhatsAppFab.astro';
+import { org, analyticsEnabled } from '@i18n/index';
+import '@styles/article.css';
+
+const locale = 'en' as const;
+const path = '/en/privacy/';
+const title = 'Privacy policy · Albatroz Studio';
+const description =
+  'How Albatroz Studio handles the data of anyone who gets in touch through the site: what is collected, on what legal basis, for how long, and how to exercise your rights.';
+
+const updated = 'August 10, 2026';
+const ga = analyticsEnabled();
+---
+<BaseLayout locale={locale} title={title} description={description} path={path} noAltLocale>
+  <Nav locale={locale} anchorsToHome showLang={false} />
+
+  <main>
+    <article class="alb-article">
+      <div class="alb-article__inner">
+        <nav class="alb-crumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/en/">Albatroz</a></li>
+            <li aria-current="page">Privacy policy</li>
+          </ol>
+        </nav>
+
+        <header>
+          <span class="alb-article__eyebrow">Document</span>
+          <h1 class="alb-article__title">Privacy policy</h1>
+          <p class="alb-article__subtitle">What Albatroz Studio collects, why it collects it, and what you can demand at any time</p>
+          <div class="alb-article__dates">
+            <span>Last updated on {updated}</span>
+          </div>
+        </header>
+
+        <h2>1. Who handles your data</h2>
+        <p>
+          The controller is Albatroz Studio, at {org.street}, {org.district}, {org.city},
+          {' '}{org.region}, {org.postalCode}, Brazil. The contact channel for anything in
+          this policy is <a href={`mailto:${org.email}`}>{org.email}</a>.
+        </p>
+
+        <h2>2. What this site collects</h2>
+        <p>
+          The site is static. There is no signup, no login and no restricted area.
+          Collection comes down to two cases.
+        </p>
+        <p>
+          <strong>When you contact us.</strong> The buttons on the page open a WhatsApp
+          conversation or an email. At that point you hand us whatever you write: name,
+          phone, email and what you tell us about your operation. That data arrives
+          through the channel you chose and stays in its history.
+        </p>
+        {ga ? (
+          <p>
+            <strong>When you browse.</strong> If you accept in the cookie notice, Google
+            Analytics 4 stores cookies (<code>_ga</code> and <code>_ga_*</code>) to measure page views, traffic
+            source and aggregate browsing behaviour. IP addresses are anonymised. Until
+            you accept, no measurement cookie is stored, and declining leaves the site
+            fully functional.
+          </p>
+        ) : (
+          <p>
+            <strong>When you browse.</strong> Today the site runs no measurement tool and
+            stores no analytics cookie. If that changes, a notice will ask for your consent
+            before any cookie, and this page will be updated on the same date.
+          </p>
+        )}
+
+        <h2>3. What we use it for</h2>
+        <ul>
+          <li>Answering your message and running the sales conversation.</li>
+          <li>Understanding which content brings people here, and improving what we publish.</li>
+        </ul>
+        <p>
+          We do not sell data. We do not pass your information to third-party lists. We do
+          not use what you write to train language models.
+        </p>
+
+        <h2>4. Legal basis</h2>
+        <p>
+          Commercial contact rests on legitimate interest and on pre-contractual steps,
+          under article 7, items V and IX, of Brazilian law 13.709/2018 (LGPD). Audience
+          measurement rests on your consent, article 7, item I, collected in the cookie
+          notice and revocable whenever you want.
+        </p>
+
+        <h2>5. Who else sees it</h2>
+        <p>
+          WhatsApp conversations travel through Meta Platforms infrastructure and follow
+          its policy as well. Audience measurement, once accepted, runs on Google Analytics,
+          by Google LLC, which may transfer data outside Brazil. The site is hosted on
+          GitHub Pages, which keeps its own access logs.
+        </p>
+
+        <h2>6. How long we keep it</h2>
+        <p>
+          Commercial conversation history: up to 5 years after the last contact, matching
+          the ordinary civil limitation period. Google Analytics browsing data: 14 months,
+          the tool default. After that we delete or anonymise.
+        </p>
+
+        <h2>7. What you can demand</h2>
+        <p>
+          The LGPD grants you confirmation of processing, access, correction, anonymisation,
+          portability, deletion of anything processed under consent, information on who we
+          share with, and revocation of consent. Write to
+          {' '}<a href={`mailto:${org.email}`}>{org.email}</a> and we answer within 15 days.
+        </p>
+        {ga && (
+          <p>
+            To withdraw measurement consent, clear this site's data in your browser. The
+            cookie notice appears again on your next visit and you choose once more.
+          </p>
+        )}
+
+        <h2>8. Security</h2>
+        <p>
+          The whole site runs over HTTPS. Access to commercial history is restricted to
+          the people working on Albatroz support.
+        </p>
+
+        <h2>9. Changes to this policy</h2>
+        <p>
+          When processing changes, this page changes with it, and the update date at the
+          top becomes the marker. The version published here is the one that applies.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <Footer locale={locale} />
+  <WhatsAppFab locale={locale} />
+</BaseLayout>

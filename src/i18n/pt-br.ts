@@ -161,8 +161,42 @@ export const ptBr: Strings = {
       'A pergunta não é se sua empresa vai precisar disso. É quanto você ainda vai pagar para descobrir que precisava.',
     cta: 'Ative o PAI na sua empresa',
   },
+  faq: {
+    eyebrow: '04 · Perguntas que chegam antes de fechar',
+    heading: 'O que perguntam antes de dizer sim',
+    intro:
+      'As dúvidas abaixo aparecem em quase toda conversa de diagnóstico. Respondemos aqui para você chegar na conversa já sabendo do que se trata.',
+    items: [
+      {
+        q: 'O PAI é um chatbot?',
+        a: 'Não. Chatbot segue árvore de decisão e quebra na primeira pergunta fora do roteiro. O PAI é um protocolo de implantação: a inteligência é treinada com a sua linguagem, suas objeções reais e o seu processo comercial, e conduz a conversa até o ponto de fechamento. Também não é software que você instala nem curso de prompt.',
+      },
+      {
+        q: 'A IA vai substituir meu time de vendas?',
+        a: 'Não substitui. Ela entrega o contato pronto, no momento certo, com o contexto completo da conversa. Quem fecha é o time humano, com mais tempo, mais informação e menos atrito. Na prática o vendedor para de ser atendente e volta a ser vendedor.',
+      },
+      {
+        q: 'Preciso trocar de sistema ou tirar meu time do WhatsApp?',
+        a: 'Não. A implantação acontece no canal onde o seu cliente já está. Ninguém migra para ferramenta nova, ninguém aprende software novo.',
+      },
+      {
+        q: 'Funciona no meu setor?',
+        a: 'O PAI está ativo em clínica de estética, academia de jiu-jitsu, cirurgia plástica e venda B2B de equipamento topográfico, com ciclo longo e técnico. Portes diferentes, tickets diferentes. O que se repete é o padrão: tempo de resposta que cai e conversão que sobe. Cada implantação parte de um diagnóstico próprio, sem template copiado do concorrente.',
+      },
+      {
+        q: 'Como começa?',
+        a: 'Pelo diagnóstico profundo da operação. Mapeamos o fluxo de vendas, identificamos onde o dinheiro está vazando e desenhamos o protocolo específico para o seu negócio. Só depois disso entra o treinamento da inteligência e a implantação no WhatsApp.',
+      },
+    ],
+  },
+  consent: {
+    text: 'Usamos cookies do Google Analytics para entender como as pessoas chegam e navegam aqui. Nenhum cookie de medição é gravado antes do seu aceite.',
+    privacyLink: 'Ler a política de privacidade',
+    accept: 'Aceitar',
+    decline: 'Recusar',
+  },
   reading: {
-    eyebrow: '04 · Leitura',
+    eyebrow: '05 · Leitura',
     heading: 'O que a Albatroz escreve',
     kicker: 'Guia · 18 de julho de 2026',
     title: 'O que muda na cobrança da API Oficial do WhatsApp, a partir de outubro de 2026',
@@ -180,6 +214,7 @@ export const ptBr: Strings = {
     socialLabel: 'Redes',
     readingLabel: 'Leitura',
     readingLink: 'Guia WhatsApp 2026',
+    privacyLink: 'Privacidade',
     legal: '© Albatroz Studio. Todos os direitos reservados.',
   },
   notFound: {

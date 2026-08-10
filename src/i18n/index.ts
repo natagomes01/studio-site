@@ -55,8 +55,32 @@ export function whatsappUrl(locale: Locale, message?: string): string {
   return `https://wa.me/${whatsapp.phone}?text=${encodeURIComponent(message ?? whatsapp.message[locale])}`;
 }
 
+/**
+ * Google Analytics 4.
+ *
+ * Cole o Measurement ID (formato G-XXXXXXXXXX) para ligar a medição. Com a string
+ * vazia nada é carregado: sem gtag, sem cookie e sem banner de consentimento.
+ * O script do GA só entra depois do aceite explícito, nunca antes.
+ */
+export const analytics = {
+  measurementId: '',
+} as const;
+
+export function analyticsEnabled(): boolean {
+  return analytics.measurementId.trim().length > 0;
+}
+
 /** Rotas de conteúdo. O guia existe só em PT; o link é o mesmo nos dois idiomas. */
 export const guidePath = '/guia-whatsapp-2026/';
+
+export const privacyPath = {
+  'pt-br': '/privacidade/',
+  en: '/en/privacy/',
+} as const satisfies Record<Locale, string>;
+
+export function privacyHref(locale: Locale): string {
+  return withBase(privacyPath[locale]);
+}
 
 export function guideHref(): string {
   return withBase(guidePath);

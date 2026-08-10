@@ -965,6 +965,143 @@ em { font-style: italic; }
 }
 
 /* =========================================================
+   FAQ
+   ========================================================= */
+.alb-faq {
+  padding: 0 72px 140px;
+  max-width: 1296px;
+  margin: 0 auto;
+}
+.alb-faq__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.alb-faq__heading {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--c-charcoal);
+  margin: 0;
+}
+.alb-faq__intro {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--c-slate);
+  margin: 0;
+}
+.alb-faq__list {
+  max-width: 900px;
+  border-top: 1px solid rgba(32, 32, 32, 0.12);
+}
+.alb-faq__item { border-bottom: 1px solid rgba(32, 32, 32, 0.12); }
+.alb-faq__q {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-highlight);
+  font-weight: 700;
+  font-size: clamp(19px, 2.4vw, 24px);
+  line-height: 1.3;
+  color: var(--c-charcoal);
+  transition: color var(--dur-base) var(--ease-out);
+}
+.alb-faq__q::-webkit-details-marker { display: none; }
+.alb-faq__q:hover { color: var(--c-accent-500); }
+.alb-faq__chevron {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  color: var(--c-accent-500);
+  transition: transform var(--dur-base) var(--ease-out);
+  align-self: center;
+}
+.alb-faq__item[open] .alb-faq__chevron { transform: rotate(180deg); }
+.alb-faq__a p {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--c-slate);
+  margin: 0 0 28px;
+  max-width: 68ch;
+}
+.alb-faq__cta { margin-top: 48px; }
+
+/* =========================================================
+   Consent banner — só existe quando o GA4 está configurado
+   ========================================================= */
+.alb-consent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1200;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 32px;
+  background: var(--c-bg-dark);
+  border-top: 3px solid var(--c-accent-500);
+}
+.alb-consent[hidden] { display: none; }
+.alb-consent__text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--c-offwhite);
+  margin: 0;
+  max-width: 76ch;
+}
+.alb-consent__text a {
+  color: var(--c-accent-300);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.alb-consent__actions {
+  display: flex;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+.alb-consent__btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+}
+.alb-consent__btn--solid {
+  background: var(--c-accent-500);
+  color: var(--c-offwhite);
+}
+.alb-consent__btn--solid:hover { background: var(--c-accent-400); }
+.alb-consent__btn--ghost {
+  background: transparent;
+  color: var(--c-offwhite);
+  border-color: rgba(242, 237, 228, 0.4);
+}
+.alb-consent__btn--ghost:hover {
+  background: rgba(242, 237, 228, 0.12);
+}
+/* O FAB do WhatsApp sobe enquanto o aviso ocupa a base da tela. */
+body.has-consent-banner .alb-wa-fab { bottom: 132px; }
+
+/* =========================================================
    Reading — teaser do guia na home
    ========================================================= */
 .alb-reading {
@@ -1101,10 +1238,11 @@ em { font-style: italic; }
    Responsive
    ========================================================= */
 @media (max-width: 1024px) {
-  .alb-nav, .alb-hero, .alb-pain, .alb-cases, .alb-proto, .alb-reading, .alb-404, .alb-contact, .alb-footer {
+  .alb-nav, .alb-hero, .alb-pain, .alb-cases, .alb-proto, .alb-faq, .alb-reading, .alb-404, .alb-contact, .alb-footer {
     padding-left: 40px;
     padding-right: 40px;
   }
+  .alb-faq__header { grid-template-columns: 1fr; gap: 32px; }
   .alb-footer__cols { grid-template-columns: 1fr 1fr; gap: 32px; }
   .alb-hero { padding-top: 160px; padding-bottom: 80px; }
   .alb-pain__header,
@@ -1125,6 +1263,7 @@ em { font-style: italic; }
   .alb-pain,
   .alb-cases,
   .alb-proto,
+  .alb-faq,
   .alb-reading,
   .alb-404,
   .alb-contact,
@@ -1132,6 +1271,11 @@ em { font-style: italic; }
     padding-left: 24px;
     padding-right: 24px;
   }
+  .alb-faq { padding-bottom: 100px; }
+  .alb-consent { padding: 16px 20px; gap: 14px; }
+  .alb-consent__actions { width: 100%; }
+  .alb-consent__btn { flex: 1 1 auto; }
+  body.has-consent-banner .alb-wa-fab { bottom: 190px; }
   .alb-hero { padding-top: 140px; padding-bottom: 64px; }
   .alb-reading { padding-bottom: 100px; }
   .alb-reading__card { padding: 28px 24px 28px; }

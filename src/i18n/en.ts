@@ -161,8 +161,42 @@ export const en: Strings = {
       'The question is not whether your company will need this. It is how much you will keep paying to find out you needed it.',
     cta: 'Activate PAI in your company',
   },
+  faq: {
+    eyebrow: '04 · Questions that come up before closing',
+    heading: 'What people ask before saying yes',
+    intro:
+      'These come up in nearly every diagnosis call. Answered here so you arrive already knowing what this is.',
+    items: [
+      {
+        q: 'Is PAI a chatbot?',
+        a: 'No. A chatbot follows a decision tree and breaks on the first question outside the script. PAI is a deployment protocol: the intelligence is trained on your language, your real objections and your sales process, and it carries the conversation to the closing point. It is also not software you install, and not a prompt course.',
+      },
+      {
+        q: 'Will the AI replace my sales team?',
+        a: 'It does not replace anyone. It hands the lead over ready, at the right moment, with the full context of the conversation. Your people close, with more time, more information and less friction. In practice the salesperson stops being a receptionist and goes back to selling.',
+      },
+      {
+        q: 'Do I have to change systems or move my team off WhatsApp?',
+        a: 'No. Deployment happens in the channel your client already uses. Nobody migrates to a new tool, nobody learns new software.',
+      },
+      {
+        q: 'Does it work in my industry?',
+        a: 'PAI runs today in an aesthetics clinic, a jiu-jitsu academy, a plastic surgery practice and B2B sales of surveying equipment, with a long and technical cycle. Different sizes, different ticket values. What repeats is the pattern: response time drops, conversion rises. Every deployment starts from its own diagnosis, with no template copied from a competitor.',
+      },
+      {
+        q: 'How does it start?',
+        a: 'With a deep diagnosis of the operation. We map the sales flow, find where the money is leaking and design the protocol for your specific business. Training the intelligence and deploying on WhatsApp come after that.',
+      },
+    ],
+  },
+  consent: {
+    text: 'We use Google Analytics cookies to understand how people find and browse this site. No measurement cookie is stored before you accept.',
+    privacyLink: 'Read the privacy policy',
+    accept: 'Accept',
+    decline: 'Decline',
+  },
   reading: {
-    eyebrow: '04 · Reading',
+    eyebrow: '05 · Reading',
     heading: 'What Albatroz writes',
     kicker: 'Guide · in Portuguese · July 18, 2026',
     title: 'O que muda na cobrança da API Oficial do WhatsApp, a partir de outubro de 2026',
@@ -180,6 +214,7 @@ export const en: Strings = {
     socialLabel: 'Channels',
     readingLabel: 'Reading',
     readingLink: 'WhatsApp guide 2026',
+    privacyLink: 'Privacy',
     legal: '© Albatroz Studio. All rights reserved.',
   },
   notFound: {
