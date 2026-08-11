@@ -2,7 +2,7 @@ import type { Strings } from './types';
 
 export const en: Strings = {
   meta: {
-    title: 'Albatroz Studio · PAI — Living intelligence for sales',
+    title: 'Albatroz Studio · PAI, Living intelligence for sales',
     description:
       'We deploy PAI, the Sales Intelligence Activation Protocol. 24/7 response, automated lead handling, and a human team multiplied by AI.',
   },
@@ -18,8 +18,8 @@ export const en: Strings = {
   },
   hero: {
     eyebrow: 'Albatroz Studio · Sales Intelligence',
-    headlineLine1: 'You are not losing customers because of weak marketing.',
-    headlineLine2: 'You are losing them because your sales operation has no structure.',
+    headlineLine1: 'You are losing customers',
+    headlineLine2: 'because your sales operation has no structure.',
     subheadline:
       'We deploy **PAI, the Sales Intelligence Activation Protocol**, inside your operation. 24/7 response on WhatsApp, automated lead handling, and a human team multiplied by AI. What today depends on your memory, your discipline, and your team\'s mood, starts running as a system.',
     ctaPrimary: 'Activate PAI in my company',
@@ -36,16 +36,16 @@ export const en: Strings = {
   ],
   pain: {
     eyebrow: '01 · What stalls your operation today',
-    headlineLine1: 'It is not a lack of customers.',
-    headlineLine2: 'It is a lack of structure.',
+    headlineLine1: 'You have customers.',
+    headlineLine2: 'You lack structure.',
     intro:
-      'The biggest financial loss in a service company today is not in the ad spend. It is in the operation. In the silence between a lead arriving and someone replying. In the customer who cooled off while your team was busy. In the calendar with empty slots that nobody noticed close.',
+      'The biggest financial loss in a service company today is in the operation. In the silence between a lead arriving and someone replying. In the customer who cooled off while your team was busy. In the calendar with empty slots that nobody noticed close.',
     introTail:
       'You don\'t see this money leaving — because it never made it in.',
     items: [
       {
         title: 'Messages left unanswered.',
-        body: 'The lead arrives, your team is busy, the competitor replies first. The deal was not lost on price. It was lost on time.',
+        body: 'The lead arrives, your team is busy, the competitor replies first. The deal was lost on time.',
       },
       {
         title: 'Conversations without direction.',
@@ -69,9 +69,9 @@ export const en: Strings = {
       },
     ],
     closing:
-      'The result is always the same: unstable revenue, stalled growth, operational anxiety. You work harder and grow less than you should.',
+      'You work harder and grow less than you should.',
     closingTail:
-      'And worse: most companies try to fix this by hiring more people. Which only multiplies the problem instead of removing it.',
+      'And worse: most companies try to fix this by hiring more people. Which only multiplies the problem.',
   },
   cases: {
     eyebrow: '02 · Companies that activated PAI',
@@ -107,7 +107,7 @@ export const en: Strings = {
           { value: '$700K', label: 'in monthly sales (avg.)' },
           { value: 'B2B', label: 'long, technical sales cycle' },
         ],
-        body: 'An average of $700,000 in monthly sales, sustained by a real commercial intelligence layer. Technical qualification, lead handling, and pre-close preparation operating as a system, not as improvisation. In an industry with a long and technical sales cycle, PAI organizes what used to depend on the rep\'s memory.',
+        body: 'An average of $700,000 in monthly sales, sustained by a real commercial intelligence layer. Technical qualification, lead handling, and pre-close preparation operating as a system. In an industry with a long and technical sales cycle, PAI organizes what used to depend on the rep\'s memory.',
         accent: 'linear-gradient(135deg, #944c29 0%, #b56a44 100%)',
       },
       {
@@ -115,7 +115,6 @@ export const en: Strings = {
         segment: 'Healthcare and advanced aesthetics',
         stats: [
           { value: '680+', label: 'leads handled in 3 months' },
-          { value: '0', label: 'bottleneck on scheduling' },
         ],
         body: 'More than 680 leads handled on WhatsApp in just 3 months, with automatic qualification and cases delivered ready for the clinical team to close. The owner stopped being the bottleneck of the schedule.',
         accent: 'linear-gradient(135deg, #3a4a3a 0%, #5d7159 100%)',
@@ -123,16 +122,16 @@ export const en: Strings = {
     ],
     pattern: {
       title: 'The pattern behind the numbers',
-      body: 'In every case, the turning point was not more traffic, more ads, or more salespeople. It was the structure behind the conversation.',
+      body: 'In every case, the turning point was the structure behind the conversation.',
     },
     cta: 'Get a diagnosis for my company',
   },
   protocol: {
     eyebrow: '03 · How PAI is deployed in your company',
-    headlineLine1: 'It is not a tool.',
-    headlineLine2: 'It is a deployment.',
+    headlineLine1: 'PAI enters your operation',
+    headlineLine2: 'in five stages.',
     intro:
-      'PAI is not a software you install. It is not a ready-made chatbot. It is not a prompt course. It is a protocol that enters your operation, learns how your company sells, and activates commercial intelligence where there used to be improvisation. Built over six years of selling on WhatsApp and DM, then transferred to AI agents applied in real client contexts. In five stages:',
+      'PAI is a protocol that enters your operation, learns how your company sells, and activates commercial intelligence where there used to be improvisation. Built over six years of selling on WhatsApp and DM, then transferred to AI agents applied in real client contexts.',
     steps: [
       {
         title: 'Deep diagnosis of the operation',
@@ -140,7 +139,7 @@ export const en: Strings = {
       },
       {
         title: 'Training the sales intelligence',
-        body: 'The AI is trained with your language, your real objections, your differentiators, and your commercial process. It sells the way your company sells — not the way some generic chatbot would speak in your brand\'s name.',
+        body: 'The AI is trained with your language, your real objections, your differentiators, and your commercial process. It sells the way your company sells.',
       },
       {
         title: 'Deployment on WhatsApp and sales channels',
@@ -148,17 +147,17 @@ export const en: Strings = {
       },
       {
         title: 'Integration with the human team',
-        body: 'AI does not replace the salesperson. It hands over a qualified lead, at the right moment, with full context. The human team closes — with more time, more information, and less friction. The salesperson stops being a receptionist and goes back to being a salesperson.',
+        body: 'AI hands over a qualified lead, at the right moment, with full context. The human team closes — with more time, more information, and less friction. The salesperson stops being a receptionist and goes back to being a salesperson.',
       },
       {
         title: 'Continuous optimization',
-        body: 'We track the real behavior of leads, adjust the protocol, and lift conversion week after week. A living deployment, not a one-time delivery.',
+        body: 'We track the real behavior of leads, adjust the protocol, and conversion rises week after week. The deployment stays alive after delivery.',
       },
     ],
     closing:
-      'The future of companies is no longer digital. Digital is already the minimum. The future is intelligent. Companies that activate sales intelligence grow with less effort, lead their markets, and free the owner from operational chaos. The ones still relying on memory, discipline, and people\'s mood will keep dealing with unstable revenue, no matter how much traffic they buy.',
+      'Digital is already the minimum. The future is intelligent. Companies that activate sales intelligence grow with less effort, lead the market, and free the owner from operational chaos. The ones still relying on memory, discipline, and people\'s mood will keep dealing with unstable revenue, no matter how much traffic they buy.',
     closingTail:
-      'The question is not whether your company will need this. It is how much you will keep paying to find out you needed it.',
+      'The question is how much you will keep paying to find out you needed it.',
     cta: 'Activate PAI in your company',
   },
   faq: {

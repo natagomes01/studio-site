@@ -40,8 +40,8 @@ const defaultOgImage = locale === 'pt-br' ? '/og-default.png' : '/og-default-en.
 const ogImage = new URL(Astro.props.ogImage ?? defaultOgImage, siteUrl).toString();
 const defaultOgAlt =
   locale === 'pt-br'
-    ? 'Albatroz Studio — Você não perde cliente por falta de marketing. Perde por falta de estrutura.'
-    : "Albatroz Studio — You're not losing clients for lack of marketing. You lose them for lack of structure.";
+    ? 'Albatroz Studio: você está perdendo cliente por falta de estrutura no atendimento.'
+    : 'Albatroz Studio: you are losing customers because your operation has no structure.';
 const ogImageAlt = Astro.props.ogImageAlt ?? defaultOgAlt;
 ---
 <!doctype html>

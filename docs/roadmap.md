@@ -136,6 +136,33 @@ O código está pronto e testado. Falta o que só você tem.
   minha. **A pergunta que mais chega de verdade, quanto custa, ficou de fora**, porque
   só você tem esse número.
 
+## Passada do humanizador, 11 de agosto de 2026
+
+Camada 1 e camada 2 rodadas sobre `src/i18n/pt-br.ts` e `src/pages/privacidade.astro`.
+O `en.ts` acompanhou os cortes de conteúdo, para os dois idiomas dizerem a mesma coisa.
+O guia já tinha recebido a passada em julho.
+
+Scanner: 7 erros para 0. O único aviso que sobrou é falso positivo, e o teste da
+habitualidade confirma o presente do indicativo ali.
+
+**A antítese saiu do site inteiro.** Eram três headlines e sete trechos de corpo. As três
+headlines viraram afirmativa pura, e a imagem OG foi regerada com a nova. O H1 passou de
+"Você não está perdendo cliente por falta de marketing. Está perdendo por falta de
+estrutura no atendimento." para "Você está perdendo cliente por falta de estrutura no
+atendimento."
+
+**Auditoria 6, convergência de forma.** As cinco seções eram o mesmo molde, e três delas
+abriam com a mesma figura. Com as headlines novas, a 01 abre com duas frases curtas e a
+03 com um período único, o que já quebra a série.
+
+**Pendente de prova.** O stat `0 · gargalo no agendamento` saiu, porque era zero retórico
+com tipografia de dado medido. Faltam três números que só o Natã tem:
+
+- Um número real para o case da cirurgia plástica, no lugar do que saiu.
+- O nome da clínica, se houver autorização.
+- Um antes e depois de tempo de resposta ou de conversão, com período. A página promete
+  as duas coisas e não mostra número de nenhuma. Os oito números atuais são de volume.
+
 ### Ainda pendente da onda 2
 
 Cada um destes trava numa informação que não está no repo.
