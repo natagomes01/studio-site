@@ -4,7 +4,7 @@ export const ptBr: Strings = {
   meta: {
     title: 'Albatroz Studio · PAI, Inteligência viva em vendas',
     description:
-      'Implantamos o PAI, Protocolo de Ativação de Inteligência em Vendas. Atendimento 24h, condução automática do contato e equipe humana multiplicada por IA.',
+      'Empresas de serviço perdem venda entre a mensagem chegar e alguém responder. O PAI põe atendimento 24h no WhatsApp, condução do contato e IA junto do time.',
   },
   nav: {
     pillars: 'O que fazemos',
@@ -18,60 +18,60 @@ export const ptBr: Strings = {
   },
   hero: {
     eyebrow: 'Albatroz Studio · Inteligência em Vendas',
-    headlineLine1: 'Você está perdendo cliente',
-    headlineLine2: 'por falta de estrutura no atendimento.',
+    headlineLine1: 'Empresas com demanda e equipe',
+    headlineLine2: 'perdem venda no silêncio entre uma mensagem e outra.',
     subheadline:
-      'Implantamos o **PAI, Protocolo de Ativação de Inteligência em Vendas**, dentro da sua operação. Atendimento 24h no WhatsApp, condução automática do contato e equipe humana multiplicada por IA. O que hoje depende da memória, da disciplina e do humor do time passa a operar como sistema.',
+      'Implantamos o **PAI, Protocolo de Ativação de Inteligência em Vendas**, dentro da sua operação. Atendimento 24h no WhatsApp, condução automática do contato e equipe humana multiplicada por IA. Na operação manual, quem responde primeiro é quem estiver livre. Com o PAI, quem responde é o sistema, em segundos, a qualquer hora.',
     ctaPrimary: 'Quero ativar o PAI na minha empresa',
     ctaSecondary: 'Ver como funciona',
     support:
-      'Para empresas que já têm demanda, já têm equipe e estão perdendo vendas no silêncio entre uma mensagem e outra.',
+      'Para empresas que já têm demanda e já têm equipe, e mesmo assim veem contato entrar e morrer sem resposta.',
   },
   responsePromise: 'Resposta em menos de 24 horas, direto comigo no WhatsApp.',
   proofBar: [
     { metric: '80+', context: 'atendimentos/dia · Estética Salomão' },
-    { metric: '423', context: 'alunos ativos · Gracie Barra SG' },
+    { metric: '+40%', context: 'em conversão · Gracie Barra SG' },
     { metric: 'R$ 3,5 mi', context: 'em vendas/mês · Topografia com Você' },
-    { metric: '680', context: 'atendimentos em 3 meses · Cirurgia plástica' },
+    { metric: '680', context: 'atendimentos em 3 meses · Dra. Georgia' },
   ],
   pain: {
-    eyebrow: '01 · O que trava sua operação hoje',
-    headlineLine1: 'Você tem cliente.',
-    headlineLine2: 'Falta estrutura.',
+    eyebrow: '01 · Onde a venda se perde',
+    headlineLine1: 'A demanda chega.',
+    headlineLine2: 'A estrutura não segura.',
     intro:
-      'A maior perda financeira de uma empresa de serviços hoje está na operação. No silêncio entre o contato chegar e alguém responder. No cliente que esfriou enquanto sua equipe estava ocupada. Na agenda com buracos que ninguém percebeu fechar.',
+      'A maior perda financeira de uma empresa de serviços hoje está na operação. No silêncio entre o contato chegar e alguém responder. No cliente que esfriou enquanto a equipe atendia outro. Na agenda com buracos que ninguém percebeu fechar.',
     introTail:
       'Você não vê esse dinheiro saindo, porque ele nunca chegou a entrar.',
     items: [
       {
         title: 'Mensagens sem resposta.',
-        body: 'O contato chega, o time está ocupado, o concorrente responde primeiro. A venda foi perdida no tempo.',
+        body: 'O contato chega numa terça às 21h. O time responde na quarta de manhã. O concorrente respondeu às 21h04. A venda se perdeu no relógio.',
       },
       {
         title: 'Atendimento sem condução.',
         body: 'O cliente pergunta valor, recebe valor e some. Ninguém qualificou, ninguém conduziu, ninguém marcou.',
       },
       {
-        title: 'Equipe despreparada comercialmente.',
-        body: 'Cada vendedor improvisa um script diferente. Cada um responde do jeito que acha melhor. O resultado é desigual, instável e impossível de medir.',
+        title: 'Cada vendedor com o próprio script.',
+        body: 'Um responde rápido e sem contexto. Outro responde bem e três horas depois. O resultado muda conforme quem estava de plantão, e não existe padrão para medir.',
       },
       {
         title: 'Contatos que esfriam.',
-        body: 'Ninguém faz follow-up porque ninguém tem tempo. O contato que custou caro para chegar morre dentro do seu próprio WhatsApp.',
+        body: 'Ninguém faz follow-up porque ninguém tem tempo. O contato que custou caro para chegar morre dentro do WhatsApp da própria empresa.',
       },
       {
         title: 'Agenda com buracos invisíveis.',
-        body: 'Horários vagos que poderiam estar vendendo. Você só percebe no final do mês, no faturamento que não veio.',
+        body: 'Horários vagos que poderiam estar vendendo. O buraco só aparece no fechamento do mês, no faturamento que não veio.',
       },
       {
-        title: 'Dono sobrecarregado.',
-        body: 'Você virou o gargalo da própria empresa. Tudo passa por você porque ninguém mais sabe conduzir do jeito certo.',
+        title: 'Dono no meio de toda conversa.',
+        body: 'O dono vira o último filtro de qualidade da operação. Não por vaidade: porque é ele quem aprendeu a conduzir a conversa até o fechamento, e esse conhecimento nunca saiu da cabeça dele.',
       },
     ],
     closing:
-      'Você trabalha mais e cresce menos do que deveria.',
+      'Essas empresas trabalham mais e crescem menos do que o mercado delas permite.',
     closingTail:
-      'E o pior: a maioria das empresas tenta resolver isso contratando mais gente. O que só multiplica o problema.',
+      'E a saída mais comum é contratar mais gente. O que multiplica a folha antes de resolver o gargalo.',
   },
   cases: {
     eyebrow: '02 · Empresas que ativaram o PAI',
@@ -95,9 +95,9 @@ export const ptBr: Strings = {
         segment: 'Academia de jiu-jitsu',
         stats: [
           { value: '292 → 423', label: 'alunos ativos em 1 ano' },
-          { value: '4–8', label: 'novos agendamentos por dia' },
+          { value: '+40%', label: 'na taxa de conversão' },
         ],
-        body: 'De 292 para 423 alunos ativos em 1 ano, entre adultos e crianças. 30 a 40 atendimentos por dia no WhatsApp, 4 a 8 novos agendamentos por dia entrando na agenda. Resultado: a unidade já está buscando espaço maior para comportar o crescimento.',
+        body: 'De 292 para 423 alunos ativos em 1 ano, entre adultos e crianças. 30 a 40 atendimentos por dia no WhatsApp, 4 a 8 novos agendamentos por dia entrando na agenda. A taxa de conversão subiu mais de 40%, e a unidade já está buscando espaço maior para comportar o crescimento.',
         accent: 'linear-gradient(135deg, #2a3540 0%, #4a5560 100%)',
       },
       {
@@ -111,18 +111,18 @@ export const ptBr: Strings = {
         accent: 'linear-gradient(135deg, #944c29 0%, #b56a44 100%)',
       },
       {
-        name: 'Clínica de cirurgia plástica',
-        segment: 'Saúde e estética avançada',
+        name: 'Dra. Georgia',
+        segment: 'Cirurgia plástica',
         stats: [
           { value: '680+', label: 'atendimentos em 3 meses' },
         ],
-        body: 'Mais de 680 contatos atendidos no WhatsApp em apenas 3 meses, com qualificação automática e entrega dos casos prontos para o time clínico fechar. O dono parou de ser o gargalo do agendamento.',
+        body: 'Mais de 680 contatos atendidos no WhatsApp em apenas 3 meses, com qualificação automática e entrega dos casos prontos para o time clínico fechar. A agenda deixou de depender da própria médica para andar.',
         accent: 'linear-gradient(135deg, #3a4a3a 0%, #5d7159 100%)',
       },
     ],
     pattern: {
       title: 'O padrão por trás dos números',
-      body: 'Em todos os casos, o ponto de virada foi a estrutura por trás do atendimento.',
+      body: 'Sem sistema, a resposta leva até 48 horas, quando a mensagem não fica esquecida no meio das outras. Com o PAI, chega na mesma hora. Em todos os casos, o número subiu antes de o time crescer.',
     },
     cta: 'Quero um diagnóstico para a minha empresa',
   },
@@ -131,7 +131,7 @@ export const ptBr: Strings = {
     headlineLine1: 'O PAI entra na sua operação',
     headlineLine2: 'em cinco etapas.',
     intro:
-      'O PAI é um protocolo que entra na sua operação, aprende como a sua empresa vende e ativa inteligência comercial onde antes existia improviso. Construído ao longo de seis anos vendendo no WhatsApp e no Direct, depois transferido para agentes de IA aplicados em contextos reais de cliente.',
+      'O PAI é um protocolo que entra na sua operação, aprende como a sua empresa vende e ativa inteligência comercial onde o resultado dependia de quem estava de plantão. Construído ao longo de seis anos vendendo no WhatsApp e no Direct, depois transferido para agentes de IA aplicados em contextos reais de cliente.',
     steps: [
       {
         title: 'Diagnóstico profundo da operação',
@@ -155,9 +155,9 @@ export const ptBr: Strings = {
       },
     ],
     closing:
-      'O digital já é o mínimo. O futuro é inteligente. Empresas que ativam inteligência em vendas crescem com menos esforço, lideram o mercado e libertam o dono do caos operacional. As que continuam dependendo da memória, da disciplina e do humor de pessoas vão continuar com faturamento instável, por mais tráfego que comprem.',
+      'O digital já é o mínimo. Empresas que ativam inteligência em vendas respondem em segundos, medem cada etapa do funil e tiram o dono da fila de atendimento. As que seguem no modelo manual seguem com faturamento instável, por mais tráfego que comprem.',
     closingTail:
-      'A pergunta é quanto você ainda vai pagar para descobrir que precisava.',
+      'Toda semana sem estrutura tem um preço. Ele só não aparece com esse nome no relatório.',
     cta: 'Ative o PAI na sua empresa',
   },
   faq: {

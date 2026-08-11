@@ -237,12 +237,13 @@ em { font-style: italic; }
   color: var(--c-accent-500);
 }
 .alb-hero__title {
-  font-family: var(--font-highlight);
-  font-weight: 700;
-  font-size: clamp(40px, 5.6vw, 88px);
-  line-height: 1.05;
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: clamp(40px, 7vw, 104px);
+  line-height: 1.2;
   color: var(--c-army);
-  letter-spacing: -0.012em;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
   max-width: 1100px;
   margin: 0;
   text-wrap: balance;
@@ -250,8 +251,7 @@ em { font-style: italic; }
 .alb-hero__title-line2 {
   display: block;
   color: var(--c-charcoal);
-  font-style: italic;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 .alb-hero__halo-word { position: relative; display: inline-block; }
 .alb-hero__halo {
@@ -395,15 +395,16 @@ em { font-style: italic; }
   margin-bottom: 72px;
 }
 .alb-pain__heading {
-  font-family: var(--font-highlight);
-  font-weight: 700;
-  font-size: clamp(40px, 5vw, 72px);
-  line-height: 1.02;
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: clamp(36px, 5.6vw, 84px);
+  line-height: 1.14;
   color: var(--c-charcoal);
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
 }
-.alb-pain__heading-2 { color: var(--c-accent-500); font-style: italic; }
+.alb-pain__heading-2 { color: var(--c-accent-500); }
 .alb-pain__intro p {
   font-family: var(--font-body);
   font-size: 17px;
@@ -495,15 +496,16 @@ em { font-style: italic; }
   align-items: end;
 }
 .alb-cases__heading {
-  font-family: var(--font-highlight);
-  font-weight: 700;
-  font-size: clamp(40px, 5vw, 72px);
-  line-height: 1.02;
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: clamp(36px, 5.6vw, 84px);
+  line-height: 1.14;
   color: var(--c-charcoal);
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
 }
-.alb-cases__heading-2 { color: var(--c-accent-500); font-style: italic; }
+.alb-cases__heading-2 { color: var(--c-accent-500); }
 .alb-cases__intro {
   font-family: var(--font-body);
   font-size: 17px;
@@ -666,15 +668,16 @@ em { font-style: italic; }
   align-items: end;
 }
 .alb-proto__heading {
-  font-family: var(--font-highlight);
-  font-weight: 700;
-  font-size: clamp(40px, 5vw, 72px);
-  line-height: 1.02;
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: clamp(36px, 5.6vw, 84px);
+  line-height: 1.14;
   color: var(--c-charcoal);
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
 }
-.alb-proto__heading-2 { color: var(--c-accent-500); font-style: italic; }
+.alb-proto__heading-2 { color: var(--c-accent-500); }
 .alb-proto__intro {
   font-family: var(--font-body);
   font-size: 17px;
@@ -983,7 +986,7 @@ em { font-style: italic; }
   font-family: var(--font-headline);
   font-weight: 400;
   font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.0;
+  line-height: 1.14;
   letter-spacing: -0.005em;
   text-transform: uppercase;
   color: var(--c-charcoal);
@@ -1114,7 +1117,7 @@ body.has-consent-banner .alb-wa-fab { bottom: 132px; }
   font-family: var(--font-headline);
   font-weight: 400;
   font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.0;
+  line-height: 1.14;
   letter-spacing: -0.005em;
   text-transform: uppercase;
   color: var(--c-charcoal);
@@ -1189,7 +1192,7 @@ body.has-consent-banner .alb-wa-fab { bottom: 132px; }
   font-family: var(--font-headline);
   font-weight: 400;
   font-size: clamp(40px, 8vw, 84px);
-  line-height: 0.98;
+  line-height: 1.14;
   letter-spacing: -0.005em;
   text-transform: uppercase;
   color: var(--c-charcoal);
@@ -1280,7 +1283,7 @@ body.has-consent-banner .alb-wa-fab { bottom: 132px; }
   .alb-reading { padding-bottom: 100px; }
   .alb-reading__card { padding: 28px 24px 28px; }
   .alb-404 { padding-top: 140px; padding-bottom: 100px; }
-  .alb-hero__title { font-size: clamp(34px, 8vw, 52px); }
+  .alb-hero__title { font-size: clamp(36px, 9.5vw, 60px); }
   .alb-hero__halo { width: 36px; height: 36px; }
   .alb-hero__ctas { flex-direction: column; align-items: stretch; }
   .alb-hero__ctas .alb-btn { justify-content: center; }

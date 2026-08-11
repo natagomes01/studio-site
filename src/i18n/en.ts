@@ -4,7 +4,7 @@ export const en: Strings = {
   meta: {
     title: 'Albatroz Studio · PAI, Living intelligence for sales',
     description:
-      'We deploy PAI, the Sales Intelligence Activation Protocol. 24/7 response, automated lead handling, and a human team multiplied by AI.',
+      'Service companies lose deals between the message landing and someone answering. PAI adds round-the-clock WhatsApp coverage, real lead handling, and AI beside the team.',
   },
   nav: {
     pillars: 'What we do',
@@ -18,67 +18,67 @@ export const en: Strings = {
   },
   hero: {
     eyebrow: 'Albatroz Studio · Sales Intelligence',
-    headlineLine1: 'You are losing customers',
-    headlineLine2: 'because your sales operation has no structure.',
+    headlineLine1: 'Companies with demand and a team',
+    headlineLine2: 'lose deals in the silence between one message and the next.',
     subheadline:
-      'We deploy **PAI, the Sales Intelligence Activation Protocol**, inside your operation. 24/7 response on WhatsApp, automated lead handling, and a human team multiplied by AI. What today depends on your memory, your discipline, and your team\'s mood, starts running as a system.',
+      'We deploy **PAI, the Sales Intelligence Activation Protocol**, inside your operation. Round-the-clock coverage on WhatsApp, lead handling that carries the conversation to the close, and a sales team that covers several times its own volume. In a manual operation, whoever is free answers first. With PAI, the system answers, in seconds, at any hour.',
     ctaPrimary: 'Activate PAI in my company',
     ctaSecondary: 'See how it works',
     support:
-      'Built for companies that already have demand and a team, and that are losing deals in the silence between one message and the next.',
+      'Built for companies that already have the demand and already have the people, and still watch leads come in and die unanswered.',
   },
-  responsePromise: 'Answered in under 24 hours, straight with me on WhatsApp.',
+  responsePromise: 'A reply in under 24 hours, from me, on WhatsApp.',
   proofBar: [
     { metric: '80+', context: 'daily conversations · Estética Salomão' },
-    { metric: '423', context: 'active students · Gracie Barra SG' },
+    { metric: '+40%', context: 'in conversion · Gracie Barra SG' },
     { metric: '$700K', context: 'in monthly sales · Topografia com Você' },
-    { metric: '680', context: 'leads in 3 months · plastic surgery clinic' },
+    { metric: '680', context: 'leads in 3 months · Dra. Georgia' },
   ],
   pain: {
-    eyebrow: '01 · What stalls your operation today',
-    headlineLine1: 'You have customers.',
-    headlineLine2: 'You lack structure.',
+    eyebrow: '01 · Where the deal is lost',
+    headlineLine1: 'Demand arrives.',
+    headlineLine2: 'The structure does not hold.',
     intro:
-      'The biggest financial loss in a service company today is in the operation. In the silence between a lead arriving and someone replying. In the customer who cooled off while your team was busy. In the calendar with empty slots that nobody noticed close.',
+      'The biggest money leak in a service business sits in the operation itself. In the silence between a lead landing and someone answering. In the customer who went cold while the team was busy with someone else. In the calendar with open slots nobody noticed.',
     introTail:
-      'You don\'t see this money leaving — because it never made it in.',
+      'You never see this money leave, because it never made it in.',
     items: [
       {
         title: 'Messages left unanswered.',
-        body: 'The lead arrives, your team is busy, the competitor replies first. The deal was lost on time.',
+        body: 'The lead comes in on a Tuesday at 9pm. The team answers Wednesday morning. The competitor answered at 9:04pm. The deal was lost on the clock.',
       },
       {
-        title: 'Conversations without direction.',
-        body: 'The customer asks for a price, gets the price, and disappears. Nobody qualified, nobody guided, nobody booked.',
+        title: 'Conversations with no direction.',
+        body: 'The customer asks the price, gets the price, and disappears. Nobody qualified, nobody guided, nobody booked.',
       },
       {
-        title: 'A team that improvises commercially.',
-        body: 'Each rep makes up a different script. Each one replies the way they feel like. The result is uneven, unstable, and impossible to measure.',
+        title: 'Every rep with their own script.',
+        body: 'One answers fast and with no context. Another answers well, three hours later. The result shifts with whoever was on shift, and there is no standard to measure against.',
       },
       {
         title: 'Leads that go cold.',
-        body: 'Nobody runs follow-up because nobody has time. The lead you paid dearly to attract dies inside your own WhatsApp.',
+        body: 'Nobody runs follow-up because nobody has the time. The lead that cost real money to attract dies inside the company\'s own WhatsApp.',
       },
       {
         title: 'A calendar full of invisible gaps.',
-        body: 'Empty slots that could be selling. You only notice at the end of the month, in the revenue that never came.',
+        body: 'Open slots that could be selling. The gap only shows up at month end, in the revenue that never came.',
       },
       {
-        title: 'An overloaded owner.',
-        body: 'You became the bottleneck of your own company. Everything goes through you because nobody else knows how to handle it the right way.',
+        title: 'An owner in the middle of every conversation.',
+        body: 'The owner becomes the last quality check in the operation. Not out of vanity: they are the one who learned to carry a conversation to the close, and that knowledge never left their head.',
       },
     ],
     closing:
-      'You work harder and grow less than you should.',
+      'These companies work harder and grow less than their market allows.',
     closingTail:
-      'And worse: most companies try to fix this by hiring more people. Which only multiplies the problem.',
+      'And the usual answer is to hire more people. Which grows payroll before it touches the bottleneck.',
   },
   cases: {
     eyebrow: '02 · Companies that activated PAI',
     headlineLine1: 'When the operation becomes a system,',
     headlineLine2: 'growth shows up.',
     intro:
-      'Every company that activates PAI starts from its own diagnosis. Different industries, different sizes, different ticket. But the result pattern repeats: response time drops, conversion rises, the team gets focused, the owner steps out of the operation.',
+      'Every company that activates PAI starts from its own diagnosis. Different industries, different headcounts, different deal sizes. The result pattern repeats all the same: response time drops, conversion rises, the team focuses, the owner steps out of the day-to-day.',
     items: [
       {
         name: 'Estética Salomão',
@@ -87,7 +87,7 @@ export const en: Strings = {
           { value: '80+', label: 'daily WhatsApp conversations' },
           { value: '15K+', label: 'women served historically' },
         ],
-        body: 'A benchmark in scale: more than 15,000 women served by the clinic over its history. With PAI active, the operation now sustains 80+ conversations per day on WhatsApp without breaking — and without losing the brand\'s human tone. A volume that, in a manual model, would require tripling the support team.',
+        body: 'A clinic with real scale behind it: more than 15,000 women served over its history. With PAI running, the operation now handles 80+ conversations a day on WhatsApp without buckling, and without losing the human tone of the brand. A volume that would take three times the support team to cover by hand.',
         accent: 'linear-gradient(135deg, #6b3a3a 0%, #a85957 100%)',
       },
       {
@@ -95,9 +95,9 @@ export const en: Strings = {
         segment: 'Jiu-jitsu academy',
         stats: [
           { value: '292 → 423', label: 'active students in 1 year' },
-          { value: '4–8', label: 'new bookings per day' },
+          { value: '+40%', label: 'in conversion rate' },
         ],
-        body: 'From 292 to 423 active students in one year — adults and children. 30 to 40 daily WhatsApp conversations, 4 to 8 new bookings per day on the calendar. The result: the unit is already searching for a larger venue to handle the growth.',
+        body: 'From 292 to 423 active students in one year, adults and children. 30 to 40 WhatsApp conversations a day, 4 to 8 new bookings landing on the calendar. Conversion climbed more than 40%, and the location is already hunting for a bigger space to hold the growth.',
         accent: 'linear-gradient(135deg, #2a3540 0%, #4a5560 100%)',
       },
       {
@@ -107,57 +107,57 @@ export const en: Strings = {
           { value: '$700K', label: 'in monthly sales (avg.)' },
           { value: 'B2B', label: 'long, technical sales cycle' },
         ],
-        body: 'An average of $700,000 in monthly sales, sustained by a real commercial intelligence layer. Technical qualification, lead handling, and pre-close preparation operating as a system. In an industry with a long and technical sales cycle, PAI organizes what used to depend on the rep\'s memory.',
+        body: 'An average of $700,000 in sales a month, held up by a real commercial intelligence layer. Technical qualification, lead handling, and pre-close preparation all running as a system. In an industry where the sales cycle is long and technical, PAI organizes what used to live in the rep\'s memory.',
         accent: 'linear-gradient(135deg, #944c29 0%, #b56a44 100%)',
       },
       {
-        name: 'Plastic surgery clinic',
-        segment: 'Healthcare and advanced aesthetics',
+        name: 'Dra. Georgia',
+        segment: 'Plastic surgery',
         stats: [
           { value: '680+', label: 'leads handled in 3 months' },
         ],
-        body: 'More than 680 leads handled on WhatsApp in just 3 months, with automatic qualification and cases delivered ready for the clinical team to close. The owner stopped being the bottleneck of the schedule.',
+        body: 'More than 680 leads handled on WhatsApp in just 3 months, with automatic qualification and cases delivered ready for the clinical team to close. The calendar stopped depending on the surgeon herself to move.',
         accent: 'linear-gradient(135deg, #3a4a3a 0%, #5d7159 100%)',
       },
     ],
     pattern: {
       title: 'The pattern behind the numbers',
-      body: 'In every case, the turning point was the structure behind the conversation.',
+      body: 'With no system, a reply takes up to 48 hours, when the message does not get buried under the others. With PAI, it lands within the hour. In every case, the numbers moved before the team grew.',
     },
     cta: 'Get a diagnosis for my company',
   },
   protocol: {
     eyebrow: '03 · How PAI is deployed in your company',
-    headlineLine1: 'PAI enters your operation',
+    headlineLine1: 'PAI drops into your operation',
     headlineLine2: 'in five stages.',
     intro:
-      'PAI is a protocol that enters your operation, learns how your company sells, and activates commercial intelligence where there used to be improvisation. Built over six years of selling on WhatsApp and DM, then transferred to AI agents applied in real client contexts.',
+      'PAI is a protocol that drops into your operation, learns how your company sells, and activates commercial intelligence where the result used to depend on whoever was on shift. Built over six years of selling on WhatsApp and DM, then handed to AI agents working in real client contexts.',
     steps: [
       {
         title: 'Deep diagnosis of the operation',
-        body: 'We map the sales flow, identify where the money is leaking, and design a protocol specific to your business. No generic template, no copying from a competitor.',
+        body: 'We map the sales flow, find where the money is leaking, and design a protocol specific to your business. No generic template, no copying a competitor.',
       },
       {
         title: 'Training the sales intelligence',
-        body: 'The AI is trained with your language, your real objections, your differentiators, and your commercial process. It sells the way your company sells.',
+        body: 'The AI is trained on your language, your real objections, your differentiators, and your commercial process. It sells the way your company sells.',
       },
       {
-        title: 'Deployment on WhatsApp and sales channels',
-        body: 'Active 24/7 response, automatic qualification, lead handling all the way to the closing point. Everything integrated where the customer already is — no one has to migrate to a new system.',
+        title: 'Deployment on WhatsApp and your sales channels',
+        body: 'Round-the-clock coverage, automatic qualification, and lead handling all the way to the closing point. All of it inside the channel the customer already uses, with nobody forced onto a new system.',
       },
       {
         title: 'Integration with the human team',
-        body: 'AI hands over a qualified lead, at the right moment, with full context. The human team closes — with more time, more information, and less friction. The salesperson stops being a receptionist and goes back to being a salesperson.',
+        body: 'The AI hands over a qualified lead, at the right moment, with the full context. Your people close, with more time, more information, and less friction. The salesperson stops working reception and goes back to selling.',
       },
       {
         title: 'Continuous optimization',
-        body: 'We track the real behavior of leads, adjust the protocol, and conversion rises week after week. The deployment stays alive after delivery.',
+        body: 'We track how leads actually behave, adjust the protocol, and conversion climbs week after week. The deployment stays alive after delivery.',
       },
     ],
     closing:
-      'Digital is already the minimum. The future is intelligent. Companies that activate sales intelligence grow with less effort, lead the market, and free the owner from operational chaos. The ones still relying on memory, discipline, and people\'s mood will keep dealing with unstable revenue, no matter how much traffic they buy.',
+      'Digital is table stakes now. Companies that activate sales intelligence answer in seconds, measure every stage of the funnel, and pull the owner out of the reply queue. The ones still running by hand keep the same unstable revenue, no matter how much traffic they buy.',
     closingTail:
-      'The question is how much you will keep paying to find out you needed it.',
+      'Every week without structure carries a price. It just never shows up under that name in the report.',
     cta: 'Activate PAI in your company',
   },
   faq: {
@@ -168,27 +168,27 @@ export const en: Strings = {
     items: [
       {
         q: 'Is PAI a chatbot?',
-        a: 'No. PAI is a commercial intelligence system, sales intelligence. It answers leads 24 hours a day, so you stop losing the contact that arrives at 2am and the client who has five minutes in the day to talk to anyone. And it gives the owner working metrics: how many arrived, how many were answered, how many moved forward. You start deciding on real numbers. Gut feeling drops out of the equation.',
+        a: 'No. PAI is a commercial intelligence system, sales intelligence. It answers leads 24 hours a day, so nothing is lost when a message comes in at 2am, or when the only free window a customer has is five minutes long. And it gives the owner working numbers: how many came in, how many were answered, how many moved forward. You start deciding on real figures. Gut feeling drops out of it.',
       },
       {
         q: 'Will the AI replace my sales team?',
-        a: 'It will not replace anyone. It speeds things up. Our job is the human-machine handoff: the AI answers fast, lets nobody slip away, and walks the lead to a person. Connection and closing stay with your team. How that is shaped depends on the ticket. Some clients run fully automatic scheduling around the clock and it works very well. A real estate agency, with a bigger ticket, needs the baton passed for a consultative sale. That is what we align in the first analysis call, including whether your business is one I can serve.',
+        a: 'It will not replace anyone. It picks up the speed. Our job is the handoff between human and machine: the AI answers fast, lets nobody slip through, and walks the lead up to a person. Connection and closing stay with your team. How that gets shaped depends on the deal size. Some clients run fully automatic booking around the clock and it works very well. A real estate agency, with a bigger ticket, needs the baton passed for a consultative sale. That is what we settle in the first analysis call, including whether your business is one I can take on.',
       },
       {
         q: 'Do I have to change systems or move my team off WhatsApp?',
-        a: 'Your team stays on WhatsApp, working inside the platform, in sync with the system. And you do not have to change systems. There are three routes, and which one fits depends on how your company runs today: run alongside what you already have, migrate to the Albatroz integrated system, or build a custom deployment inside the system already running at your company. When a system is already in the house, the work is built on top of it.',
+        a: 'Your team stays on WhatsApp, working inside the platform, alongside the system. And you do not have to change systems. There are three routes, and which one fits depends on how your company runs today: run alongside what you already have, migrate to the Albatroz integrated system, or build a custom deployment inside the system already in place. Where a system is already running, the work is built on top of it.',
       },
       {
         q: 'Does it work in my industry?',
-        a: 'We already run in clinics, real estate, construction, equipment sales, engineering, gyms, a jiu-jitsu school, spas, digital products, mentorships and an animal protection NGO. The system adapts because it is built on your process rather than on your segment. The real test is different: if you need to answer fast and stop losing opportunities sitting in WhatsApp or SMS, it is for you.',
+        a: 'We already run in clinics, real estate, construction, equipment sales, engineering, gyms, a jiu-jitsu school, spas, digital products, mentorships, and an animal protection NGO. The system adapts because it is built on your process rather than on your segment. The test that matters is a different one: if you need to answer fast and stop losing opportunities that sit unread in WhatsApp or SMS, it is for you.',
       },
       {
         q: 'How does it start?',
-        a: 'With a 25-minute call. We survey your business and work out whether we can help your growth right now. Not every company is at the point of deploying a system: one needs more leads coming in, another needs to handle what already arrives, another needs digital presence. The solution is designed per business, so the first step is always the individual analysis.',
+        a: 'With a 25-minute call. We walk through your business and work out whether we can help you grow right now. Not every company is at the point of deploying a system: one needs more leads coming in, another needs to handle what already arrives, another needs a digital presence at all. The solution is designed per business, so the first step is always the individual analysis.',
       },
       {
         q: 'What does it cost?',
-        a: 'Pricing comes out of the individual conversation, quoted for your case. We publish no price range because every deployment builds a new brain, specific to that business. Off-the-shelf software and SaaS subscriptions have price tables; a solution designed for one operation does not. To reach the number we need to know what you need and what already runs at your company, including whether a system is in place.',
+        a: 'Pricing comes out of the individual conversation, quoted for your case. We publish no price range because every deployment builds a new brain, specific to that business. Off-the-shelf software and SaaS subscriptions have price tables; a system designed around one operation does not. To reach a number we need to know what you need and what already runs in your company, including whether a system is in place.',
       },
     ],
   },
@@ -210,7 +210,7 @@ export const en: Strings = {
     contactCta: 'Get in touch',
     address: {
       line1: 'Avenida Gisele Constantino, 164, Suite 7A',
-      line2: 'Parque Bela Vista — Votorantim, SP — Brazil',
+      line2: 'Parque Bela Vista, Votorantim, SP, Brazil',
       line3: 'ZIP 18110-650',
     },
     directionsLabel: 'Get directions on Google Maps',
@@ -223,7 +223,7 @@ export const en: Strings = {
   notFound: {
     eyebrow: 'Error 404',
     title: 'This page does not exist.',
-    body: 'The address moved, or the link that brought you here is broken. Three routes that work, below.',
+    body: 'The address moved, or the link that brought you here is broken. Three routes that work:',
     ctaHome: 'Back to the home page',
     ctaGuide: 'Read the WhatsApp 2026 guide',
     ctaContact: 'Chat on WhatsApp',
@@ -231,7 +231,7 @@ export const en: Strings = {
   form: {
     title: 'Get a diagnosis for your company',
     nameLabel: 'Name',
-    namePlaceholder: 'How you prefer to be called',
+    namePlaceholder: 'What you like to be called',
     companyLabel: 'Company',
     companyPlaceholder: 'Your company name',
     emailLabel: 'Email',
@@ -244,7 +244,7 @@ export const en: Strings = {
     submit: 'Request a diagnosis',
     submitting: 'Sending…',
     success:
-      'Received. We will reply within 1 business day via WhatsApp or the email you provided.',
+      'Received. I reply in under 24 hours, on WhatsApp or at the email you gave.',
     error: 'Something went wrong. Try again or write to nata@albatroz.studio.',
   },
 };

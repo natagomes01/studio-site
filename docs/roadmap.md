@@ -163,6 +163,59 @@ com tipografia de dado medido. Faltam três números que só o Natã tem:
 - Um antes e depois de tempo de resposta ou de conversão, com período. A página promete
   as duas coisas e não mostra número de nenhuma. Os oito números atuais são de volume.
 
+## Revisão de copy v3, 11 de agosto de 2026
+
+Publicada. O relatório completo, com o antes e depois campo a campo, está em
+[copy.v3.changes.md](copy.v3.changes.md).
+
+Método: Eugene Schwartz cruzado com a regra de pessoa que o Natã fixou nesta sessão. A dor
+vai para a terceira pessoa (empresas, clínicas, donos de negócio) e a segunda pessoa fica
+só na solução e na decisão. A pedra é jogada na operação manual e no reflexo de contratar
+mais gente, nunca no leitor.
+
+**A linha que mais muda de mão** é o item 6 da seção 01. "Você virou o gargalo da própria
+empresa" virou "O dono vira o último filtro de qualidade da operação. Não por vaidade:
+porque é ele quem aprendeu a conduzir a conversa até o fechamento, e esse conhecimento
+nunca saiu da cabeça dele." Justifica a falha e aponta para a etapa 2 do PAI, que é
+justamente tirar esse conhecimento da cabeça do dono.
+
+**Headline nova:** "Empresas com demanda e equipe perdem venda no silêncio entre uma
+mensagem e outra." A palavra "mensagem" foi escolhida por falar também com SMS, que é o
+canal do público americano.
+
+**As headlines passaram para Anton**, a condensada que o guia e as seções 04 e 05 já usavam.
+Hero, seções 01, 02 e 03, e a 404. Junto veio um defeito de tipografia: com entrelinha
+apertada, o acento das maiúsculas era desenhado por cima da linha de cima e sumia.
+SILÊNCIO saía SILENCIO, e ESSA PÁGINA NÃO EXISTE perdia os dois acentos. Entrelinha de 1.14
+nas sete headlines, 1.2 no hero.
+
+**Três dos cinco pendentes da onda 2 caíram**, com dado que só o Natã tinha:
+
+- O antes e depois de tempo de resposta entrou no bloco de padrão da seção 02. Sem sistema,
+  até 48 horas ou a mensagem esquecida. Com o PAI, na mesma hora.
+- A conversão da Gracie Barra, mais de 40%, entrou no `proofBar` e no card do case.
+- A clínica de cirurgia plástica ganhou nome: Dra. Georgia.
+
+Com isso a auditoria 4 do laudo estrutural fecha. A página prometia "tempo de resposta que
+cai, conversão que sobe" e mostrava só número de volume.
+
+**O inglês foi reescrito por inteiro.** Vários trechos eram tradução ao pé da letra do
+português, com um erro que invertia o sentido: "The deal was lost on time", que
+em inglês quer dizer que a venda saiu no prazo. Os travessões saíram do `en.ts` também, por
+decisão do Natã, embora a regra de casa valha para o português.
+
+**`docs/og-template.html`** é novo. Gera as duas imagens sociais por parâmetro de URL, e
+existe porque a geração da onda 1 não tinha ficado registrada em lugar nenhum do repo.
+
+**A suspeita de overflow horizontal no mobile não se reproduz mais.** Home em 390px, PT e
+EN, com `scrollWidth` igual ao `clientWidth`. Falta confirmar em aparelho de verdade antes
+de riscar o item da fila.
+
+Pendente da v3: o sobrenome da Dra. Georgia, se ele entra, e a confirmação por escrito da
+autorização de uso do nome. O nome já está publicado em três lugares.
+
+---
+
 ### Ainda pendente da onda 2
 
 Cada um destes trava numa informação que não está no repo.
@@ -201,7 +254,9 @@ Aqui a sessão não é de código. É de produção.
 1. ~~Onda 1~~, publicada em 10/08/2026, commit `e8611eb`.
 2. ~~Onda 2~~, construída em 10/08/2026, parada na sua leitura da política e no
    Measurement ID.
-3. Overflow horizontal no mobile, depois de confirmado em aparelho real.
-4. Decisão A/B do formulário, e o que ela puxa: obrigado e evento de conversão.
-5. Depoimento e primeira página de case.
-6. Foto, quando houver foto.
+3. ~~Revisão de copy v3~~, publicada em 11/08/2026.
+4. Overflow horizontal no mobile, que não se reproduz mais no navegador, à espera de
+   confirmação em aparelho real.
+5. Decisão A/B do formulário, e o que ela puxa: obrigado e evento de conversão.
+6. Depoimento e primeira página de case.
+7. Foto, quando houver foto.
