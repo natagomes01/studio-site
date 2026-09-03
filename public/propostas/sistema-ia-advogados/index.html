@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Sistema IA para Advogados · Proposta Interna | Albatroz Studio</title>
-<meta name="description" content="Proposta comercial: sistema de IA para automação de atendimento e gestão processual em escritórios de advocacia.">
+<meta name="description" content="Proposta comercial: sistema de IA que lê as comunicações do CNJ, resume a decisão em linguagem simples e notifica o cliente pelo WhatsApp, sempre com aprovação do advogado.">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="stylesheet" href="assets/colors_and_type.css">
 <style>
@@ -106,15 +106,6 @@
   table.data tr.total td { font-weight: 700; border-top: 2px solid var(--border-rule); border-bottom: none; color: var(--fg-strong); }
   table.data tr.total td.num { font-family: var(--font-highlight); font-size: 17px; }
 
-  /* ---------- hours bar chart ---------- */
-  .bars { display: flex; flex-direction: column; gap: 14px; margin: var(--space-m) 0; }
-  .bar-row { display: grid; grid-template-columns: 160px 1fr 64px; align-items: center; gap: 14px; }
-  .bar-lab { font-size: 13.5px; color: var(--fg-muted); text-align: right; }
-  .bar-track { height: 22px; background: var(--border-quiet); position: relative; }
-  .bar-fill { height: 100%; background: var(--c-army); }
-  .bar-val { font-size: 13.5px; font-weight: 700; color: var(--fg-strong); }
-  .bar-note { font-size: 12.5px; color: var(--fg-muted); margin: 4px 0 0; }
-
   /* ---------- deliverables checklist ---------- */
   .checklist { margin: var(--space-m) 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; line-height: 1.5; }
@@ -124,33 +115,36 @@
   .checklist-label { font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--fg-muted); margin: var(--space-m) 0 0; }
   .checklist-label:first-child { margin-top: 0; }
 
-  /* ---------- price block ---------- */
-  .price-block { border: 2px solid var(--c-charcoal); padding: 36px 32px; margin: var(--space-m) 0 var(--space-l); }
-  .price-block .amount { font-family: var(--font-headline); font-weight: 400; font-size: clamp(48px, 8vw, 84px); line-height: 1; color: var(--fg-strong); margin: 0 0 8px; }
-  .price-block .terms { font-size: 17px; color: var(--fg-muted); margin: 0; }
-  .price-block .terms b { color: var(--fg-strong); }
+  /* ---------- price stack ---------- */
+  .price-stack { border: 2px solid var(--c-charcoal); padding: 30px 32px; margin: var(--space-m) 0 var(--space-s); }
+  .price-stack .row { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 12px 0; border-bottom: 1px solid var(--border-quiet); font-size: 15.5px; }
+  .price-stack .row .v { font-family: var(--font-highlight); font-weight: 700; white-space: nowrap; }
+  .price-stack .row--sub { border-bottom: 1.5px solid var(--border-rule); }
+  .price-stack .row--sub .l, .price-stack .row--sub .v { font-weight: 700; color: var(--fg-strong); }
+  .price-stack .row--off { border-bottom: 0; padding-bottom: 4px; }
+  .price-stack .row--off .l { font-weight: 700; color: var(--c-accent-500); }
+  .price-stack .row--off .v { font-family: var(--font-headline); font-weight: 400; font-size: clamp(26px, 4vw, 34px); color: var(--c-accent-500); }
+  .price-stack .row--final { border-top: 2px solid var(--c-charcoal); border-bottom: 0; padding-top: 18px; margin-top: 8px; }
+  .price-stack .row--final .l { font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--fg-muted); }
+  .price-stack .row--final .v { font-family: var(--font-headline); font-weight: 400; font-size: clamp(30px, 4.4vw, 40px); color: var(--fg-strong); }
+  .price-stack .terms { margin: 16px 0 0; font-size: 16px; color: var(--fg-muted); }
+  .price-stack .terms b { color: var(--fg-strong); }
+  .stack-note { font-size: 14.5px; color: var(--fg-muted); margin: 0 0 var(--space-m); max-width: 66ch; }
+
   .commercial-notes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
   .commercial-notes li { font-size: 15.5px; line-height: 1.6; padding-left: 20px; position: relative; }
   .commercial-notes li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; background: var(--c-accent-500); }
+
+  /* ---------- ip section ---------- */
+  .ip-block { margin-top: var(--space-m); }
+  .ip-block h3 { margin: 0 0 10px; font-size: 21px; }
+  .ip-block + .ip-block { margin-top: var(--space-m); }
 
   /* ---------- ip callout ---------- */
   .ip-callout { border-left: 3px solid var(--c-accent-500); padding: 4px 0 4px 24px; margin: var(--space-l) 0 0; }
   .ip-callout .eyebrow { display: block; margin: 0 0 10px; }
   .ip-callout p { margin: 0 0 12px; font-size: 15.5px; }
   .ip-callout p:last-child { margin-bottom: 0; }
-
-  /* ---------- strategy comparison ---------- */
-  .strategy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: var(--space-m); }
-  @media (max-width: 720px) { .strategy-grid { grid-template-columns: 1fr; } }
-  .strategy-card { border: 1.5px solid var(--border-rule); padding: 28px 26px; }
-  .strategy-card.recommended { border-color: var(--c-accent-500); border-width: 2px; }
-  .strategy-card .badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-accent-500); margin: 0 0 10px; }
-  .strategy-card h3 { margin: 0 0 6px; font-size: 20px; }
-  .strategy-card .when { font-size: 13.5px; color: var(--fg-muted); margin: 0 0 20px; }
-  .strategy-card .pros, .strategy-card .cons { margin: 0 0 16px; padding: 0; list-style: none; }
-  .strategy-card .pros li, .strategy-card .cons li { font-size: 14px; line-height: 1.6; padding-left: 20px; position: relative; margin-bottom: 6px; }
-  .strategy-card .pros li::before { content: "+"; position: absolute; left: 0; color: var(--c-army); font-weight: 700; }
-  .strategy-card .cons li::before { content: "–"; position: absolute; left: 0; color: var(--c-light-1); font-weight: 700; }
 
   /* ---------- roadmap ---------- */
   .roadmap { display: flex; flex-direction: column; margin-top: var(--space-m); }
@@ -195,7 +189,7 @@
     .nav-links { display: none; }
     .hero { padding: 32px 0 40px; }
     section { padding: 28px 0; break-inside: auto; }
-    .module-card, .strategy-card, .flow-step, .phase, .decision-item, table.data, .bars, .price-block, .ip-callout {
+    .module-card, .flow-step, .phase, .decision-item, table.data, .price-stack, .ip-callout {
       break-inside: avoid;
     }
     h1, h2, h3, .section-head { break-after: avoid; }
@@ -215,10 +209,10 @@
       <a href="#contexto">Contexto</a>
       <a href="#escopo">Escopo</a>
       <a href="#arquitetura">Arquitetura</a>
-      <a href="#custos">Estimativa</a>
+      <a href="#custos">Custos</a>
       <a href="#investimento">Investimento</a>
+      <a href="#licenciamento">Licenciamento</a>
       <a href="#roadmap">Roadmap</a>
-      <a href="#decisoes">Decisões</a>
       <a href="#proximos-passos">Próximos passos</a>
     </div>
   </div>
@@ -228,13 +222,14 @@
   <div class="wrap">
     <span class="eyebrow eyebrow--accent">Apresentação comercial · Aprovação de execução</span>
     <h1>Sistema IA para Advogados</h1>
-    <p class="lead">Uma solução de IA para automação de atendimento ao cliente e gestão processual em escritórios de advocacia. O problema central: advogados gastam tempo excessivo respondendo clientes sobre status de processos, gerando ansiedade e atrito desnecessário. Este documento consolida o escopo do MVP, o briefing técnico e as condições comerciais para aprovação dos sócios investidores.</p>
+    <p class="lead">Um sócio de escritório médio para quatro vezes por dia para responder à mesma pergunta: e o meu processo, como está? Este documento consolida o escopo do MVP, o briefing técnico, o custo por etapa e as condições comerciais para aprovação dos sócios investidores.</p>
     <span class="rule--accent"></span>
     <dl class="meta-grid">
-      <div><dt>Para</dt><dd>Sócios investidores</dd></div>
-      <div><dt>De</dt><dd>Natã Gomes, Albatroz Studio</dd></div>
+      <div><dt>Para</dt><dd>Horácio, Maurício e Júlio</dd></div>
+      <div><dt>De</dt><dd>Natã Gomes e Yuri Hoedemaker, Albatroz Studio</dd></div>
+      <div><dt>Data</dt><dd>31 de agosto de 2026</dd></div>
       <div><dt>Reunião base</dt><dd>07 de julho de 2026</dd></div>
-      <div><dt>Participantes</dt><dd>Natã, Horácio, Maurício, Júlio</dd></div>
+      <div><dt>Validade</dt><dd>15 dias a partir do envio</dd></div>
       <div><dt>Status</dt><dd>Para aprovação de execução</dd></div>
     </dl>
   </div>
@@ -246,62 +241,79 @@
       <span class="eyebrow">01 — Contexto e objetivo</span>
       <h2>Por que este produto</h2>
     </div>
-    <p class="p--lg">A solução proposta simplifica a comunicação entre escritório, cliente e sistema judiciário, reduzindo carga operacional e melhorando a experiência do cliente final. Não é apenas comunicação — é simplificação e eficiência: o cliente recebe informação útil e simplificada, o advogado recebe informação robusta para decidir, e o escritório economiza tempo de atendimento.</p>
-    <p>A estratégia de entrada é começar pequeno: notificações simples, sem histórico completo do processo e sem armazenar dados sensíveis na primeira versão. Isso reduz complexidade de cibersegurança e mantém o custo do MVP baixo. O modelo de receita previsto é assinatura mensal por escritório, com possível componente de pay-per-message.</p>
-    <p>O produto atende dois públicos distintos — advogados solo com alto volume de clientes simples, e grandes escritórios com necessidade de controladoria — e pode oferecer módulos diferentes conforme a necessidade de cada um.</p>
+    <p class="p--lg">Cada resposta consome de três a dez minutos, entre abrir o sistema, ler a última movimentação e traduzir o juridiquês para quem contratou. Com trinta clientes ativos, o escritório queima uma tarde de trabalho faturável por semana produzindo informação que o próprio tribunal já publicou de graça.</p>
+    <p>O cliente, do outro lado, não fica satisfeito. Ele recebe a informação tarde, recebe pela metade, e liga de novo na semana seguinte.</p>
+    <p>O sistema proposto fecha esse ciclo. Ele lê as comunicações processuais na API pública do CNJ, filtra por número de OAB, resume a decisão em linguagem que o cliente entende, mostra o resumo ao advogado para aprovação e dispara a mensagem pelo WhatsApp.</p>
+    <p>O cliente recebe informação útil no dia em que ela sai. O advogado recebe a decisão completa para decidir. O escritório para de gastar hora de sócio com atualização de status.</p>
+    <p>A estratégia de entrada é começar pequeno: notificação simples, sem histórico completo do processo e sem armazenar dado sensível na primeira versão. Isso reduz a superfície de cibersegurança e mantém o custo do MVP baixo. O modelo de receita previsto é assinatura mensal por escritório, com possível componente de cobrança por faixas de volume de mensagem.</p>
+    <p>O produto final tende a atender dois públicos distintos, o advogado solo com alto volume de clientes simples e o escritório grande com necessidade de controladoria, e pode oferecer módulos diferentes conforme a necessidade de cada um. Módulos avançados adicionais podem ser ofertados como planos distintos de implantação e recorrência.</p>
   </div>
 </section>
 
 <section id="escopo">
   <div class="wrap wrap--wide">
     <div class="section-head">
-      <span class="eyebrow">02 — Decisões finais acordadas</span>
-      <h2>Escopo do MVP: três módulos</h2>
-      <p class="lead">O time decidiu focar em um produto com três módulos principais, escalando depois para controladoria e para outros públicos.</p>
+      <span class="eyebrow">02 — Escopo do MVP</span>
+      <h2>Três módulos</h2>
+      <p class="lead">Todo o MVP roda dentro do WhatsApp. A plataforma já lê pela API do WhatsApp e traz a conversa para a tela, onde processos, tarefas e lembretes ficam organizados. Aplicativo próprio e push notification não entram nestes 90 dias.</p>
     </div>
     <div class="modules">
       <div class="module-card">
         <div class="num">01</div>
-        <h3>Atendimento ao cliente via WhatsApp</h3>
+        <h3>Captação no CNJ</h3>
         <ul>
-          <li>Disparo automático de notificação quando há movimentação processual</li>
-          <li>Mensagens personalizadas — nunca genéricas — explicando o que aconteceu</li>
-          <li>Integração com a API aberta do WhatsApp Business</li>
-          <li>Advogado revisa e autoriza a mensagem antes do envio ao cliente</li>
+          <li>Leitura das comunicações processuais na API pública do CNJ</li>
+          <li>Filtro por número de OAB, que recupera todos os processos do advogado</li>
+          <li>Extração do teor da movimentação e gravação no banco</li>
+          <li>Descarte de movimentação irrelevante, com foco em decisão e despacho</li>
         </ul>
       </div>
       <div class="module-card">
         <div class="num">02</div>
-        <h3>Tradução de decisões judiciais</h3>
+        <h3>Comunicação em duas pontas</h3>
         <ul>
-          <li>Conversão de linguagem jurídica complexa em explicação simples</li>
-          <li>Tabela de códigos para mapear tipos de decisão padrão</li>
-          <li>Exemplo: "processo indeferido" vira explicação clara do que isso significa</li>
-          <li>Fallback para tabela padrão se a IA falhar ou tiver baixa confiança</li>
+          <li>O advogado recebe a movimentação com a decisão e o resumo em linguagem simples</li>
+          <li>Conversão do juridiquês feita por IA, com tabela de decisões padrão quando a confiança é baixa</li>
+          <li>Nada sai sem aprovação: o cliente só recebe depois que o advogado autoriza</li>
+          <li>Mensagem personalizada ao cliente, nunca genérica, pelo WhatsApp</li>
+          <li>Registro de envio, entrega e leitura</li>
         </ul>
       </div>
       <div class="module-card">
         <div class="num">03</div>
-        <h3>Plataforma própria</h3>
+        <h3>Minuta da peça</h3>
         <ul>
-          <li>Aplicativo ou web, para não ficar refém de mudanças de política do WhatsApp</li>
-          <li>Alternativa de comunicação além do WhatsApp</li>
-          <li>Push notifications quando há movimentação processual</li>
-          <li>Preferível ao WhatsApp a médio prazo, mantendo o WhatsApp como canal inicial</li>
+          <li>A pedido do advogado, o sistema prepara a minuta da próxima etapa do processo</li>
+          <li>Três modelos, os mais frequentes na rotina do escritório, definidos no kickoff</li>
+          <li>A minuta sai como rascunho para revisão, nunca como peça final</li>
+          <li>Reaproveita a camada de geração de texto construída para o resumo da decisão</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section id="modulos-internos">
+<section id="controle">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">03 — Além do atendimento</span>
-      <h2>Controladoria e integração judicial</h2>
+      <span class="eyebrow">03 — O controle do advogado</span>
+      <h2>Nada é automático do lado de fora</h2>
+      <p class="lead">Cada movimentação passa pela mão do advogado antes de chegar ao cliente, e é ele quem escolhe o que fazer com ela.</p>
     </div>
-    <p class="p--lg">Para escritórios com grande volume de processos, um módulo de controladoria automatiza a triagem: a IA sugere fluxo com base em protocolos do escritório — sem decidir sozinha — e a equipe processa múltiplos fluxos em paralelo com essas sugestões, mantendo histórico de movimentações em Markdown para consulta rápida.</p>
-    <p>Do lado judicial, o sistema filtra movimentações irrelevantes e foca em decisões e despachos importantes, acessando a API pública de comunicações processuais do CNJ. A consulta por número de OAB recupera todos os processos do advogado; documentos publicados no diário oficial ficam disponíveis com cerca de um dia de delay, e o limite de 10 mil consultas mensais da API é suficiente para o volume esperado do MVP.</p>
+    <div class="flow">
+      <div class="flow-step"><div class="k">01 · Publicação</div><div class="v">O tribunal publica a movimentação e ela aparece na API do CNJ</div></div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step"><div class="k">02 · Captação</div><div class="v">O sistema pega a movimentação pelo número de OAB</div></div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step"><div class="k">03 · Leitura</div><div class="v">A IA lê a decisão e escreve o resumo em linguagem simples</div></div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step"><div class="k">04 · Entrega ao advogado</div><div class="v">Decisão completa e resumo chegam pelo WhatsApp</div></div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step accent"><div class="k">05 · Decisão do advogado</div><div class="v">Comunicar o cliente agora, segurar a informação, ou pedir a minuta da próxima etapa</div></div>
+      <div class="flow-arrow"></div>
+      <div class="flow-step"><div class="k">06 · Envio ao cliente</div><div class="v">Se autorizado, o cliente recebe o resumo aprovado pelo WhatsApp</div></div>
+    </div>
+    <p style="margin-top:var(--space-m)">Triagem automatizada de processos, sugestão de fluxo por protocolo do escritório e integração judicial completa ficam fora destes 90 dias. Elas entram no roadmap descrito na seção 07.</p>
   </div>
 </section>
 
@@ -310,34 +322,42 @@
     <div class="section-head">
       <span class="eyebrow">04 — Briefing técnico do MVP</span>
       <h2>Arquitetura e fluxo de dados</h2>
-      <p class="lead">A API central funciona como orquestrador entre o sistema judiciário (CNJ), os advogados e os clientes finais.</p>
-    </div>
-    <div class="flow">
-      <div class="flow-step"><div class="k">Origem</div><div class="v">API CNJ — Comunicações Processuais</div></div>
-      <div class="flow-arrow"></div>
-      <div class="flow-step"><div class="k">Filtro</div><div class="v">Servidor — filtro por OAB</div></div>
-      <div class="flow-arrow"></div>
-      <div class="flow-step"><div class="k">Processamento</div><div class="v">IA — resumo da decisão</div></div>
-      <div class="flow-arrow"></div>
-      <div class="flow-step"><div class="k">Armazenamento</div><div class="v">Banco de dados — OAB, processo, cliente, status</div></div>
-      <div class="flow-arrow"></div>
-      <div class="flow-step accent"><div class="k">Validação</div><div class="v">WhatsApp → Advogado, aguardando aprovação</div></div>
-      <div class="flow-arrow"></div>
-      <div class="flow-step"><div class="k">Disparo</div><div class="v">WhatsApp → Cliente, com resumo aprovado</div></div>
+      <p class="lead">A API central funciona como orquestrador entre o sistema judiciário, os advogados e os clientes finais.</p>
     </div>
 
     <table class="data">
-      <caption>Detalhamento técnico interno — estimativa de esforço por frente, não a lista de entregas comerciais (ver "Investimento" abaixo)</caption>
+      <thead><tr><th>Camada</th><th>O que roda</th></tr></thead>
+      <tbody>
+        <tr><td class="responsible">Origem</td><td>API CNJ, comunicações processuais</td></tr>
+        <tr><td class="responsible">Filtro</td><td>Servidor, filtro por OAB</td></tr>
+        <tr><td class="responsible">Processamento</td><td>IA, resumo da decisão e minuta sob demanda</td></tr>
+        <tr><td class="responsible">Armazenamento</td><td>Banco de dados: OAB, processo, cliente, status</td></tr>
+        <tr><td class="responsible">Validação</td><td>WhatsApp para o advogado, aguardando aprovação</td></tr>
+        <tr><td class="responsible">Disparo</td><td>WhatsApp para o cliente, com o resumo aprovado</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-head" style="margin-top:var(--space-l)">
+      <span class="eyebrow">Acesso aos dados</span>
+      <h2 style="font-size:28px">A decisão já está tomada</h2>
+    </div>
+    <p>O MVP roda na API aberta do CNJ. Ela custa zero, dispensa aprovação de tribunal e serve para começar e medir. Acesso dedicado a tribunal é conversa para depois, quando houver dado de operação para justificar o esforço, e por isso não entra em estimativa aqui.</p>
+    <p>Os limites da API aberta ficam declarados como premissa do MVP: 10 mil consultas por mês, cerca de um dia de atraso entre a publicação no diário e a disponibilidade, teor incompleto em parte dos documentos, e nenhuma cobertura de processo em segredo de justiça.</p>
+
+    <table class="data" style="margin-top:var(--space-l)">
+      <caption>Estimativa interna de esforço por frente. O número fechado do orçamento é o ponto médio de cada faixa, na seção 05.</caption>
       <thead>
         <tr><th>Componente</th><th>O que resolve</th><th class="num">Horas</th></tr>
       </thead>
       <tbody>
-        <tr><td>Integração API CNJ</td><td>Consumir comunicações processuais, filtrar por OAB, extrair payload completo</td><td class="num">40–60</td></tr>
-        <tr><td>Servidor central</td><td>Endpoint de ingestão, normalização de dados, filtro por OAB</td><td class="num">60–80</td></tr>
-        <tr><td>Processamento de IA</td><td>Resumo da decisão, mapeamento de tipo, tabela padrão como fallback</td><td class="num">40–60</td></tr>
-        <tr><td>WhatsApp Business API</td><td>Envio, validação por botão, rastreamento de entrega e leitura</td><td class="num">50–70</td></tr>
-        <tr><td>Banco de dados</td><td>Advogados, clientes, processos, movimentações, logs</td><td class="num">20–30</td></tr>
-        <tr><td>Dashboard admin</td><td>Movimentações pendentes, histórico, status de envio, logs de erro</td><td class="num">30–40</td></tr>
+        <tr><td>Integração API CNJ</td><td>Consumir comunicações processuais, filtrar por OAB, extrair payload completo</td><td class="num">40 a 60</td></tr>
+        <tr><td>Servidor central</td><td>Endpoint de ingestão, normalização de dados, filtro por OAB</td><td class="num">60 a 80</td></tr>
+        <tr><td>Processamento de IA</td><td>Resumo da decisão, mapeamento de tipo, tabela padrão como alternativa</td><td class="num">40 a 60</td></tr>
+        <tr><td>Minuta de peça</td><td>Três modelos de peça, geração sob demanda, rascunho para revisão</td><td class="num">15 a 25</td></tr>
+        <tr><td>WhatsApp Business API</td><td>Envio, validação por botão, rastreamento de entrega e leitura</td><td class="num">50 a 70</td></tr>
+        <tr><td>Banco de dados</td><td>Advogados, clientes, processos, movimentações, logs</td><td class="num">20 a 30</td></tr>
+        <tr><td>Dashboard admin</td><td>Movimentações pendentes, histórico, status de envio, logs de erro</td><td class="num">30 a 40</td></tr>
+        <tr><td>Testes e deploy</td><td>Teste ponta a ponta, staging, publicação, documentação</td><td class="num">30 a 50</td></tr>
       </tbody>
     </table>
 
@@ -346,139 +366,130 @@
       <h2 style="font-size:28px">Antes de fechar a arquitetura</h2>
     </div>
     <ul class="plain-list">
-      <li><span class="tag">CNJ</span> Qual a frequência de atualização — tempo real, hora em hora, diária? Como lidar com o delay entre publicação no diário e disponibilidade na API?</li>
-      <li><span class="tag">CNJ</span> A API exige autenticação ou é totalmente pública? O limite de 10 mil consultas/mês fecha a conta para quantos advogados e processos?</li>
-      <li><span class="tag">IA</span> Qual LLM usar — custo por token, latência, qualidade? O resumo precisa sair em menos de 5 segundos.</li>
-      <li><span class="tag">WhatsApp</span> API oficial (paga) ou API aberta (gratuita, com limitações)? Como o advogado aprova — clique em botão, resposta em texto?</li>
+      <li><span class="tag">CNJ</span> Qual a frequência de atualização: tempo real, hora em hora, diária? Como lidar com o atraso entre a publicação no diário e a disponibilidade na API?</li>
+      <li><span class="tag">CNJ</span> A API exige autenticação ou é totalmente pública? O limite de 10 mil consultas por mês fecha a conta para quantos advogados e processos?</li>
+      <li><span class="tag">IA</span> Qual LLM usar, considerando custo por token, latência e qualidade? O resumo precisa sair em menos de 5 segundos.</li>
+      <li><span class="tag">WhatsApp</span> API oficial paga ou API aberta gratuita, com limitações? Como o advogado aprova: clique em botão ou resposta em texto?</li>
     </ul>
-  </div>
-</section>
-
-<section id="estrategias">
-  <div class="wrap wrap--wide">
-    <div class="section-head">
-      <span class="eyebrow">05 — Duas estratégias de MVP</span>
-      <h2>API aberta vs. API oficial do tribunal</h2>
-      <p class="lead">A recomendação é começar pela opção A para prototipar e validar com o cliente-investidor, migrando para a B quando o produto precisar escalar.</p>
-    </div>
-    <div class="strategy-grid">
-      <div class="strategy-card recommended">
-        <span class="badge">Recomendada para o MVP</span>
-        <h3>A · API aberta do CNJ</h3>
-        <p class="when">Fase inicial, prototipagem, validação com cliente-investidor</p>
-        <ul class="pros">
-          <li>Sem custo de acesso aos dados</li>
-          <li>Rápido para validar o conceito</li>
-          <li>Sem dependência de aprovação de tribunal</li>
-        </ul>
-        <ul class="cons">
-          <li>Limite de 10.000 consultas por mês</li>
-          <li>Delay entre publicação e disponibilidade</li>
-          <li>Nem todo documento vem com teor completo</li>
-          <li>Não cobre segredo de justiça</li>
-        </ul>
-      </div>
-      <div class="strategy-card">
-        <span class="badge">Fase de escala</span>
-        <h3>B · API oficial do tribunal</h3>
-        <p class="when">Após validação com cliente, para escalar</p>
-        <ul class="pros">
-          <li>Acesso em tempo real, documentos completos</li>
-          <li>Sem limite de consultas</li>
-          <li>Suporta segredo de justiça</li>
-        </ul>
-        <ul class="cons">
-          <li>Requer aprovação do tribunal</li>
-          <li>Pode ter custo de acesso</li>
-          <li>Integração mais complexa — API diferente por estado</li>
-          <li>+40–60h de desenvolvimento adicional</li>
-        </ul>
-      </div>
-    </div>
   </div>
 </section>
 
 <section id="custos">
   <div class="wrap wrap--wide">
     <div class="section-head">
-      <span class="eyebrow">06 — Como chegamos ao número</span>
-      <h2>Estimativa interna de esforço</h2>
-      <p class="lead">Referência de planejamento para o time — não é a forma de cobrança. O que está sendo vendido é o pacote fechado do MVP, não horas avulsas: as condições comerciais estão na seção seguinte.</p>
+      <span class="eyebrow">05 — Custo por etapa</span>
+      <h2>Quanto custa cada frente</h2>
+      <p class="lead">Taxa de referência de R$ 150 por hora. Cada linha é o ponto médio da faixa apresentada na seção 04.</p>
     </div>
-
-    <div class="bars">
-      <div class="bar-row"><span class="bar-lab">Backend / servidor</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">70h (est.)</span></div>
-      <div class="bar-row"><span class="bar-lab">WhatsApp API</span><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div><span class="bar-val">60h (est.)</span></div>
-      <div class="bar-row"><span class="bar-lab">Integração CNJ</span><div class="bar-track"><div class="bar-fill" style="width:71%"></div></div><span class="bar-val">50h (est.)</span></div>
-      <div class="bar-row"><span class="bar-lab">Processamento IA</span><div class="bar-track"><div class="bar-fill" style="width:71%"></div></div><span class="bar-val">50h (est.)</span></div>
-      <div class="bar-row"><span class="bar-lab">Testes + deploy</span><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div><span class="bar-val">40h (est.)</span></div>
-      <div class="bar-row"><span class="bar-lab">Dashboard admin</span><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><span class="bar-val">35h (est.)</span></div>
-      <div class="bar-row"><span class="bar-lab">Banco de dados</span><div class="bar-track"><div class="bar-fill" style="width:36%"></div></div><span class="bar-val">25h (est.)</span></div>
-    </div>
-    <p class="bar-note">Horas estimadas por frente de trabalho, escala relativa ao maior bloco (Backend, 70h). Valores sujeitos a ajuste ao longo do desenvolvimento — ver faixas completas na tabela técnica acima.</p>
-
-    <table class="data" style="margin-top:var(--space-l)">
-      <caption>Total interno de referência — não é o valor cobrado do pacote (ver "Investimento" abaixo)</caption>
-      <tbody>
-        <tr><td>Total estimado</td><td class="num">330 horas (est.)</td><td class="num">R$ 49.500 (ref.)</td></tr>
-      </tbody>
-    </table>
 
     <table class="data">
-      <caption>Ferramentas e infraestrutura — estimativa de referência, absorvida pela Albatroz Studio durante o MVP (ver "Investimento" abaixo)</caption>
-      <thead><tr><th>Item</th><th class="num">Custo mensal</th></tr></thead>
+      <thead><tr><th>Componente</th><th class="num">Horas</th><th class="num">Custo</th></tr></thead>
       <tbody>
-        <tr><td>Servidor (AWS / GCP / DigitalOcean)</td><td class="num">R$ 200–500</td></tr>
-        <tr><td>Banco de dados</td><td class="num">R$ 100–300</td></tr>
-        <tr><td>WhatsApp Business API</td><td class="num">R$ 0,50–1,00 / mensagem</td></tr>
-        <tr><td>LLM (Claude / GPT)</td><td class="num">R$ 0,001–0,01 / token</td></tr>
+        <tr><td>Integração CNJ</td><td class="num">50</td><td class="num">R$ 7.500,00</td></tr>
+        <tr><td>Backend e servidor</td><td class="num">70</td><td class="num">R$ 10.500,00</td></tr>
+        <tr><td>Processamento IA</td><td class="num">50</td><td class="num">R$ 7.500,00</td></tr>
+        <tr><td>Minuta de peça, três modelos</td><td class="num">20</td><td class="num">R$ 2.500,00</td></tr>
+        <tr><td>WhatsApp API</td><td class="num">60</td><td class="num">R$ 9.000,00</td></tr>
+        <tr><td>Banco de dados</td><td class="num">25</td><td class="num">R$ 3.750,00</td></tr>
+        <tr><td>Dashboard admin</td><td class="num">35</td><td class="num">R$ 5.250,00</td></tr>
+        <tr><td>Testes e deploy</td><td class="num">40</td><td class="num">R$ 6.000,00</td></tr>
+        <tr class="total"><td>Total</td><td class="num">350</td><td class="num">R$ 52.000,00</td></tr>
       </tbody>
     </table>
+    <p class="stack-note">A minuta entra a preço fechado de R$ 2.500,00, abaixo da taxa horária, porque reaproveita a camada de geração de texto já construída para o resumo da decisão.</p>
+
+    <div class="section-head" style="margin-top:var(--space-l)">
+      <span class="eyebrow">Infraestrutura</span>
+      <h2 style="font-size:28px">O custo mensal de manter o sistema no ar</h2>
+      <p class="lead">Estimativa para o volume do MVP: cerca de 100 advogados, 100 processos por advogado, com 500 mensagens de WhatsApp por dia no pico.</p>
+    </div>
+    <table class="data">
+      <thead><tr><th>Item</th><th class="num">Custo mensal</th></tr></thead>
+      <tbody>
+        <tr><td>Servidor (AWS, GCP ou DigitalOcean)</td><td class="num">R$ 350,00</td></tr>
+        <tr><td>Banco de dados</td><td class="num">R$ 200,00</td></tr>
+        <tr><td>WhatsApp Business API</td><td class="num">R$ 300,00</td></tr>
+        <tr><td>LLM (Claude ou GPT)</td><td class="num">R$ 167,50</td></tr>
+        <tr class="total"><td>Total mensal</td><td class="num">R$ 1.017,50</td></tr>
+        <tr class="total"><td>Total dos 3 meses</td><td class="num">R$ 3.052,50</td></tr>
+      </tbody>
+    </table>
+    <p class="stack-note">A Albatroz Studio absorve essa infraestrutura durante os 90 dias do MVP. Ela entra no orçamento da seção seguinte para mostrar o custo real do projeto, e sai no desconto.</p>
   </div>
 </section>
 
 <section id="investimento">
   <div class="wrap wrap--wide">
     <div class="section-head">
-      <span class="eyebrow">07 — Investimento e condições comerciais</span>
+      <span class="eyebrow">06 — Investimento e condições comerciais</span>
       <h2>O pacote fechado deste MVP</h2>
-      <p class="lead">O que está sendo vendido é o pacote completo do MVP — não horas avulsas, e não os módulos de controladoria ou plataforma própria descritos mais acima, que ficam para uma fase seguinte.</p>
+      <p class="lead">O que está sendo vendido é o pacote completo do MVP. Não são horas avulsas.</p>
     </div>
 
     <p class="checklist-label">Incluído neste pacote</p>
     <ul class="checklist">
       <li><span class="mark"></span>Integração com a API pública do CNJ, filtrada por OAB</li>
-      <li><span class="mark"></span>Processamento por IA: resumo automático de decisões e despachos, com tabela padrão como fallback</li>
+      <li><span class="mark"></span>Processamento por IA: resumo automático de decisão e despacho, com tabela padrão como alternativa</li>
+      <li><span class="mark"></span>Minuta da próxima etapa do processo, em três modelos definidos no kickoff</li>
       <li><span class="mark"></span>Notificação ao advogado via WhatsApp, com aprovação antes do envio ao cliente</li>
       <li><span class="mark"></span>Notificação ao cliente final via WhatsApp, com mensagem personalizada</li>
       <li><span class="mark"></span>Banco de dados do MVP: advogados, clientes, processos, movimentações e logs de envio</li>
       <li><span class="mark"></span>Dashboard interno de acompanhamento: pendências, histórico e status de entrega</li>
-      <li><span class="mark"></span>Acompanhamento e ajuste ao longo das 9 semanas de desenvolvimento</li>
+      <li><span class="mark"></span>Infraestrutura de servidor, banco, WhatsApp e LLM durante os 90 dias</li>
+      <li><span class="mark"></span>Acompanhamento e ajuste ao longo dos 90 dias de desenvolvimento</li>
     </ul>
 
     <p class="checklist-label">Fora deste pacote</p>
     <ul class="checklist checklist--out">
-      <li><span class="mark"></span>Módulo de controladoria — triagem automatizada de processos e sugestão de fluxo</li>
-      <li><span class="mark"></span>Plataforma própria (aplicativo ou web dedicado) — o MVP roda inteiramente sobre WhatsApp</li>
-      <li><span class="mark"></span>Migração para a API oficial do tribunal (Opção B) — fica para a fase de escala</li>
-      <li><span class="mark"></span>Custos variáveis de WhatsApp Business e de tokens de IA em produção, após o período do MVP</li>
+      <li><span class="mark"></span>Controladoria: triagem automatizada de processos e sugestão de fluxo por protocolo do escritório</li>
+      <li><span class="mark"></span>Aplicativo próprio e push notification. O MVP roda inteiramente sobre WhatsApp</li>
+      <li><span class="mark"></span>Acesso dedicado a tribunal, que depende de medição do MVP e ainda não tem estimativa</li>
+      <li><span class="mark"></span>Custo variável de WhatsApp Business e de token de IA em produção, depois do período do MVP</li>
     </ul>
 
-    <div class="price-block">
-      <div class="amount">R$ 45.000</div>
-      <p class="terms">Pago em <b>3 parcelas de R$ 15.000</b>, uma por mês de desenvolvimento.</p>
+    <div class="price-stack">
+      <div class="row"><span class="l">Desenvolvimento, 350 horas</span><span class="v">R$ 52.000,00</span></div>
+      <div class="row"><span class="l">Infraestrutura, 3 meses a R$ 1.017,50</span><span class="v">R$ 3.052,50</span></div>
+      <div class="row row--sub"><span class="l">Subtotal</span><span class="v">R$ 55.052,50</span></div>
+      <div class="row row--off"><span class="l">Desconto de parceria</span><span class="v">- R$ 10.052,50</span></div>
+      <div class="row row--final"><span class="l">Investimento</span><span class="v">R$ 45.000,00</span></div>
+      <p class="terms">Pagamento em <b>3 parcelas de R$ 15.000,00</b>, uma por mês de desenvolvimento.</p>
     </div>
 
     <ul class="commercial-notes">
-      <li>Ferramentas e infraestrutura deste MVP são <b>absorvidas pela Albatroz Studio</b> durante os 3 meses — não são cobradas à parte dos sócios investidores.</li>
-      <li>O contrato cobre <b>3 meses de desenvolvimento inicial</b>, enquanto se define a estrutura de participação societária futura entre as partes.</li>
-      <li>A Albatroz Studio entende que participará dessa sociedade futura <b>de forma minoritária</b> — os termos exatos serão estruturados separadamente.</li>
+      <li>O desconto de <b>R$ 10.052,50</b> cobre toda a infraestrutura dos três meses e mais R$ 7.000,00 do desenvolvimento. Ele existe porque a Albatroz Studio entra neste projeto como sócia futura, não como fornecedora avulsa.</li>
+      <li>O contrato cobre <b>90 dias de desenvolvimento inicial</b>, enquanto se define a estrutura de participação societária entre as partes.</li>
+      <li>A Albatroz Studio entende que participará dessa sociedade <b>de forma minoritária</b>, e os termos exatos serão estruturados em documento separado.</li>
     </ul>
+  </div>
+</section>
+
+<section id="licenciamento">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">07 — Propriedade intelectual e licenciamento</span>
+      <h2>De quem é o código</h2>
+    </div>
+
+    <div class="ip-block">
+      <h3>A base: Albatroz Chat</h3>
+      <p>A plataforma é construída sobre o Albatroz Chat, sistema que já existe, já roda e é propriedade intelectual da Albatroz Studio. Esse código entra licenciado para esta versão do projeto. É ele que torna o prazo de 90 dias possível: o time começa com autenticação, banco, camada de conversa, integração com LLM e painel administrativo já funcionando, em vez de escrever tudo do zero.</p>
+    </div>
+
+    <div class="ip-block">
+      <h3>O que se acrescenta</h3>
+      <p>Sobre essa base entram as funções específicas para escritórios de advocacia, listadas na seção 06: integração com o CNJ, filtro por OAB, tradução de decisão judicial, minuta de peça, fluxo de aprovação pelo advogado e dashboard de movimentações.</p>
+    </div>
 
     <div class="ip-callout">
-      <span class="eyebrow">Propriedade intelectual e licenciamento</span>
-      <p>O sistema é construído sobre uma base de propriedade intelectual da Albatroz Studio, licenciada para uso dos sócios investidores — não é um desenvolvimento exclusivo.</p>
-      <p>Se a parceria não avançar ao final dos 3 meses, o código desenvolvido até aquele ponto é licenciado para os sócios investidores, sem as marcas da Albatroz Studio, e pode ser usado e evoluído de forma independente a partir do estado em que se encontrar.</p>
+      <span class="eyebrow">O que acontece ao fim dos 90 dias</span>
+      <p>Se, ao término dos 90 dias, as partes não chegarem a termo contratual de sociedade, todo o código desenvolvido é liberado para os sócios investidores, a base licenciada do Albatroz Chat incluída. Eles ficam com o sistema inteiro, sem as marcas da Albatroz Studio, livres para manter, hospedar e evoluir por conta própria, com equipe própria ou de terceiros.</p>
+      <p>A Albatroz Studio oferece essa condição de boa-fé. A aposta é que a parceria continue e que as próximas funções sejam construídas juntos, em relação de longo prazo.</p>
+    </div>
+
+    <div class="ip-block">
+      <h3>O roadmap depois do MVP</h3>
+      <p>Fora destes 90 dias ficam a controladoria, com triagem automatizada e sugestão de fluxo por protocolo do escritório, o aplicativo próprio com push notification, e o sistema que gere o escritório inteiro, com prazos, agenda e financeiro. São funções que pedem tempo de desenvolvimento próprio e entram em fase seguinte, com escopo e orçamento próprios. O escopo atual é o que está listado na seção 06.</p>
     </div>
   </div>
 </section>
@@ -487,75 +498,88 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">08 — Roadmap do MVP</span>
-      <h2>Cinco fases, nove semanas</h2>
+      <h2>Seis fases, treze semanas, 90 dias</h2>
+      <p class="lead">Cada fase carrega a própria janela de teste. A construção de uma etapa e o teste da anterior correm em paralelo nas semanas de emenda, que é o que permite entregar 350 horas de trabalho em 13 semanas de calendário.</p>
     </div>
     <div class="roadmap">
       <div class="phase">
         <div class="n">01</div>
         <div>
-          <div class="when">Semanas 1–2 · Prototipagem</div>
-          <h3>Fundação técnica</h3>
+          <div class="when">Semanas 1 a 3 · Fundação técnica</div>
+          <h3>Integração CNJ e banco de dados</h3>
           <ul>
-            <li>Integração básica com API CNJ e filtro por OAB</li>
-            <li>Banco de dados simples</li>
-            <li>Teste manual com 1–2 processos</li>
+            <li>Constrói: integração com a API do CNJ, filtro por OAB, esquema do banco de dados</li>
+            <li>Testa: coleta real de 1 a 2 processos por 5 dias corridos, conferindo o que a API devolve contra o diário oficial</li>
           </ul>
-          <div class="effort">Esforço <b>80h</b> · Custo <b>R$ 12.000</b></div>
+          <div class="effort">Esforço <b>75h</b> · Custo <b>R$ 11.250,00</b></div>
         </div>
       </div>
       <div class="phase">
         <div class="n">02</div>
         <div>
-          <div class="when">Semanas 3–4 · Processamento IA</div>
-          <h3>Resumo automático</h3>
+          <div class="when">Semanas 4 a 6 · Ingestão</div>
+          <h3>Servidor central</h3>
           <ul>
-            <li>Integração com LLM e prompt engineering para resumos</li>
-            <li>Tabela de decisões padrão como fallback</li>
-            <li>Testes de qualidade de resumo</li>
+            <li>Constrói: endpoint de ingestão, normalização dos dados, roteamento por OAB</li>
+            <li>Testa: carga simulada de 100 advogados, verificação de duplicidade e de movimentação perdida</li>
           </ul>
-          <div class="effort">Esforço <b>50h</b> · Custo <b>R$ 7.500</b></div>
+          <div class="effort">Esforço <b>70h</b> · Custo <b>R$ 10.500,00</b></div>
         </div>
       </div>
       <div class="phase">
         <div class="n">03</div>
         <div>
-          <div class="when">Semanas 5–6 · WhatsApp + aprovação</div>
-          <h3>Fluxo de validação</h3>
+          <div class="when">Semanas 6 a 9 · Geração de texto</div>
+          <h3>Processamento de IA e minuta</h3>
           <ul>
-            <li>Integração WhatsApp Business API</li>
-            <li>Fluxo de envio e aprovação pelo advogado</li>
-            <li>Fluxo de envio ao cliente, logs e rastreamento</li>
+            <li>Constrói: integração com o LLM, prompt de resumo, tabela de decisões padrão como alternativa, geração de minuta nos três modelos</li>
+            <li>Testa: 50 decisões reais resumidas e conferidas uma a uma por advogado do escritório, medindo acerto e latência. Cada modelo de minuta revisado por advogado antes de liberar</li>
           </ul>
-          <div class="effort">Esforço <b>60h</b> · Custo <b>R$ 9.000</b></div>
+          <div class="effort">Esforço <b>70h</b> · Custo <b>R$ 10.000,00</b></div>
         </div>
       </div>
       <div class="phase">
         <div class="n">04</div>
         <div>
-          <div class="when">Semanas 7–8 · Dashboard + testes</div>
-          <h3>Consolidação</h3>
+          <div class="when">Semanas 8 a 11 · Fluxo de validação</div>
+          <h3>WhatsApp e aprovação</h3>
           <ul>
-            <li>Dashboard admin simples</li>
-            <li>Testes ponta a ponta e documentação</li>
-            <li>Deploy em staging</li>
+            <li>Constrói: integração com a WhatsApp Business API, fluxo de aprovação pelo advogado, disparo ao cliente, log de entrega e leitura</li>
+            <li>Testa: ciclo completo com 3 advogados e clientes reais por 2 semanas, incluindo recusa de mensagem e reenvio</li>
           </ul>
-          <div class="effort">Esforço <b>75h</b> · Custo <b>R$ 11.250</b></div>
+          <div class="effort">Esforço <b>60h</b> · Custo <b>R$ 9.000,00</b></div>
         </div>
       </div>
       <div class="phase">
         <div class="n">05</div>
         <div>
-          <div class="when">Semana 9 · Validação</div>
-          <h3>Cliente-investidor</h3>
+          <div class="when">Semanas 11 a 12 · Consolidação</div>
+          <h3>Dashboard admin</h3>
           <ul>
-            <li>Apresentação do MVP e testes com dados reais</li>
-            <li>Coleta de feedback e ajustes</li>
-            <li>Plano de escala definido</li>
+            <li>Constrói: painel de pendências, histórico e status de envio, logs de erro</li>
+            <li>Testa: uso diário pelo escritório piloto, com registro de fricção</li>
           </ul>
-          <div class="effort">Esforço <b>40h</b> · Custo <b>R$ 6.000</b></div>
+          <div class="effort">Esforço <b>35h</b> · Custo <b>R$ 5.250,00</b></div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="n">06</div>
+        <div>
+          <div class="when">Semanas 12 a 13 · Fechamento</div>
+          <h3>Testes finais, deploy e validação</h3>
+          <ul>
+            <li>Constrói: correções da rodada anterior, deploy em produção, documentação de operação</li>
+            <li>Testa: apresentação aos sócios investidores com dados reais, coleta de feedback e definição do plano de escala</li>
+          </ul>
+          <div class="effort">Esforço <b>40h</b> · Custo <b>R$ 6.000,00</b></div>
         </div>
       </div>
     </div>
+    <table class="data" style="margin-top:var(--space-m)">
+      <tbody>
+        <tr class="total"><td>Total do roadmap</td><td class="num">350 horas</td><td class="num">R$ 52.000,00</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -564,42 +588,42 @@
     <div class="section-head">
       <span class="eyebrow">09 — Questões em aberto</span>
       <h2>Decisões de produto para amadurecer</h2>
-      <p class="lead">Não bloqueiam a aprovação do pacote acima — são decisões do produto final (para os advogados clientes) que o time vai amadurecer ao longo do desenvolvimento e da fase de escala.</p>
+      <p class="lead">Nenhuma delas bloqueia a aprovação do pacote. São decisões do produto final, para os advogados clientes, que o time amadurece ao longo do desenvolvimento e da fase de escala.</p>
     </div>
     <ul class="decision-list">
       <li class="decision-item">
         <span class="q-num">01</span>
         <div>
           <h4>TAM e ticket médio</h4>
-          <p>Quantos escritórios de advocacia no Brasil poderiam usar essa solução, e qual é o ticket mensal viável frente à concorrência — JusBrasil cobra R$ 29,90–39,90/mês?</p>
+          <p>Quantos escritórios de advocacia no Brasil poderiam usar essa solução, e qual é o ticket mensal viável frente à concorrência? O JusBrasil cobra de R$ 29,90 a R$ 39,90 por mês. Horácio disse hoje pagar R$ 2.750,00 por um sistema de gestão interno que não tem as funções que estamos viabilizando aqui.</p>
         </div>
       </li>
       <li class="decision-item">
         <span class="q-num">02</span>
         <div>
           <h4>Modelo de precificação</h4>
-          <p>Assinatura fixa com pay-per-message, ou assinatura com limite de mensagens embutido? Isso muda a estrutura de custo do WhatsApp Business API.</p>
+          <p>Assinatura fixa com cobrança por mensagem, ou assinatura com limite de mensagens embutido? A escolha muda a estrutura de custo da WhatsApp Business API.</p>
         </div>
       </li>
       <li class="decision-item">
         <span class="q-num">03</span>
         <div>
-          <h4>Frequência de polling da API CNJ</h4>
-          <p>A cada hora, a cada seis horas, diariamente? A escolha impacta diretamente custo de infraestrutura e latência da notificação ao cliente.</p>
+          <h4>Implantação personalizada</h4>
+          <p>Quais oportunidades de vender implantação personalizada de processos para escritórios maiores?</p>
         </div>
       </li>
       <li class="decision-item">
         <span class="q-num">04</span>
         <div>
-          <h4>Escala inicial do MVP</h4>
-          <p>Com o limite de 10 mil consultas mensais, dá para cerca de 100 advogados com 100 processos cada. Com quantos advogados o time quer começar?</p>
+          <h4>Frequência de consulta à API do CNJ</h4>
+          <p>A cada hora, a cada seis horas, uma vez por dia? A escolha afeta o custo de infraestrutura e a latência da notificação ao cliente.</p>
         </div>
       </li>
       <li class="decision-item">
         <span class="q-num">05</span>
         <div>
-          <h4>Custo do WhatsApp Business oficial</h4>
-          <p>Entre R$ 0,50 e R$ 1,00 por mensagem — com 500 mensagens/dia isso fica em R$ 7.500–15.000/mês. Vale usar a API oficial já no MVP ou começar pela aberta?</p>
+          <h4>Escala inicial</h4>
+          <p>Com o limite de 10 mil consultas mensais, dá para cerca de 100 advogados com 100 processos cada. Com quantos advogados o time quer começar?</p>
         </div>
       </li>
     </ul>
@@ -616,20 +640,19 @@
       <thead><tr><th>Passo</th><th>O que acontece</th></tr></thead>
       <tbody>
         <tr><td class="responsible">01</td><td>Aprovação desta proposta pelos sócios investidores</td></tr>
-        <tr><td class="responsible">02</td><td>Assinatura do contrato de 3 meses e definição dos termos de participação societária futura</td></tr>
-        <tr><td class="responsible">03</td><td>Pagamento da primeira parcela (R$ 15.000) e kickoff do desenvolvimento</td></tr>
-        <tr><td class="responsible">04</td><td>Início da Fase 1 do roadmap acima, com acompanhamento semanal</td></tr>
+        <tr><td class="responsible">02</td><td>Assinatura do contrato de 90 dias e definição dos termos de participação societária</td></tr>
+        <tr><td class="responsible">03</td><td>Pagamento da primeira parcela, R$ 15.000,00, e kickoff do desenvolvimento</td></tr>
+        <tr><td class="responsible">04</td><td>Início da fase 1 do roadmap, com acompanhamento semanal, e definição dos três modelos de minuta</td></tr>
       </tbody>
     </table>
-    <p class="p--lg" style="margin-top:var(--space-l)">A solução é viável e tem demanda clara. O diferencial não está em apenas notificar, mas em explicar de forma simples o que está acontecendo no processo — isso reduz a ansiedade do cliente e o volume de ligações para o escritório. O escopo do MVP fica reduzido a notificação e tradução de decisões padrão, sem necessidade de histórico completo do processo nesta primeira versão.</p>
   </div>
 </section>
 
 <footer class="brand-footer">
   <div class="wrap">
     <img src="assets/albatroz-symbol--offwhite.svg" alt="Albatroz Studio">
-    <p>Albatroz Studio — conteúdo, automação e presença digital. Documento preparado por Natã Gomes para aprovação dos sócios investidores.</p>
-    <p class="fine">Baseado na reunião de 07 de julho de 2026. As horas e custos do detalhamento técnico são estimativas internas, sujeitas a ajuste. O valor do pacote — R$ 45.000 em 3x R$ 15.000 — é fixo, conforme as condições comerciais desta proposta.</p>
+    <p>Albatroz Studio, conteúdo, automação e presença digital. Documento preparado por Natã Gomes e Yuri Hoedemaker para aprovação dos sócios investidores.</p>
+    <p class="fine">Baseado na reunião de 07 de julho de 2026. As horas do detalhamento técnico são estimativas internas, sujeitas a ajuste. O valor do pacote, R$ 45.000,00 em 3 parcelas de R$ 15.000,00, é fixo, conforme as condições da seção 06.</p>
   </div>
 </footer>
 
