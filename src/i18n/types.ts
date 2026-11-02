@@ -6,6 +6,7 @@ export interface CaseItem {
   stats: { value: string; label: string }[];
   body: string;
   accent: string;
+  report?: string;
 }
 
 export interface PainItem {
@@ -66,6 +67,7 @@ export interface Strings {
     headlineLine2: string;
     intro: string;
     items: CaseItem[];
+    reportCta: string;
     pattern: {
       title: string;
       body: string;

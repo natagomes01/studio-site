@@ -29,7 +29,7 @@ export const ptBr: Strings = {
   },
   responsePromise: 'Resposta em menos de 24 horas, direto comigo no WhatsApp.',
   proofBar: [
-    { metric: '80+', context: 'atendimentos/dia · Estética Salomão' },
+    { metric: '18.421', context: 'pessoas atendidas em 9 meses · Estética Salomão' },
     { metric: '+40%', context: 'em conversão · Gracie Barra SG' },
     { metric: 'R$ 3,5 mi', context: 'em vendas/mês · Topografia com Você' },
     { metric: '680', context: 'atendimentos em 3 meses · Dra. Georgia' },
@@ -84,11 +84,12 @@ export const ptBr: Strings = {
         name: 'Estética Salomão',
         segment: 'Clínica de estética',
         stats: [
-          { value: '80+', label: 'atendimentos/dia no WhatsApp' },
-          { value: '15 mil+', label: 'mulheres atendidas no histórico' },
+          { value: '18.421', label: 'pessoas atendidas no WhatsApp em 9 meses' },
+          { value: '62%', label: 'das conversas com a clínica fechada' },
         ],
-        body: 'Uma referência de porte: mais de 15 mil mulheres já atendidas pela clínica ao longo da história. Hoje, com o PAI ativo, a operação sustenta mais de 80 atendimentos por dia no WhatsApp sem travar e sem perder o tom humano da marca. Volume que, no modelo manual, exigiria triplicar o time de atendimento.',
+        body: 'Em 9 meses, o PAI atendeu 18.421 pessoas no WhatsApp da clínica, 73 num dia típico, sem travar e sem perder o tom humano da marca. 62% das conversas começaram com a clínica fechada: à noite, de madrugada ou no domingo, o dia de mais movimento da semana.',
         accent: 'linear-gradient(135deg, #6b3a3a 0%, #a85957 100%)',
+        report: '/relatorios/salomao/',
       },
       {
         name: 'Gracie Barra São Gonçalo',
@@ -114,12 +115,15 @@ export const ptBr: Strings = {
         name: 'Dra. Georgia',
         segment: 'Cirurgia plástica',
         stats: [
-          { value: '680+', label: 'atendimentos em 3 meses' },
+          { value: '680+', label: 'atendimentos nos 3 primeiros meses' },
+          { value: '1.384', label: 'pessoas atendidas em 9 meses' },
         ],
-        body: 'Mais de 680 contatos atendidos no WhatsApp em apenas 3 meses, com qualificação automática e entrega dos casos prontos para o time clínico fechar. A agenda deixou de depender da própria médica para andar.',
+        body: 'Mais de 680 contatos atendidos no WhatsApp nos 3 primeiros meses e 1.384 pessoas em 9 meses, com qualificação automática e entrega dos casos prontos para o time clínico fechar. A agenda deixou de depender da própria médica para andar.',
         accent: 'linear-gradient(135deg, #3a4a3a 0%, #5d7159 100%)',
+        report: '/relatorios/dra-georgia/',
       },
     ],
+    reportCta: 'Ver o relatório completo',
     pattern: {
       title: 'O padrão por trás dos números',
       body: 'Sem sistema, a resposta leva até 48 horas, quando a mensagem não fica esquecida no meio das outras. Com o PAI, chega na mesma hora. Em todos os casos, o número subiu antes de o time crescer.',

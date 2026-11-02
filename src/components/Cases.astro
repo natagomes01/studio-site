@@ -42,6 +42,9 @@ const contactHref = whatsappUrl(locale);
             ))}
           </div>
           <p class="alb-case__copy">{item.body}</p>
+          {item.report && (
+            <a class="alb-case__link" href={item.report}>{s.reportCta} →</a>
+          )}
         </div>
       </article>
     ))}

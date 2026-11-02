@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Atendimento por IA · Gracie Barra Canoinhas | Albatroz Studio</title>
+<meta name="description" content="Relatório de atendimento por IA no WhatsApp: Gracie Barra Canoinhas, academia de jiu-jitsu em Canoinhas, Santa Catarina. Pessoas atendidas, horários, retornos e origem.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="stylesheet" href="../assets/colors_and_type.css">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { margin: 0; background: var(--bg-page); }
+  [hidden] { display: none !important; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+  p { max-width: 68ch; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* nav */
+  .top-stripe { position: fixed; top: 0; left: 0; right: 0; height: 7px; background: var(--c-accent-500); z-index: 100; }
+  nav.main-nav { position: sticky; top: 7px; z-index: 90; background: var(--bg-page); border-bottom: 1px solid var(--border-quiet); }
+  .nav-inner { display: flex; align-items: center; gap: 24px; padding-block: 14px; }
+  .nav-inner img { height: 22px; width: auto; }
+  .nav-links { display: flex; gap: 20px; margin-left: auto; }
+  .nav-links a { font-weight: 700; font-size: 11px; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--fg-muted); }
+  .nav-links a:hover { color: var(--c-accent-500); opacity: 1; }
+  .lang { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 12px; letter-spacing: var(--ls-caps); margin-left: 8px; }
+  .lang button { font: inherit; letter-spacing: inherit; background: none; border: 0; padding: 4px 2px; cursor: pointer; color: var(--fg-quiet); }
+  .lang button[aria-pressed="true"] { color: var(--fg-strong); border-bottom: 2px solid var(--c-accent-500); }
+  .lang span { color: var(--fg-quiet); }
+  @media (max-width: 820px) { .nav-links { display: none; } .lang { margin-left: auto; } }
+
+  /* hero */
+  .hero { padding: 80px 0 56px; }
+  .hero .eyebrow { display: block; margin: 0 0 20px; }
+  .hero h1 { margin: 0 0 24px; font-size: clamp(38px, 6vw, 76px); text-wrap: balance; }
+  .hero .lead { margin: 0 0 36px; max-width: 60ch; }
+  .rule--accent { display: block; margin: 0 0 36px; }
+  .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px 32px; border-top: 1px solid var(--border-quiet); padding-top: 24px; margin: 0; }
+  .meta-grid dt { font-weight: 700; font-size: 11px; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--fg-muted); margin: 0 0 4px; }
+  .meta-grid dd { margin: 0; font-size: 15px; color: var(--fg-strong); }
+
+  /* KPI band */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: var(--border-quiet); border: 1px solid var(--border-quiet); }
+  .kpi { background: var(--bg-card); padding: 26px 24px 24px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .kpi .lbl { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; font-weight: 700; font-size: 11px; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--fg-muted); line-height: 1.4; }
+  .kpi .val { font-family: var(--font-headline); font-size: clamp(40px, 4.4vw, 56px); line-height: 1; color: var(--fg-strong); font-variant-numeric: tabular-nums; }
+  .kpi.accent .val { color: var(--c-accent-500); }
+  .kpi .sub { font-size: 13.5px; color: var(--fg-muted); line-height: 1.45; }
+
+  /* info tooltips */
+  .info { flex: none; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid currentColor; background: none; color: var(--fg-muted); font: 700 11px/1 var(--font-highlight); font-style: italic; cursor: help; display: inline-grid; place-items: center; padding: 0; vertical-align: middle; }
+  .info:hover, .info:focus-visible, .info[aria-expanded="true"] { color: var(--c-accent-500); outline: none; }
+  .info:focus-visible { box-shadow: 0 0 0 3px rgba(240,69,0,.25); }
+  .pop { position: absolute; z-index: 200; max-width: min(340px, calc(100vw - 32px)); background: var(--c-charcoal); color: var(--c-offwhite); padding: 14px 16px; font-size: 13.5px; line-height: 1.55; box-shadow: var(--shadow-drop); }
+  .pop .pop-h { display: block; font-weight: 700; font-size: 10.5px; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--c-accent-400); margin-bottom: 6px; }
+  .tip { position: absolute; z-index: 150; pointer-events: none; background: var(--bg-card); border: 1px solid var(--c-charcoal); padding: 8px 12px; font-size: 13px; line-height: 1.5; white-space: nowrap; font-variant-numeric: tabular-nums; box-shadow: var(--shadow-drop); }
+  .tip b { display: block; font-weight: 700; font-size: 10.5px; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--fg-muted); margin-bottom: 2px; }
+
+  /* sections */
+  section { padding: var(--space-xl) 0; border-top: 1px solid var(--border-quiet); }
+  section.first { border-top: 0; padding-top: 0; }
+  .section-head { max-width: 66ch; margin: 0 0 var(--space-m); }
+  .section-head .eyebrow { display: block; margin: 0 0 var(--space-xs); }
+  .section-head h2 { margin: 0 0 var(--space-xs); text-wrap: balance; }
+  .section-head .lead { margin: 0; font-size: 18px; }
+  #breakdowns { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 24px; margin-top: 24px; }
+  .card { background: var(--bg-card); border: 1px solid var(--border-quiet); padding: 26px 26px 22px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+  .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .card h3 { font-size: 19px; margin: 0; display: flex; align-items: center; gap: 10px; }
+  .card .note { font-size: 13.5px; color: var(--fg-muted); margin: 0; }
+  .chart { position: relative; width: 100%; min-height: 120px; }
+  .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .chart text { font-family: var(--font-body); font-size: 12px; fill: var(--fg-muted); }
+  .chart text.strong { fill: var(--fg-strong); font-weight: 600; }
+  .chart text.end { fill: var(--fg-strong); font-weight: 700; }
+  .stats { font-size: 13.5px; color: var(--fg-muted); margin: 0; font-variant-numeric: tabular-nums; }
+
+  .seg { display: inline-flex; border: 1.5px solid var(--c-charcoal); }
+  .seg button { font: 700 11px/1 var(--font-body); letter-spacing: var(--ls-caps); text-transform: uppercase; padding: 9px 12px; background: none; border: 0; color: var(--fg-strong); cursor: pointer; }
+  .seg button + button { border-left: 1.5px solid var(--c-charcoal); }
+  .seg button[aria-pressed="true"] { background: var(--c-charcoal); color: var(--c-offwhite); }
+  .seg button:focus-visible { outline: 2px solid var(--c-accent-500); outline-offset: 2px; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; margin: 0; padding: 0; font-size: 12.5px; color: var(--fg-muted); }
+  .legend i { display: inline-block; width: 11px; height: 11px; margin-right: 6px; vertical-align: -1px; }
+  .legend i.ramp { width: 56px; background: linear-gradient(90deg, #ECE6DA, #BEBEBD 30%, #696858 70%, #202020); }
+  .legend i.box { border: 2px dashed var(--c-accent-500); background: none; }
+
+  .explain { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px 40px; margin-top: 32px; }
+  .explain h4 { font-family: var(--font-highlight); font-size: 18px; margin: 0 0 8px; color: var(--fg-strong); }
+  .explain p { font-size: 15px; margin: 0; color: var(--fg-default); }
+  .explain .bar-accent { width: 40px; height: 3px; background: var(--c-accent-500); margin-bottom: 14px; }
+
+  table.data { width: 100%; border-collapse: collapse; font-size: 14.5px; font-variant-numeric: tabular-nums; }
+  table.data th, table.data td { padding: 12px 10px; border-bottom: 1px solid var(--border-quiet); text-align: left; }
+  table.data thead th { font-weight: 700; font-size: 11px; letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--fg-muted); border-bottom: 2px solid var(--c-charcoal); }
+  table.data td.r, table.data th.r { text-align: right; }
+  table.data tr.used td { font-weight: 700; color: var(--fg-strong); }
+  table.data tr.used td:first-child::after { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--c-accent-500); margin-left: 8px; vertical-align: 1px; }
+  .table-wrap { overflow-x: auto; }
+
+  dl.glossary { display: grid; grid-template-columns: minmax(140px, 220px) 1fr; gap: 0; margin: 0; border-top: 2px solid var(--c-charcoal); }
+  dl.glossary dt, dl.glossary dd { padding: 16px 0; border-bottom: 1px solid var(--border-quiet); margin: 0; }
+  dl.glossary dt { font-weight: 700; color: var(--fg-strong); padding-right: 24px; }
+  dl.glossary dd { color: var(--fg-default); font-size: 15px; line-height: 1.6; max-width: 70ch; }
+  @media (max-width: 640px) { dl.glossary { grid-template-columns: 1fr; } dl.glossary dt { border-bottom: 0; padding-bottom: 2px; } dl.glossary dd { padding-top: 0; } }
+
+  footer.brand-footer { background: var(--c-army); color: var(--c-offwhite); padding: 64px 0 36px; }
+  footer.brand-footer img { height: 34px; margin-bottom: 20px; }
+  footer.brand-footer p { color: #D8D6C9; font-size: 14.5px; margin: 0 0 28px; max-width: 56ch; }
+  footer.brand-footer .fine { font-size: 12px; color: #C3C0AA; border-top: 1px solid rgba(242,237,228,.2); padding-top: 18px; margin: 0; max-width: none; }
+
+  .loading { color: var(--fg-muted); font-size: 14px; padding: 40px 0; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="top-stripe"></div>
+
+<nav class="main-nav">
+  <div class="wrap nav-inner">
+    <img src="../assets/logo-horizontal--army.svg" alt="Albatroz Studio">
+    <div class="nav-links">
+      <a href="#volume" data-i18n="nav_volume"></a>
+      <a href="#horarios" data-i18n="nav_when"></a>
+      <a href="#retorno" data-i18n="nav_return"></a>
+      <a href="#origem" data-i18n="nav_origin"></a>
+      <a href="#metodo" data-i18n="nav_method"></a>
+    </div>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="lang-pt" data-lang="pt" aria-pressed="true">PT</button><span>|</span><button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow eyebrow--accent" data-i18n="eyebrow"></span>
+    <h1 data-i18n="h1">&nbsp;</h1>
+    <p class="lead" data-i18n="lead"></p>
+    <span class="rule--accent"></span>
+    <dl class="meta-grid">
+      <div><dt data-i18n="m_period"></dt><dd data-i18n="m_period_v"></dd></div>
+      <div><dt data-i18n="m_tz"></dt><dd data-i18n="m_tz_v"></dd></div>
+      <div><dt data-i18n="m_source"></dt><dd data-i18n="m_source_v"></dd></div>
+      <div><dt data-i18n="m_updated"></dt><dd data-i18n="m_updated_v"></dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="first">
+  <div class="wrap">
+    <div class="kpis">
+      <div class="kpi accent"><div class="lbl"><span data-i18n="k_people"></span><button class="info" data-tip="k_people_tip" type="button">i</button></div><div class="val" data-i18n="k_people_v"></div><div class="sub" data-i18n="k_people_s"></div></div>
+      <div class="kpi"><div class="lbl"><span data-i18n="k_typ"></span><button class="info" data-tip="k_typ_tip" type="button">i</button></div><div class="val" data-i18n="k_typ_v"></div><div class="sub" data-i18n="k_typ_s"></div></div>
+      <div class="kpi"><div class="lbl"><span data-i18n="k_closed"></span><button class="info" data-tip="k_closed_tip" type="button">i</button></div><div class="val" data-i18n="k_closed_v"></div><div class="sub" data-i18n="k_closed_s"></div></div>
+      <div class="kpi"><div class="lbl"><span data-i18n="k_follow"></span><button class="info" data-tip="k_follow_tip" type="button">i</button></div><div class="val" data-i18n="k_follow_v"></div><div class="sub" data-i18n="k_follow_s"></div></div>
+      <div class="kpi"><div class="lbl"><span data-i18n="k_ret"></span><button class="info" data-tip="k_ret_tip" type="button">i</button></div><div class="val" data-i18n="k_ret_v"></div><div class="sub" data-i18n="k_ret_s"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="volume">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="s1_eb"></span>
+      <h2 data-i18n="s1_h"></h2>
+      <p class="lead" data-i18n="s1_lead"></p>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <h3><span data-i18n="vol_h"></span><button class="info" data-tip="vol_tip" type="button">i</button></h3>
+        <div class="seg" role="group" aria-label="Período">
+          <button type="button" id="g-day" data-gran="day" aria-pressed="false" data-i18n="g_day"></button>
+          <button type="button" id="g-week" data-gran="week" aria-pressed="true" data-i18n="g_week"></button>
+          <button type="button" id="g-month" data-gran="month" aria-pressed="false" data-i18n="g_month"></button>
+          <button type="button" id="g-year" data-gran="year" aria-pressed="false" data-i18n="g_year"></button>
+        </div>
+      </div>
+      <p class="note" data-i18n="vol_note"></p>
+      <div class="chart" id="c-volume"></div>
+      <p class="stats" id="vol-stats"></p>
+    </div>
+  </div>
+</section>
+
+<section id="horarios">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="s2_eb"></span>
+      <h2 data-i18n="s2_h"></h2>
+      <p class="lead" data-i18n="s2_lead"></p>
+    </div>
+    <div class="card">
+      <h3><span data-i18n="heat_h"></span><button class="info" data-tip="heat_tip" type="button">i</button></h3>
+      <ul class="legend"><li><i class="ramp"></i><span data-i18n="leg_ramp"></span></li><li><i class="box"></i><span data-i18n="leg_open"></span></li></ul>
+      <div class="chart" id="c-heat"></div>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3><span data-i18n="closed_h"></span><button class="info" data-tip="closed_tip" type="button">i</button></h3>
+        <p class="note" data-i18n="closed_note"></p>
+        <div class="chart" id="c-closed"></div>
+      </div>
+      <div class="card">
+        <h3><span data-i18n="wd_h"></span><button class="info" data-tip="wd_tip" type="button">i</button></h3>
+        <p class="note" data-i18n="wd_note"></p>
+        <div class="chart" id="c-weekday"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="retorno">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="s3_eb"></span>
+      <h2 data-i18n="s3_h"></h2>
+      <p class="lead" data-i18n="s3_lead"></p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3><span data-i18n="gap_h"></span><button class="info" data-tip="gap_tip" type="button">i</button></h3>
+        <ul class="legend">
+          <li><i style="background:#BEBEBD"></i><span data-i18n="leg_split"></span></li>
+          <li><i style="background:#A0ACB4"></i><span data-i18n="leg_unclear"></span></li>
+          <li><i style="background:#F04500"></i><span data-i18n="leg_return"></span></li>
+        </ul>
+        <div class="chart" id="c-gaps"></div>
+      </div>
+      <div class="card">
+        <h3><span data-i18n="sens_h"></span><button class="info" data-tip="sens_tip" type="button">i</button></h3>
+        <p class="note" data-i18n="sens_note"></p>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th data-i18n="sens_c1"></th><th class="r" data-i18n="sens_c2"></th><th class="r" data-i18n="sens_c3"></th></tr></thead>
+            <tbody id="sens-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="explain">
+      <div><div class="bar-accent"></div><h4 data-i18n="ex1_h"></h4><p data-i18n="ex1_p"></p></div>
+      <div><div class="bar-accent"></div><h4 data-i18n="ex2_h"></h4><p data-i18n="ex2_p"></p></div>
+      <div><div class="bar-accent"></div><h4 data-i18n="ex3_h"></h4><p data-i18n="ex3_p"></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="origem">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="s4_eb"></span>
+      <h2 data-i18n="s4_h"></h2>
+      <p class="lead" data-i18n="s4_lead"></p>
+    </div>
+    <div class="card" id="camp-card">
+      <h3><span data-i18n="camp_h"></span><button class="info" data-tip="camp_tip" type="button">i</button></h3>
+      <ul class="legend">
+        <li><i style="background:#696858"></i><span data-i18n="c_thread_lift"></span></li>
+        <li><i style="background:#5F6870"></i><span data-i18n="c_hifu"></span></li>
+        <li><i style="background:#F04500"></i><span data-i18n="c_promo"></span></li>
+        <li><i style="background:#BEBEBD"></i><span data-i18n="c_organic"></span></li>
+      </ul>
+      <div class="chart" id="c-camp"></div>
+    </div>
+    <div class="grid" id="breakdowns"></div>
+    <div class="grid">
+      <div class="card">
+        <h3><span data-i18n="span_h"></span><button class="info" data-tip="span_tip" type="button">i</button></h3>
+        <div class="chart" id="c-span"></div>
+      </div>
+      <div class="card">
+        <h3><span data-i18n="geo_h"></span><button class="info" data-tip="geo_tip" type="button">i</button></h3>
+        <div class="chart" id="c-geo"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="s5_eb"></span>
+      <h2 data-i18n="s5_h"></h2>
+    </div>
+    <dl class="glossary">
+      <dt data-i18n="g1_t"></dt><dd data-i18n="g1_d"></dd>
+      <dt data-i18n="g2_t"></dt><dd data-i18n="g2_d"></dd>
+      <dt data-i18n="g3_t"></dt><dd data-i18n="g3_d"></dd>
+      <dt data-i18n="g4_t"></dt><dd data-i18n="g4_d"></dd>
+      <dt data-i18n="g5_t"></dt><dd data-i18n="g5_d"></dd>
+      <dt data-i18n="g6_t"></dt><dd data-i18n="g6_d"></dd>
+      <dt data-i18n="g8_t"></dt><dd data-i18n="g8_d"></dd>
+      <dt data-i18n="g9_t"></dt><dd data-i18n="g9_d"></dd>
+      <dt data-i18n="g7_t"></dt><dd data-i18n="g7_d"></dd>
+    </dl>
+  </div>
+</section>
+
+<footer class="brand-footer">
+  <div class="wrap">
+    <img src="../assets/albatroz-symbol--offwhite.svg" alt="Albatroz Studio">
+    <p data-i18n="f_p"></p>
+    <p class="fine" data-i18n="f_fine"></p>
+  </div>
+</footer>
+
+<div class="tip" id="tip" hidden></div>
+<div class="pop" id="pop" role="tooltip" hidden></div>
+
+<script>
+(() => {
+  const C = { army: '#696858', slate: '#5F6870', orange: '#F04500', khaki: '#989880', sage: '#BEBEBD', slate3: '#A0ACB4', charcoal: '#202020' };
+  let D = null, lang = 'pt', gran = 'week';
+
+  // ---------- formatting ----------
+  const loc = () => (lang === 'pt' ? 'pt-BR' : 'en-US');
+  const N = (x) => new Intl.NumberFormat(loc()).format(Math.round(x));
+  const P = (x) => new Intl.NumberFormat(loc(), { style: 'percent', maximumFractionDigits: 0 }).format(x);
+  const P1 = (x) => new Intl.NumberFormat(loc(), { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(x);
+  const toDate = (s) => new Date((s.length === 4 ? s + '-01-01' : s.length === 7 ? s + '-01' : s) + 'T12:00:00Z');
+  const DF = (s, o) => new Intl.DateTimeFormat(loc(), { timeZone: 'UTC', ...o }).format(toDate(s));
+  const DL = (s) => DF(s, { day: 'numeric', month: 'short', year: 'numeric' });
+  const hourPt = (h) => `${h}h`, hourEn = (h) => `${h % 12 === 0 ? 12 : h % 12} ${h < 12 ? 'am' : 'pm'}`;
+  const HR = (h) => (lang === 'pt' ? hourPt(h) : hourEn(h));
+  const WD = { pt: ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'], en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] };
+  const WDs = { pt: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'], en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] };
+  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+  const MY = (s) => DF(s, { month: 'short', year: 'numeric' });
+  const ML = (s) => DF(s, { month: 'long', year: 'numeric' });
+  const noun = (l) => D.client.place[l].split(' ').slice(1).join(' ');
+
+  // ---------- derived values ----------
+  function V() {
+    const t = D.totals, heatTot = D.heat.flat().reduce((a, b) => a + b, 0);
+    let hpeak = { wd: 0, h: 0, n: -1 };
+    D.heat.forEach((row, wd) => row.forEach((n, h) => { if (n > hpeak.n) hpeak = { wd, h, n }; }));
+    const wdTot = D.heat.map((r) => r.reduce((a, b) => a + b, 0));
+    const topWd = wdTot.indexOf(Math.max(...wdTot));
+    const gap = Object.fromEntries(D.gaps.map((g) => [g.k, g.n]));
+    return { ...t, ...D.typical, heatTot, hpeak, wdTot, topWd, gap,
+      closedShare: t.closed / t.conversations, followShare: t.followed_people / t.people,
+      retShare: t.returners / t.people, unclear: gap['1_7d'],
+      first: D.range[0], last: D.range[1] };
+  }
+
+  // ---------- copy ----------
+  const T = {
+    pt: {
+      nav_volume: 'Volume', nav_when: 'Horários', nav_return: 'Retorno', nav_origin: 'Origem', nav_method: 'Método',
+      eyebrow: () => `Relatório de atendimento por IA · ${D.client.name}, ${D.client.city.pt}`,
+      h1: (v) => `${N(v.people)} pessoas atendidas pela IA`,
+      lead: (v) => `Entre ${DL(v.first)} e ${DL(v.last)}, a IA da Albatroz respondeu o WhatsApp ${D.client.of.pt}, ${D.client.desc.pt}. ${P(v.closedShare)} das conversas começaram com ${D.client.place.pt} fechada: à noite, de madrugada ou no domingo.`,
+      m_period: 'Período', m_period_v: (v) => `${DL(v.first)} a ${DL(v.last)}, ${v.months} meses`,
+      m_tz: 'Fuso horário', m_tz_v: 'São Paulo (UTC−3)',
+      m_source: 'Fonte', m_source_v: (v) => `Exportação da plataforma de atendimento, ${N(v.threads)} registros`,
+      m_updated: 'Atualizado em', m_updated_v: () => DL(D.generated.slice(0, 10)),
+
+      k_people: 'Pessoas atendidas', k_people_v: (v) => N(v.people), k_people_s: (v) => `${N(v.conversations)} conversas, ${N(v.threads)} registros`,
+      k_people_tip: (v) => `Contamos números de WhatsApp distintos. Cada número entra uma vez, mesmo que a pessoa tenha escrito várias vezes. A base tem ${N(v.threads)} registros; juntando os registros quebrados da mesma conversa, ficam ${N(v.conversations)} conversas de ${N(v.people)} pessoas.`,
+      k_typ: (v) => (v.unit === 'day' ? 'Dia típico' : 'Semana típica'), k_typ_v: (v) => N(v.median),
+      k_typ_s: (v) => `Pessoas por ${v.unit === 'day' ? 'dia' : 'semana'}, mediana de ${MY(v.from)} a ${MY(v.to)}. A maioria ${v.unit === 'day' ? 'dos dias' : 'das semanas'} fica entre ${N(v.p10)} e ${N(v.p90)}.`,
+      k_typ_tip: (v) => `Para cada ${v.unit === 'day' ? 'dia' : 'semana'} contamos as pessoas distintas que abriram conversa. A mediana usa os meses completos de ${MY(v.from)} a ${MY(v.to)}: metade ${v.unit === 'day' ? 'dos dias' : 'das semanas'} ficou acima, metade abaixo.${v.skipped ? ` ${cap(ML(v.skipped))} ficou de fora por ser o mês de implantação.` : ''} A faixa vai do 10º ao 90º percentil. ${v.unit === 'day' ? `O dia mais cheio foi ${DL(v.peak)}` : `A semana mais cheia foi a de ${DL(v.peak)}`}, com ${N(v.peak_people)} pessoas.`,
+      k_closed: () => `Começaram com ${D.client.place.pt} fechada`, k_closed_v: (v) => P(v.closedShare), k_closed_s: (v) => `${N(v.closed)} de ${N(v.conversations)} conversas`,
+      k_closed_tip: () => `Pegamos o horário de início de cada conversa, no fuso de São Paulo, e comparamos com o horário de funcionamento ${D.client.of.pt}: segunda a sexta das 9h às 18h, sábado das 9h às 13h, domingo fechado.`,
+      k_follow: 'Receberam follow-up automático', k_follow_v: (v) => P(v.followShare), k_follow_s: (v) => `${N(v.followed_people)} pessoas`,
+      k_follow_tip: () => 'Pessoas com pelo menos um follow-up registrado pelo sistema (campo ultimoFollowup preenchido em algum registro), divididas pelo total de pessoas atendidas.',
+      k_ret: 'Voltaram depois de 7 dias ou mais', k_ret_v: (v) => N(v.returners), k_ret_s: (v) => `${P1(v.retShare)} das pessoas. É um piso, veja a seção 03.`,
+      k_ret_tip: () => 'Uma pessoa volta quando abre conversa nova pelo menos 7 dias depois do fim da anterior. Intervalos menores costumam ser a mesma conversa quebrada em vários registros. O número fica abaixo do real porque contatos marcados para atendimento humano deixam de passar pela IA, e o retorno deles não aparece nesta base.',
+
+      s1_eb: '01 · Volume', s1_h: 'Quantas pessoas a IA atendeu',
+      s1_lead: 'Pessoas distintas por dia, semana, mês e ano. Barras claras são períodos com só parte dos dias na base.',
+      vol_h: 'Pessoas atendidas', g_day: 'Dia', g_week: 'Semana', g_month: 'Mês', g_year: 'Ano',
+      vol_note: 'Passe o mouse ou toque numa barra para ver quantas pessoas vieram pela primeira vez e quantas voltaram.',
+      vol_tip: () => 'Cada barra conta números distintos que abriram conversa no período. Quem escreveu na segunda e na sexta conta uma vez na semana e uma vez em cada dia, então a soma das semanas passa do total do mês. As semanas começam na segunda. No ano, a barra tracejada estima 12 meses no ritmo diário atual e serve só de referência.',
+      stats: (avg, lbl, n) => `Média por período completo: ${N(avg)} pessoas. Pico: ${lbl}, com ${N(n)}.`,
+      stats_year: (n, days, y) => `${N(n)} pessoas em ${days} dias de ${y}.`,
+      t_people: 'pessoas', t_new: 'pela primeira vez', t_ret: 'voltaram (7+ dias)', t_partial: (d) => `Parcial: ${d} dias na base`, t_week: (s) => `Semana de ${DL(s)}`,
+      t_proj: (n) => `Estimativa para 12 meses: ${N(n)}`, proj_lbl: 'Estimativa 12 meses',
+
+      s2_eb: '02 · Horários', s2_h: 'Quando as pessoas chamam',
+      s2_lead: (v) => `O horário mais movimentado da semana é ${WD.pt[v.hpeak.wd]}, das ${hourPt(v.hpeak.h)} às ${hourPt((v.hpeak.h + 1) % 24)}. ${cap(WD.pt[v.topWd])} é o dia com mais conversas.`,
+      heat_h: 'Mapa da semana, dia por hora',
+      heat_tip: () => 'Cada célula conta as conversas que começaram naquela hora, somando todo o histórico, no fuso de São Paulo. Os registros quebrados já estão juntados em conversas (seção 03), para que a mesma conversa não conte duas vezes. A borda tracejada marca o horário de funcionamento.',
+      leg_ramp: 'Menos a mais conversas', leg_open: () => `${cap(noun('pt'))} aberta`,
+      closed_h: () => `Com ${D.client.place.pt} fechada`, closed_note: 'Toda hora fechada da semana, em quatro janelas.',
+      closed_tip: () => 'As horas fechadas divididas em quatro janelas sem sobreposição: dias úteis depois das 18h, domingo inteiro, antes das 9h de segunda a sábado e sábado depois das 13h. A porcentagem é sobre o total de conversas.',
+      b_weeknight: 'Dias úteis após 18h', b_sunday: 'Domingo', b_early: 'Antes das 9h, seg. a sáb.', b_sat_pm: 'Sábado após 13h',
+      wd_h: 'Dia da semana', wd_note: 'Conversas iniciadas em cada dia, todo o histórico.',
+      wd_tip: () => 'Soma das conversas que começaram em cada dia da semana desde o início da operação. O dia com mais conversas aparece em laranja.',
+
+      s3_eb: '03 · Retorno', s3_h: 'Quem volta, e como filtramos',
+      s3_lead: (v) => `Das ${N(v.people)} pessoas, ${N(v.people_2plus)} aparecem com mais de um registro. A maior parte desses registros extras é a mesma conversa quebrada pelo sistema. Depois do filtro, ${N(v.returners)} pessoas voltaram de fato.`,
+      gap_h: 'Intervalo entre registros da mesma pessoa',
+      gap_tip: () => 'Para cada pessoa com mais de um registro, medimos o tempo entre a última mensagem de um registro e o início do registro seguinte. Cada barra conta pares de registros consecutivos.',
+      leg_split: 'Mesma conversa (até 24 h)', leg_unclear: 'Incerto (1 a 7 dias)', leg_return: 'Retorno (7 dias ou mais)',
+      gp_lt1m: 'Menos de 1 min', gp_1_60m: '1 a 60 min', gp_1_24h: '1 a 24 h', gp_1_7d: '1 a 7 dias', gp_7_30d: '7 a 30 dias', gp_30_90d: '30 a 90 dias', gp_gt90d: 'Mais de 90 dias',
+      t_pairs: 'pares de registros',
+      sens_h: 'O resultado muda com a janela?', sens_note: 'Pessoas que voltaram, conforme o intervalo mínimo exigido. O relatório usa 7 dias.',
+      sens_tip: () => 'Refizemos a conta com três janelas mínimas. Com 1 dia, entram retomadas da mesma negociação. Com 30 dias, saem pessoas que voltaram no mês seguinte. A janela de 7 dias fica no meio e separa bem as duas coisas no gráfico ao lado.',
+      sens_c1: 'Intervalo mínimo', sens_c2: 'Pessoas', sens_c3: '% do total', sens_d: (d) => (d === 1 ? '1 dia' : `${d} dias`),
+      ex1_h: 'Por que os registros se repetem',
+      ex1_p: (v) => `O sistema às vezes abre um registro novo no meio da mesma conversa. Em ${N(v.gap.lt1m)} casos o registro seguinte começou menos de um minuto depois do fim do anterior. Somando tudo que começou em até 24 horas, são ${N(v.split_threads)} registros que tratamos como a mesma conversa.`,
+      ex2_h: 'O filtro que aplicamos',
+      ex2_p: (v) => `Registros da mesma pessoa separados por menos de 24 horas viram uma conversa só: ${N(v.threads)} registros resultam em ${N(v.conversations)} conversas. Retorno é só o registro aberto 7 dias ou mais depois do anterior. Os ${N(v.unclear)} intervalos entre 1 e 7 dias ficam fora das duas contas, porque podem ser tanto a mesma negociação retomada quanto uma pessoa voltando.`,
+      ex3_h: 'Por que o número é um piso',
+      ex3_p: (v) => `${cap(D.client.place.pt)} marca alguns contatos para ir direto ao atendimento humano. Daí em diante eles não passam pela IA, e quando voltam não geram registro nesta base. O número real de retornos fica acima de ${N(v.returners)}.`,
+
+      s4_eb: '04 · Origem', s4_h: () => (D.campaigns || D.breakdowns.length ? 'O que trouxe as pessoas' : 'Conversas e origem'),
+      s4_lead: () => (D.campaigns ? 'A campanha de cada conversa, quanto tempo ela dura e de onde a pessoa escreve.' : D.breakdowns.length ? 'O que as pessoas responderam à IA, quanto tempo dura cada conversa e de onde elas escrevem.' : 'Quanto tempo dura cada conversa e de onde as pessoas escrevem.'),
+      camp_h: 'Conversas por campanha, por mês',
+      camp_tip: () => 'A campanha que o sistema registrou no início de cada conversa (campo interesseAnuncio). Orgânico é quem chegou sem anúncio. As duas promoções de fios estão somadas.',
+      c_thread_lift: 'Fios de sustentação', c_hifu: 'Ultrassom (HIFU)', c_promo: 'Promoção de fios', c_organic: 'Orgânico', t_total: 'total',
+      span_h: 'Duração da conversa',
+      span_tip: () => 'Tempo entre a primeira e a última mensagem de cada conversa, com os registros quebrados já juntados.',
+      sp_lt1m: 'Menos de 1 min', sp_1_5m: '1 a 5 min', sp_5_30m: '5 a 30 min', sp_30_60m: '30 a 60 min', sp_1_24h: '1 a 24 h', sp_gt1d: 'Mais de 1 dia', t_convs: 'conversas',
+      geo_h: 'De onde as pessoas escrevem',
+      geo_tip: () => 'Pessoas distintas agrupadas pelo DDD do número de WhatsApp. Números de fora do Brasil e DDDs com poucas pessoas estão em Outros.',
+      geo_sp_city: 'São Paulo capital (11)', geo_sp_state: 'Interior e litoral de SP', geo_MG: 'Minas Gerais', geo_RJ: 'Rio de Janeiro', geo_PR: 'Paraná', geo_BA: 'Bahia', geo_SC: 'Santa Catarina', geo_other: 'Outros',
+
+      s5_eb: '05 · Método', s5_h: 'Como cada número foi calculado',
+      g1_t: 'Registro', g1_d: 'Uma linha da exportação: um atendimento que a IA abriu no WhatsApp, com horário de início e da última mensagem.',
+      g2_t: 'Pessoa', g2_d: 'Um número de WhatsApp distinto. É a unidade principal do relatório: todo número que fala em pessoas conta números de WhatsApp distintos.',
+      g3_t: 'Conversa', g3_d: 'Registros da mesma pessoa juntados quando o seguinte começa menos de 24 horas depois do fim do anterior.',
+      g4_t: 'Retorno', g4_d: 'Registro aberto 7 dias ou mais depois do fim do registro anterior da mesma pessoa. Conta como piso, porque contatos enviados ao atendimento humano saem da base.',
+      g5_t: 'Fuso horário', g5_d: 'A plataforma grava em UTC. Convertemos tudo para o horário de São Paulo (UTC−3) antes de contar dias e horas.',
+      g6_t: 'Horário de funcionamento', g6_d: 'Segunda a sexta das 9h às 18h, sábado das 9h às 13h, domingo fechado.',
+      g8_t: 'Números de teste', g8_d: (v) => `Antes de contar, removemos os números da equipe Albatroz usados em testes: ${N(v.test_threads)} de ${N(v.raw_threads)} registros.`,
+      g9_t: 'Número oculto', g9_d: 'Quando a pessoa usa a privacidade do WhatsApp, a plataforma recebe um ID no lugar do telefone. Cada ID conta como uma pessoa e aparece como número oculto no mapa de origem.',
+      g7_t: 'Privacidade', g7_d: 'Esta página usa só totais. Nenhum telefone, nome ou mensagem sai da base original.',
+      f_p: 'Albatroz Studio. Agentes de IA que atendem, qualificam e fazem follow-up no WhatsApp, a qualquer hora.',
+      f_fine: (v) => `Dados da plataforma de atendimento, ${DL(v.first)} a ${DL(v.last)}. Relatório preparado pela Albatroz Studio.`,
+    },
+    en: {
+      nav_volume: 'Volume', nav_when: 'Timing', nav_return: 'Returns', nav_origin: 'Sources', nav_method: 'Method',
+      eyebrow: () => `AI reception report · ${D.client.name}, ${D.client.city.en}`,
+      h1: (v) => `${N(v.people)} people answered by AI`,
+      lead: (v) => `From ${DL(v.first)} to ${DL(v.last)}, Albatroz's AI answered WhatsApp for ${D.client.of.en}, ${D.client.desc.en}. ${P(v.closedShare)} of conversations started while ${D.client.place.en} was closed: evenings, overnight or on Sunday.`,
+      m_period: 'Period', m_period_v: (v) => `${DL(v.first)} to ${DL(v.last)}, ${v.months} months`,
+      m_tz: 'Time zone', m_tz_v: 'São Paulo (UTC−3)',
+      m_source: 'Source', m_source_v: (v) => `Export from the reception platform, ${N(v.threads)} records`,
+      m_updated: 'Updated', m_updated_v: () => DL(D.generated.slice(0, 10)),
+
+      k_people: 'People answered', k_people_v: (v) => N(v.people), k_people_s: (v) => `${N(v.conversations)} conversations, ${N(v.threads)} records`,
+      k_people_tip: (v) => `We count distinct WhatsApp numbers. Each number counts once, however many times the person wrote. The export has ${N(v.threads)} records; after merging records that belong to the same conversation, that is ${N(v.conversations)} conversations from ${N(v.people)} people.`,
+      k_typ: (v) => (v.unit === 'day' ? 'Typical day' : 'Typical week'), k_typ_v: (v) => N(v.median),
+      k_typ_s: (v) => `People per ${v.unit}, median from ${MY(v.from)} to ${MY(v.to)}. Most ${v.unit}s fall between ${N(v.p10)} and ${N(v.p90)}.`,
+      k_typ_tip: (v) => `For each ${v.unit} we count the distinct people who started a conversation. The median uses the full months from ${MY(v.from)} to ${MY(v.to)}: half the ${v.unit}s were above it, half below.${v.skipped ? ` ${ML(v.skipped)} is left out because it was the go-live month.` : ''} The range runs from the 10th to the 90th percentile. The busiest ${v.unit} was ${v.unit === 'day' ? DL(v.peak) : `the week of ${DL(v.peak)}`}, with ${N(v.peak_people)} people.`,
+      k_closed: () => `Started while ${D.client.place.en} was closed`, k_closed_v: (v) => P(v.closedShare), k_closed_s: (v) => `${N(v.closed)} of ${N(v.conversations)} conversations`,
+      k_closed_tip: () => `We take the start time of each conversation in São Paulo time and compare it with the opening hours of ${D.client.of.en}: Monday to Friday 9 am to 6 pm, Saturday 9 am to 1 pm, closed Sunday.`,
+      k_follow: 'Got an automatic follow-up', k_follow_v: (v) => P(v.followShare), k_follow_s: (v) => `${N(v.followed_people)} people`,
+      k_follow_tip: () => 'People with at least one follow-up logged by the system (the ultimoFollowup field filled on any of their records), divided by all people answered.',
+      k_ret: 'Came back after 7+ days', k_ret_v: (v) => N(v.returners), k_ret_s: (v) => `${P1(v.retShare)} of people. A floor, see section 03.`,
+      k_ret_tip: () => 'A person comes back when they open a new conversation at least 7 days after the previous one ended. Shorter gaps are usually one conversation split into several records. The count is below the real figure because contacts tagged for human service stop going through the AI, so their returns never reach this export.',
+
+      s1_eb: '01 · Volume', s1_h: 'How many people the AI answered',
+      s1_lead: 'Distinct people per day, week, month and year. Lighter bars are periods with only some of their days in the export.',
+      vol_h: 'People answered', g_day: 'Day', g_week: 'Week', g_month: 'Month', g_year: 'Year',
+      vol_note: 'Hover or tap a bar to see how many people were new and how many came back.',
+      vol_tip: () => 'Each bar counts distinct numbers that started a conversation in the period. Someone who wrote on Monday and Friday counts once in the week and once on each day, so weekly bars add up to more than the month. Weeks start on Monday. In the year view, the dashed bar estimates 12 months at the current daily pace and is only a reference.',
+      stats: (avg, lbl, n) => `Average per full period: ${N(avg)} people. Peak: ${lbl}, with ${N(n)}.`,
+      stats_year: (n, days, y) => `${N(n)} people over ${days} days of ${y}.`,
+      t_people: 'people', t_new: 'first time', t_ret: 'came back (7+ days)', t_partial: (d) => `Partial: ${d} days of data`, t_week: (s) => `Week of ${DL(s)}`,
+      t_proj: (n) => `12-month estimate: ${N(n)}`, proj_lbl: '12-month estimate',
+
+      s2_eb: '02 · Timing', s2_h: 'When people reach out',
+      s2_lead: (v) => `The busiest hour of the week is ${WD.en[v.hpeak.wd]}, ${hourEn(v.hpeak.h)} to ${hourEn((v.hpeak.h + 1) % 24)}. ${WD.en[v.topWd]} is the day with the most conversations.`,
+      heat_h: 'Weekly heatmap, day by hour',
+      heat_tip: () => 'Each cell counts the conversations that started in that hour across the whole history, in São Paulo time. Split records are already merged into conversations (section 03), so one conversation never counts twice. The dashed outline marks the opening hours.',
+      leg_ramp: 'Fewer to more conversations', leg_open: () => `${cap(noun('en'))} open`,
+      closed_h: () => `While ${D.client.place.en} was closed`, closed_note: 'Every closed hour of the week, in four windows.',
+      closed_tip: () => 'The closed hours split into four windows that do not overlap: weekdays after 6 pm, all of Sunday, before 9 am Monday to Saturday, and Saturday after 1 pm. Shares are of all conversations.',
+      b_weeknight: 'Weekdays after 6 pm', b_sunday: 'Sunday', b_early: 'Before 9 am, Mon to Sat', b_sat_pm: 'Saturday after 1 pm',
+      wd_h: 'Day of the week', wd_note: 'Conversations started on each day, whole history.',
+      wd_tip: () => 'Total conversations that started on each weekday since go-live. The busiest day is in orange.',
+
+      s3_eb: '03 · Returns', s3_h: 'Who comes back, and how we filtered',
+      s3_lead: (v) => `Of ${N(v.people)} people, ${N(v.people_2plus)} show up with more than one record. Most of those extra records are one conversation split by the system. After filtering, ${N(v.returners)} people actually came back.`,
+      gap_h: 'Gap between records of the same person',
+      gap_tip: () => 'For each person with more than one record, we measure the time from the last message of one record to the start of the next. Each bar counts pairs of consecutive records.',
+      leg_split: 'Same conversation (under 24 h)', leg_unclear: 'Unclear (1 to 7 days)', leg_return: 'Return (7 days or more)',
+      gp_lt1m: 'Under 1 min', gp_1_60m: '1 to 60 min', gp_1_24h: '1 to 24 h', gp_1_7d: '1 to 7 days', gp_7_30d: '7 to 30 days', gp_30_90d: '30 to 90 days', gp_gt90d: 'Over 90 days',
+      t_pairs: 'record pairs',
+      sens_h: 'Does the window change the answer?', sens_note: 'People who came back, by the minimum gap required. The report uses 7 days.',
+      sens_tip: () => 'We redid the count with three minimum gaps. At 1 day it picks up resumed negotiations. At 30 days it drops people who came back the next month. Seven days sits between them and splits the two groups cleanly in the chart beside this one.',
+      sens_c1: 'Minimum gap', sens_c2: 'People', sens_c3: '% of total', sens_d: (d) => (d === 1 ? '1 day' : `${d} days`),
+      ex1_h: 'Why records repeat',
+      ex1_p: (v) => `The system sometimes opens a new record in the middle of the same conversation. In ${N(v.gap.lt1m)} cases the next record started less than a minute after the previous one ended. Counting everything that started within 24 hours, ${N(v.split_threads)} records are treated as the same conversation.`,
+      ex2_h: 'The filter we applied',
+      ex2_p: (v) => `Records from the same person less than 24 hours apart become one conversation: ${N(v.threads)} records turn into ${N(v.conversations)} conversations. A return is only a record opened 7 or more days after the previous one. The ${N(v.unclear)} gaps between 1 and 7 days are left out of both counts, since they can be a resumed negotiation or a person coming back.`,
+      ex3_h: 'Why the number is a floor',
+      ex3_p: (v) => `${cap(D.client.place.en)} tags some contacts to go straight to a human. From then on they skip the AI, and when they come back they leave no record in this export. The real number of returns is above ${N(v.returners)}.`,
+
+      s4_eb: '04 · Sources', s4_h: () => (D.campaigns || D.breakdowns.length ? 'What brought people in' : 'Conversations and origin'),
+      s4_lead: () => (D.campaigns ? 'The campaign behind each conversation, how long it lasts and where the person writes from.' : D.breakdowns.length ? 'What people told the AI, how long each conversation lasts and where people write from.' : 'How long each conversation lasts and where people write from.'),
+      camp_h: 'Conversations by campaign, per month',
+      camp_tip: () => 'The campaign the system logged at the start of each conversation (the interesseAnuncio field). Organic means no ad. The two thread-lift promotions are combined.',
+      c_thread_lift: 'Thread lift', c_hifu: 'HIFU ultrasound', c_promo: 'Thread lift promo', c_organic: 'Organic', t_total: 'total',
+      span_h: 'Conversation length',
+      span_tip: () => 'Time from the first to the last message of each conversation, with split records merged.',
+      sp_lt1m: 'Under 1 min', sp_1_5m: '1 to 5 min', sp_5_30m: '5 to 30 min', sp_30_60m: '30 to 60 min', sp_1_24h: '1 to 24 h', sp_gt1d: 'Over 1 day', t_convs: 'conversations',
+      geo_h: 'Where people write from',
+      geo_tip: () => 'Distinct people grouped by the area code of their WhatsApp number. Numbers outside Brazil and area codes with few people are under Other.',
+      geo_sp_city: 'São Paulo city (11)', geo_sp_state: 'Rest of São Paulo state', geo_MG: 'Minas Gerais', geo_RJ: 'Rio de Janeiro', geo_PR: 'Paraná', geo_BA: 'Bahia', geo_SC: 'Santa Catarina', geo_other: 'Other',
+
+      s5_eb: '05 · Method', s5_h: 'How each number was calculated',
+      g1_t: 'Record', g1_d: 'One row of the export: one service thread the AI opened on WhatsApp, with its start time and last message time.',
+      g2_t: 'Person', g2_d: 'One distinct WhatsApp number. This is the report\'s main unit: every figure about people counts distinct WhatsApp numbers.',
+      g3_t: 'Conversation', g3_d: 'Records from the same person merged when the next one starts less than 24 hours after the previous one ended.',
+      g4_t: 'Return', g4_d: 'A record opened 7 or more days after the same person\'s previous record ended. It is a floor, because contacts sent to human service drop out of the export.',
+      g5_t: 'Time zone', g5_d: 'The platform stores UTC. Everything is converted to São Paulo time (UTC−3) before counting days and hours.',
+      g6_t: 'Opening hours', g6_d: 'Monday to Friday 9 am to 6 pm, Saturday 9 am to 1 pm, closed Sunday.',
+      g8_t: 'Test numbers', g8_d: (v) => `Before counting, we removed the Albatroz team numbers used for testing: ${N(v.test_threads)} of ${N(v.raw_threads)} records.`,
+      g9_t: 'Hidden number', g9_d: 'When a person uses WhatsApp privacy, the platform receives an ID instead of a phone number. Each ID counts as one person and shows as a hidden number in the origin chart.',
+      g7_t: 'Privacy', g7_d: 'This page uses totals only. No phone number, name or message leaves the original export.',
+      f_p: 'Albatroz Studio. AI agents that answer, qualify and follow up on WhatsApp, at any hour.',
+      f_fine: (v) => `Data from the reception platform, ${DL(v.first)} to ${DL(v.last)}. Report prepared by Albatroz Studio.`,
+    },
+  };
+  const t = (k, ...a) => { const x = T[lang][k]; return typeof x === 'function' ? x(...a) : x; };
+
+  // ---------- svg helpers ----------
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+  const txt = (parent, x, y, s, attrs = {}) => { const e = el('text', { x, y, ...attrs }, parent); e.textContent = s; return e; };
+  function svgFor(box, h) {
+    box.replaceChildren();
+    const w = Math.max(280, Math.floor(box.clientWidth));
+    const s = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' }, box);
+    return { s, w };
+  }
+  // off-white -> sage -> army -> charcoal, linear in value
+  const STOPS = [[0, [236, 230, 218]], [0.3, [190, 190, 189]], [0.7, [105, 104, 88]], [1, [32, 32, 32]]];
+  const ramp = (f) => {
+    f = Math.max(0, Math.min(1, f));
+    for (let i = 1; i < STOPS.length; i++) if (f <= STOPS[i][0]) {
+      const [a, ca] = STOPS[i - 1], [b, cb] = STOPS[i], k = (f - a) / (b - a);
+      return `rgb(${ca.map((c, j) => Math.round(c + (cb[j] - c) * k)).join(',')})`;
+    }
+    return 'rgb(32,32,32)';
+  };
+  const measure = (s, strings, cls) => { const g = el('g', {}, s); let m = 0; for (const x of strings) m = Math.max(m, txt(g, 0, 0, x, cls ? { class: cls } : {}).getComputedTextLength()); g.remove(); return m; };
+  const niceMax = (v) => { const p = Math.pow(10, Math.floor(Math.log10(v || 1))); const f = v / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p; };
+
+  const tipEl = document.getElementById('tip');
+  function showTip(e, title, lines) {
+    tipEl.replaceChildren();
+    const b = document.createElement('b'); b.textContent = title; tipEl.appendChild(b);
+    for (const l of lines) { const d = document.createElement('div'); d.textContent = l; tipEl.appendChild(d); }
+    tipEl.hidden = false;
+    const w = tipEl.offsetWidth, h = tipEl.offsetHeight;
+    let x = e.pageX + 14, y = e.pageY - h - 12;
+    if (x + w > window.scrollX + document.documentElement.clientWidth - 8) x = e.pageX - w - 14;
+    if (y < window.scrollY + 70) y = e.pageY + 18;
+    tipEl.style.left = Math.max(8, x) + 'px'; tipEl.style.top = y + 'px';
+  }
+  const hideTip = () => { tipEl.hidden = true; };
+  const hover = (node, title, lines) => { node.addEventListener('pointermove', (e) => showTip(e, title, lines)); node.addEventListener('pointerleave', hideTip); };
+
+  function vbars(box, rows, o) {
+    const H = 300, top = 22, bottom = 28;
+    const { s, w } = svgFor(box, H);
+    const max = niceMax(Math.max(...rows.map((r) => Math.max(o.value(r), o.ghost ? o.ghost(r) : 0))));
+    const ticks = [0, max / 4, max / 2, (3 * max) / 4, max];
+    const ml = measure(s, ticks.map(N)) + 10, plotW = w - ml - 4;
+    const y = (v) => H - bottom - (v / max) * (H - bottom - top);
+    for (const tk of ticks) {
+      el('line', { x1: ml, x2: w - 4, y1: y(tk), y2: y(tk), stroke: tk === 0 ? C.charcoal : 'rgba(32,32,32,.10)', 'stroke-width': 1 }, s);
+      txt(s, ml - 8, y(tk) + 4, N(tk), { 'text-anchor': 'end' });
+    }
+    const step = plotW / rows.length, bw = Math.min(step * (rows.length > 60 ? 0.75 : 0.68), 64);
+    const every = Math.ceil(rows.length / Math.max(2, Math.floor(plotW / 70)));
+    rows.forEach((r, i) => {
+      const cx = ml + step * i + step / 2, v = o.value(r);
+      if (o.ghost) {
+        const gv = o.ghost(r);
+        el('rect', { x: cx - bw / 2, y: y(gv), width: bw, height: y(0) - y(gv), fill: 'none', stroke: C.slate, 'stroke-dasharray': '5 4', 'stroke-width': 1.5 }, s);
+        txt(s, cx, y(gv) - 8, `${t('proj_lbl')}: ${N(gv)}`, { 'text-anchor': 'middle' });
+      }
+      el('rect', { x: cx - bw / 2, y: y(v), width: bw, height: Math.max(0, y(0) - y(v)), fill: o.color ? o.color(r) : C.army, 'fill-opacity': r.partial && !o.ghost ? 0.4 : 1 }, s);
+      if (o.ghost) txt(s, cx, y(v) + 20, N(v), { 'text-anchor': 'middle', fill: '#F2EDE4', style: 'fill:#F2EDE4;font-weight:700' });
+      if (i % every === 0) txt(s, cx, H - 8, o.label(r), { 'text-anchor': 'middle' });
+      const hit = el('rect', { x: ml + step * i, y: top, width: step, height: H - bottom - top, fill: 'transparent' }, s);
+      hover(hit, o.tipTitle(r), o.tipLines(r));
+    });
+  }
+
+  function hbars(box, rows, o) {
+    const probe = svgFor(box, 10);
+    const labW = measure(probe.s, rows.map(o.label), 'strong'), ew = measure(probe.s, rows.map(o.end), 'end') + 10;
+    const stacked = labW + 14 > probe.w * 0.42;
+    const rowH = stacked ? 48 : 34, H = rows.length * rowH;
+    const { s, w } = svgFor(box, H);
+    const lw = stacked ? 0 : labW + 14;
+    const max = Math.max(...rows.map(o.value)) || 1;
+    const bwMax = Math.max(20, w - lw - ew);
+    rows.forEach((r, i) => {
+      const y0 = i * rowH, bw = (o.value(r) / max) * bwMax;
+      const by = stacked ? y0 + 22 : y0 + 8, bh = stacked ? 16 : rowH - 16;
+      txt(s, 0, stacked ? y0 + 15 : y0 + rowH / 2 + 4, o.label(r), { class: 'strong' });
+      el('rect', { x: lw, y: by, width: Math.max(2, bw), height: bh, fill: o.color ? o.color(r, i) : C.army }, s);
+      txt(s, lw + bw + 8, by + bh / 2 + 4, o.end(r), { class: 'end' });
+      const hit = el('rect', { x: 0, y: y0, width: w, height: rowH, fill: 'transparent' }, s);
+      hover(hit, o.label(r), o.tip(r));
+    });
+  }
+
+  // ---------- charts ----------
+  function drawVolume() {
+    const rows = D.series[gran];
+    const lbl = (r) => gran === 'day' || gran === 'week' ? DF(r.p, { day: 'numeric', month: 'short' }) : gran === 'month' ? DF(r.p, { month: 'short' }) : r.p;
+    const title = (r) => gran === 'day' ? DF(r.p, { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) : gran === 'week' ? t('t_week', r.p) : gran === 'month' ? cap(DF(r.p, { month: 'long', year: 'numeric' })) : r.p;
+    const proj = (r) => Math.round((r.people / r.days) * 365);
+    vbars(document.getElementById('c-volume'), rows, {
+      value: (r) => r.people, label: lbl, ghost: gran === 'year' ? proj : null,
+      tipTitle: title,
+      tipLines: (r) => {
+        const l = [`${N(r.people)} ${t('t_people')}`, `${N(r.new)} ${t('t_new')}`, `${N(r.ret)} ${t('t_ret')}`];
+        if (gran === 'year') l.push(t('t_proj', proj(r))); else if (r.partial) l.push(t('t_partial', r.days));
+        return l;
+      },
+    });
+    const full = rows.filter((r) => !r.partial), base = full.length ? full : rows;
+    const best = rows.reduce((a, b) => (b.people > a.people ? b : a));
+    document.getElementById('vol-stats').textContent = gran === 'year'
+      ? t('stats_year', best.people, best.days, best.p)
+      : t('stats', base.reduce((a, r) => a + r.people, 0) / base.length, title(best), best.people);
+  }
+
+  function drawHeat() {
+    const box = document.getElementById('c-heat');
+    const order = [1, 2, 3, 4, 5, 6, 0], cellH = 30, top = 22;
+    const H = top + 7 * cellH;
+    const { s, w } = svgFor(box, H);
+    const ml = measure(s, WDs[lang], 'strong') + 12, cw = (w - ml) / 24;
+    const max = Math.max(...D.heat.flat()), min = Math.min(...D.heat.flat());
+    const every = cw < 20 ? 3 : cw < 34 ? 2 : 1;
+    for (let h = 0; h < 24; h += every) txt(s, ml + h * cw + cw / 2, 13, lang === 'pt' ? `${h}h` : hourEn(h).replace(' ', ''), { 'text-anchor': 'middle' });
+    order.forEach((wd, i) => {
+      txt(s, 0, top + i * cellH + cellH / 2 + 4, WDs[lang][wd], { class: 'strong' });
+      for (let h = 0; h < 24; h++) {
+        const n = D.heat[wd][h];
+        const r = el('rect', { x: ml + h * cw + 1, y: top + i * cellH + 1, width: Math.max(1, cw - 2), height: cellH - 2, fill: ramp((n - min) / (max - min || 1)) }, s);
+        const open = (wd >= 1 && wd <= 5 && h >= 9 && h < 18) || (wd === 6 && h >= 9 && h < 13);
+        hover(r, lang === 'pt' ? `${cap(WD.pt[wd])}, das ${hourPt(h)} às ${hourPt((h + 1) % 24)}` : `${WD.en[wd]}, ${hourEn(h)} to ${hourEn((h + 1) % 24)}`, [`${N(n)} ${t('t_convs')}`, open ? t('leg_open') : t('closed_h')]);
+      }
+    });
+    const box1 = (a, b, r0, r1) => el('rect', { x: ml + a * cw, y: top + r0 * cellH, width: (b - a) * cw, height: (r1 - r0 + 1) * cellH, fill: 'none', stroke: C.orange, 'stroke-width': 2.5, 'stroke-dasharray': '6 3', 'pointer-events': 'none' }, s);
+    box1(9, 18, 0, 4); box1(9, 13, 5, 5);
+  }
+
+  function drawClosed() {
+    const tot = D.totals.conversations;
+    hbars(document.getElementById('c-closed'), D.closed, {
+      label: (r) => t('b_' + r.k), value: (r) => r.n, end: (r) => `${N(r.n)} · ${P(r.n / tot)}`,
+      color: () => C.orange, tip: (r) => [`${N(r.n)} ${t('t_convs')}`, P1(r.n / tot)],
+    });
+  }
+
+  function drawWeekday() {
+    const v = V(), order = [1, 2, 3, 4, 5, 6, 0];
+    hbars(document.getElementById('c-weekday'), order.map((wd) => ({ wd, n: v.wdTot[wd] })), {
+      label: (r) => cap(WD[lang][r.wd]), value: (r) => r.n, end: (r) => N(r.n),
+      color: (r) => (r.wd === v.topWd ? C.orange : C.army), tip: (r) => [`${N(r.n)} ${t('t_convs')}`, P1(r.n / v.heatTot)],
+    });
+  }
+
+  function drawGaps() {
+    const col = { split: C.sage, unclear: C.slate3, return: C.orange };
+    hbars(document.getElementById('c-gaps'), D.gaps, {
+      label: (r) => t('gp_' + r.k), value: (r) => r.n, end: (r) => N(r.n),
+      color: (r) => col[r.kind], tip: (r) => [`${N(r.n)} ${t('t_pairs')}`, t('leg_' + r.kind)],
+    });
+  }
+
+  function drawSens() {
+    const tb = document.getElementById('sens-body'), tt = D.totals;
+    tb.replaceChildren();
+    [[1, tt.returners_1d], [7, tt.returners], [30, tt.returners_30d]].forEach(([d, n]) => {
+      const tr = document.createElement('tr'); if (d === 7) tr.className = 'used';
+      for (const [v, r] of [[t('sens_d', d), false], [N(n), true], [P1(n / tt.people), true]]) { const td = document.createElement('td'); td.textContent = v; if (r) td.className = 'r'; tr.appendChild(td); }
+      tb.appendChild(tr);
+    });
+  }
+
+  function drawCamp() {
+    const box = document.getElementById('c-camp'), rows = D.campaigns;
+    const keys = ['thread_lift', 'hifu', 'promo', 'organic'], col = [C.army, C.slate, C.orange, C.sage];
+    const H = 300, top = 14, bottom = 28;
+    const { s, w } = svgFor(box, H);
+    const tot = (r) => keys.reduce((a, k) => a + r[k], 0);
+    const max = niceMax(Math.max(...rows.map(tot)));
+    const ticks = [0, max / 4, max / 2, (3 * max) / 4, max];
+    const ml = measure(s, ticks.map(N)) + 10, plotW = w - ml - 4;
+    const y = (v) => H - bottom - (v / max) * (H - bottom - top);
+    for (const tk of ticks) { el('line', { x1: ml, x2: w - 4, y1: y(tk), y2: y(tk), stroke: tk === 0 ? C.charcoal : 'rgba(32,32,32,.10)' }, s); txt(s, ml - 8, y(tk) + 4, N(tk), { 'text-anchor': 'end' }); }
+    const step = plotW / rows.length, bw = Math.min(step * 0.62, 48);
+    rows.forEach((r, i) => {
+      const cx = ml + step * i + step / 2; let acc = 0;
+      keys.forEach((k, j) => { el('rect', { x: cx - bw / 2, y: y(acc + r[k]), width: bw, height: y(acc) - y(acc + r[k]), fill: col[j] }, s); acc += r[k]; });
+      txt(s, cx, H - 8, DF(r.m, { month: 'short' }), { 'text-anchor': 'middle' });
+      const hit = el('rect', { x: ml + step * i, y: top, width: step, height: H - bottom - top, fill: 'transparent' }, s);
+      hover(hit, cap(DF(r.m, { month: 'long', year: 'numeric' })), [`${N(tot(r))} ${t('t_total')}`, ...keys.map((k) => `${t('c_' + k)}: ${N(r[k])}`)]);
+    });
+  }
+
+  function drawSpan() {
+    const tot = D.span.reduce((a, r) => a + r.n, 0);
+    hbars(document.getElementById('c-span'), D.span, { label: (r) => t('sp_' + r.k), value: (r) => r.n, end: (r) => P(r.n / tot), tip: (r) => [`${N(r.n)} ${t('t_convs')}`] });
+  }
+  function drawGeo() {
+    const tot = D.geo.reduce((a, r) => a + r.n, 0);
+    hbars(document.getElementById('c-geo'), D.geo, { label: (r) => r.label[lang], value: (r) => r.n, end: (r) => P(r.n / tot), color: (r, i) => (i === 0 ? C.army : C.khaki), tip: (r) => [`${N(r.n)} ${t('t_people')}`] });
+  }
+
+  function buildBreakdowns() {
+    const wrap = document.getElementById('breakdowns');
+    wrap.replaceChildren(); wrap.hidden = !D.breakdowns.length;
+    D.breakdowns.forEach((b, i) => {
+      const card = document.createElement('div'); card.className = 'card';
+      const h = document.createElement('h3'); const sp = document.createElement('span'); sp.textContent = b.title[lang];
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'info'; btn.textContent = 'i'; btn.dataset.bd = String(i);
+      h.append(sp, btn);
+      const note = document.createElement('p'); note.className = 'note'; note.textContent = b.note[lang];
+      const ch = document.createElement('div'); ch.className = 'chart'; ch.id = 'c-bd-' + i;
+      card.append(h, note, ch); wrap.appendChild(card); bindInfo(btn);
+    });
+  }
+  function drawBreakdowns() {
+    D.breakdowns.forEach((b, i) => {
+      const tot = b.rows.reduce((a, r) => a + r.n, 0);
+      hbars(document.getElementById('c-bd-' + i), b.rows, { label: (r) => r.label[lang], value: (r) => r.n, end: (r) => `${N(r.n)} · ${P(r.n / tot)}`,
+        color: (r, j) => (j === 0 ? C.army : C.khaki), tip: (r) => [`${N(r.n)} ${t('t_people')}`, P1(r.n / tot)] });
+    });
+  }
+  const drawAll = () => { if (!D) return; drawVolume(); drawHeat(); drawClosed(); drawWeekday(); drawGaps(); drawSens(); if (D.campaigns) drawCamp(); drawBreakdowns(); drawSpan(); drawGeo(); };
+
+  // ---------- text + language ----------
+  function renderText() {
+    const v = V();
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en-US';
+    document.title = (lang === 'pt' ? 'Atendimento por IA · ' : 'AI Reception · ') + D.client.name + ' | Albatroz Studio';
+    document.getElementById('camp-card').hidden = !D.campaigns;
+    buildBreakdowns();
+    for (const n of document.querySelectorAll('[data-i18n]')) { const x = T[lang][n.dataset.i18n]; if (x !== undefined) n.textContent = typeof x === 'function' ? x(v) : x; }
+    for (const b of document.querySelectorAll('.info')) b.setAttribute('aria-label', lang === 'pt' ? 'Como calculamos' : 'How we calculated this');
+    for (const b of document.querySelectorAll('.lang button')) b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+  }
+  function setLang(l, remember) {
+    lang = l; closePop();
+    if (remember) { try { localStorage.setItem('alb-lang-pref', l === 'pt' ? 'pt-br' : 'en'); } catch (e) {} }
+    if (D) { renderText(); drawAll(); }
+  }
+  for (const b of document.querySelectorAll('.lang button')) b.addEventListener('click', () => setLang(b.dataset.lang, true));
+  for (const b of document.querySelectorAll('.seg button')) b.addEventListener('click', () => {
+    gran = b.dataset.gran;
+    for (const o of document.querySelectorAll('.seg button')) o.setAttribute('aria-pressed', String(o === b));
+    drawVolume();
+  });
+
+  // ---------- info popovers ----------
+  const pop = document.getElementById('pop'); let popFor = null, pinned = false;
+  function openPop(btn, pin) {
+    const h = document.createElement('span'); h.className = 'pop-h'; h.textContent = lang === 'pt' ? 'Como calculamos' : 'How we calculated this';
+    const p = document.createElement('span'); p.textContent = btn.dataset.bd !== undefined ? D.breakdowns[+btn.dataset.bd].tip[lang] : t(btn.dataset.tip, V());
+    pop.replaceChildren(h, p); pop.hidden = false; popFor = btn; pinned = !!pin;
+    for (const o of document.querySelectorAll('.info')) o.setAttribute('aria-expanded', String(o === btn));
+    const r = btn.getBoundingClientRect(), pw = pop.offsetWidth, vw = document.documentElement.clientWidth;
+    let x = r.left + window.scrollX + r.width / 2 - pw / 2;
+    x = Math.max(window.scrollX + 12, Math.min(x, window.scrollX + vw - pw - 12));
+    let y = r.bottom + window.scrollY + 10;
+    if (r.bottom + pop.offsetHeight + 20 > window.innerHeight) y = r.top + window.scrollY - pop.offsetHeight - 10;
+    pop.style.left = x + 'px'; pop.style.top = y + 'px';
+  }
+  function closePop() { pop.hidden = true; popFor = null; pinned = false; for (const o of document.querySelectorAll('.info')) o.setAttribute('aria-expanded', 'false'); }
+  function bindInfo(b) {
+    b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-describedby', 'pop');
+    b.setAttribute('aria-label', lang === 'pt' ? 'Como calculamos' : 'How we calculated this');
+    b.addEventListener('mouseenter', () => { if (!pinned) openPop(b, false); });
+    b.addEventListener('mouseleave', () => { if (!pinned) closePop(); });
+    b.addEventListener('focus', () => { if (!pinned) openPop(b, false); });
+    b.addEventListener('blur', () => { if (!pinned) closePop(); });
+    b.addEventListener('click', (e) => { e.stopPropagation(); if (popFor === b && pinned) closePop(); else openPop(b, true); });
+  }
+  for (const b of document.querySelectorAll('.info')) bindInfo(b);
+  document.addEventListener('click', (e) => { if (pinned && !pop.contains(e.target)) closePop(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePop(); });
+
+  // ---------- boot ----------
+  const qs = new URLSearchParams(location.search).get('lang');
+  let pref = null; try { pref = localStorage.getItem('alb-lang-pref'); } catch (e) {}
+  lang = qs === 'en' || qs === 'pt' ? qs : pref ? (pref.startsWith('en') ? 'en' : 'pt') : (navigator.language || 'pt').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+  for (const b of document.querySelectorAll('.lang button')) b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+
+  fetch('data.json').then((r) => r.json()).then((d) => {
+    D = d; renderText(); drawAll();
+    let last = 0;
+    new ResizeObserver(() => { const w = document.getElementById('c-volume').clientWidth; if (Math.abs(w - last) > 4) { last = w; drawAll(); } }).observe(document.body);
+  }).catch(() => {
+    document.querySelector('.hero h1').textContent = lang === 'pt' ? 'Não foi possível carregar os dados.' : 'The data could not be loaded.';
+  });
+})();
+</script>
+</body>
+</html>

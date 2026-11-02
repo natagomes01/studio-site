@@ -616,6 +616,16 @@ em { font-style: italic; }
   margin: 0;
 }
 .alb-case__copy strong { font-weight: 700; color: var(--c-army); }
+.alb-case__link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-accent-500);
+}
 
 .alb-cases__pattern {
   margin-top: 80px;

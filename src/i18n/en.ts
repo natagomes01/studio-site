@@ -29,7 +29,7 @@ export const en: Strings = {
   },
   responsePromise: 'A reply in under 24 hours, from me, on WhatsApp.',
   proofBar: [
-    { metric: '80+', context: 'daily conversations · Estética Salomão' },
+    { metric: '18,421', context: 'people answered in 9 months · Estética Salomão' },
     { metric: '+40%', context: 'in conversion · Gracie Barra SG' },
     { metric: '$700K', context: 'in monthly sales · Topografia com Você' },
     { metric: '680', context: 'leads in 3 months · Dra. Georgia' },
@@ -84,11 +84,12 @@ export const en: Strings = {
         name: 'Estética Salomão',
         segment: 'Aesthetics clinic',
         stats: [
-          { value: '80+', label: 'daily WhatsApp conversations' },
-          { value: '15K+', label: 'women served historically' },
+          { value: '18,421', label: 'people answered on WhatsApp in 9 months' },
+          { value: '62%', label: 'of conversations while the clinic was closed' },
         ],
-        body: 'A clinic with real scale behind it: more than 15,000 women served over its history. With PAI running, the operation now handles 80+ conversations a day on WhatsApp without buckling, and without losing the human tone of the brand. A volume that would take three times the support team to cover by hand.',
+        body: 'In 9 months, PAI answered 18,421 people on the clinic\'s WhatsApp, 73 on a typical day, without buckling and without losing the human tone of the brand. 62% of conversations started while the clinic was closed: evenings, overnight or on Sunday, the busiest day of the week.',
         accent: 'linear-gradient(135deg, #6b3a3a 0%, #a85957 100%)',
+        report: '/relatorios/salomao/',
       },
       {
         name: 'Gracie Barra São Gonçalo',
@@ -114,12 +115,15 @@ export const en: Strings = {
         name: 'Dra. Georgia',
         segment: 'Plastic surgery',
         stats: [
-          { value: '680+', label: 'leads handled in 3 months' },
+          { value: '680+', label: 'leads handled in the first 3 months' },
+          { value: '1,384', label: 'people answered in 9 months' },
         ],
-        body: 'More than 680 leads handled on WhatsApp in just 3 months, with automatic qualification and cases delivered ready for the clinical team to close. The calendar stopped depending on the surgeon herself to move.',
+        body: 'More than 680 leads handled on WhatsApp in the first 3 months and 1,384 people in 9 months, with automatic qualification and cases delivered ready for the clinical team to close. The calendar stopped depending on the surgeon herself to move.',
         accent: 'linear-gradient(135deg, #3a4a3a 0%, #5d7159 100%)',
+        report: '/relatorios/dra-georgia/',
       },
     ],
+    reportCta: 'See the full report',
     pattern: {
       title: 'The pattern behind the numbers',
       body: 'With no system, a reply takes up to 48 hours, when the message does not get buried under the others. With PAI, it lands within the hour. In every case, the numbers moved before the team grew.',
