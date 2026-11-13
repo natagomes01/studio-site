@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Proposta Comercial · IA e Tráfego | Albatroz Studio</title>
+<meta name="description" content="Proposta comercial da Albatroz Studio: atendimento com IA e tráfego pago, com cases, pacotes e garantia de resultado no tráfego.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Kameron:wght@400;600;700&family=Raleway:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: palco 16:9 fixo (1600x900) escalado para caber na tela; um slide por vez, setas navegam.
+   Deck de marca em mundo único (sem alternância claro/escuro): fundo de moldura carvão, slides alternam
+   army, carvão e off-white; laranja reservado a número, preço e garantia. */
+:root {
+  --army: #696858;
+  --army-deep: #57564a;
+  --khaki: #989880;
+  --sage: #BEBEBD;
+  --offwhite: #F2EDE4;
+  --warm: #E8DDD0;
+  --paper: #FCFAF6;
+  --charcoal: #202020;
+  --charcoal-2: #3D3D3D;
+  --slate: #5F6870;
+  --orange: #F04500;
+  --coral: #F5A888;
+  --rule-dark: rgba(242,237,228,.18);
+  --rule-light: rgba(32,32,32,.14);
+
+  --f-head: "Anton", "Helvetica Neue Condensed Bold", Impact, sans-serif;
+  --f-high: "Kameron", Georgia, "Times New Roman", serif;
+  --f-body: "Raleway", "Helvetica Neue", Arial, sans-serif;
+
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--charcoal);
+  color: var(--offwhite);
+  font-family: var(--f-body);
+  overflow: hidden;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+  box-sizing: border-box;
+}
+*, *::before, *::after { box-sizing: inherit; }
+
+.viewport { position: relative; height: 100%; width: 100%; display: grid; place-items: center; }
+.stage {
+  position: absolute; left: 50%; top: 50%;
+  width: 1600px; height: 900px;
+  transform-origin: center center;
+  transform: translate(-50%, -50%) scale(var(--s, .5));
+  border-radius: 6px; overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+}
+.slide {
+  position: absolute; inset: 0;
+  padding: 88px 112px;
+  display: flex; flex-direction: column;
+  visibility: hidden; opacity: 0;
+  transition: opacity 260ms cubic-bezier(.22,.61,.36,1), visibility 0s linear 260ms;
+}
+.slide.on { visibility: visible; opacity: 1; transition: opacity 260ms cubic-bezier(.22,.61,.36,1); }
+@media (prefers-reduced-motion: reduce) { .slide, .slide.on { transition: none; } }
+
+/* temas de slide */
+.t-army     { background: var(--army); color: var(--offwhite); }
+.t-dark     { background: var(--charcoal); color: var(--offwhite); }
+.t-light    { background: var(--offwhite); color: var(--charcoal); }
+.t-orange   { background: var(--orange); color: var(--offwhite); }
+
+/* tipografia */
+.eyebrow { font: 700 20px/1 var(--f-body); letter-spacing: .18em; text-transform: uppercase; display: flex; align-items: center; gap: 18px; }
+.eyebrow::after { content: ""; height: 1px; width: 120px; background: currentColor; opacity: .5; }
+.t-light .eyebrow { color: var(--army); }
+.h1 { font: 400 112px/.92 var(--f-head); letter-spacing: -.005em; text-transform: uppercase; margin: 0; text-wrap: balance; }
+.h2 { font: 400 76px/.98 var(--f-head); text-transform: uppercase; margin: 0; text-wrap: balance; }
+.hl { font: 600 34px/1.25 var(--f-high); margin: 0; text-wrap: balance; }
+.lead { font: 500 26px/1.5 var(--f-body); margin: 0; max-width: 34em; }
+.accent { color: var(--orange); }
+.t-army .accent, .t-dark .accent { color: var(--orange); }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+
+.brand { display: flex; align-items: center; gap: 16px; font: 400 26px/1 var(--f-head); letter-spacing: .06em; text-transform: uppercase; }
+.brand svg { width: 64px; height: auto; }
+.foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font: 600 16px/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+.foot .brand { font-size: 18px; gap: 10px; }
+.foot .brand svg { width: 40px; }
+
+/* 1 capa */
+.cover { justify-content: space-between; }
+.cover .mark { position: absolute; right: -170px; bottom: 70px; width: 860px; color: var(--army-deep); }
+.cover .mark svg { width: 100%; height: auto; }
+.cover .title { position: relative; display: grid; gap: 28px; }
+.cover .title .h1 { font-size: 168px; }
+.cover .title .hl { font-size: 42px; max-width: 18em; color: var(--offwhite); }
+.cover .meta { position: relative; display: flex; gap: 14px; }
+.pill { border: 1.5px solid currentColor; border-radius: 999px; padding: 12px 26px; font: 700 18px/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; }
+.pill.solid { background: var(--offwhite); color: var(--army); border-color: var(--offwhite); }
+
+/* 2 gancho */
+.hook { justify-content: center; gap: 44px; }
+.hook .h1 { font-size: 150px; max-width: 9.5em; }
+.hook .lead { color: var(--sage); max-width: 38em; font-size: 28px; }
+.hook .lead b { color: var(--offwhite); font-weight: 700; }
+
+/* 3 números */
+.stats { display: grid; grid-template-columns: .7fr 1.2fr 1.2fr .9fr; gap: 0; margin-top: 48px; border-top: 2px solid var(--charcoal); }
+.stat { padding: 36px 32px 0 0; display: grid; gap: 10px; align-content: start; }
+.stat + .stat { padding-left: 32px; border-left: 1px solid var(--rule-light); }
+.stat .big { font: 400 74px/1 var(--f-head); color: var(--orange); white-space: nowrap; }
+.stat .brl { font: 700 24px/1 var(--f-body); color: var(--slate); }
+.stat .lbl { font: 600 22px/1.35 var(--f-body); margin-top: 10px; }
+.band { margin-top: auto; flex: none; background: var(--charcoal); color: var(--offwhite); border-radius: 4px; padding: 30px 40px; display: flex; align-items: center; gap: 36px; }
+.band .from { font: 400 54px/1 var(--f-head); color: var(--sage); text-decoration: line-through; text-decoration-thickness: 3px; }
+.band .arrow { font: 400 44px/1 var(--f-head); color: var(--khaki); }
+.band .to { font: 400 54px/1 var(--f-head); color: var(--orange); }
+.band p { margin: 0 0 0 auto; font: 600 22px/1.4 var(--f-body); max-width: 20em; text-align: right; }
+
+/* 4 cases */
+.cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+.case { background: var(--paper); border: 1px solid var(--rule-light); border-radius: 4px; padding: 28px 30px; display: grid; gap: 12px; align-content: start; }
+.case .niche { font: 700 16px/1.2 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--army); }
+.case .fig { font: 400 52px/1 var(--f-head); color: var(--charcoal); }
+.case .fig small { font: 700 20px/1 var(--f-body); color: var(--slate); text-transform: none; letter-spacing: 0; margin-left: 6px; }
+.case p { margin: 0; font: 500 19px/1.45 var(--f-body); color: var(--charcoal-2); }
+.case.us { background: var(--charcoal); color: var(--offwhite); border-color: var(--charcoal); }
+.case.us .niche { color: var(--coral); }
+.case.us .fig { color: var(--orange); }
+.case.us p { color: var(--sage); }
+.also { margin-top: auto; padding-top: 26px; font: 600 20px/1.4 var(--f-body); color: var(--slate); display: flex; gap: 14px; align-items: baseline; }
+.also b { font-weight: 800; color: var(--charcoal); letter-spacing: .12em; text-transform: uppercase; font-size: 16px; }
+
+/* 5 compromisso */
+.commit { display: grid; grid-template-columns: 1fr 1.25fr; gap: 80px; align-items: center; flex: 1; }
+.commit ol { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--rule-dark); }
+.commit li { display: grid; grid-template-columns: 90px 1fr; gap: 24px; padding: 40px 0; border-bottom: 1px solid var(--rule-dark); align-items: baseline; }
+.commit li .n { font: 400 72px/1 var(--f-head); color: var(--orange); }
+.commit li .hl { font-size: 40px; }
+.commit li p { margin: 12px 0 0; font: 500 22px/1.5 var(--f-body); color: var(--sage); }
+
+/* 6 PAI */
+.pai-head { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: end; }
+.pai-head .acr { font: 400 200px/.8 var(--f-head); color: var(--orange); }
+.pai-head .hl { font-size: 38px; }
+.steps { list-style: none; margin: 64px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; counter-reset: s; }
+.steps li { counter-increment: s; padding: 0 28px 0 0; display: grid; gap: 14px; align-content: start; position: relative; }
+.steps li::before { content: counter(s); font: 400 30px/1 var(--f-head); color: var(--charcoal); background: var(--offwhite); width: 52px; height: 52px; border-radius: 999px; display: grid; place-items: center; position: relative; z-index: 1; }
+.steps li::after { content: ""; position: absolute; top: 26px; left: 52px; right: 0; height: 1px; background: var(--rule-dark); }
+.steps li:last-child::after { display: none; }
+.steps b { font: 600 26px/1.2 var(--f-high); }
+.steps span { font: 500 19px/1.45 var(--f-body); color: var(--sage); }
+.quote { margin-top: auto; font: 600 30px/1.35 var(--f-high); color: var(--offwhite); border-left: 4px solid var(--orange); padding-left: 28px; }
+
+/* 7 mapa de serviços */
+.map { flex: 1; display: grid; grid-template-columns: 1fr 260px 1fr; gap: 0; align-items: center; margin-top: 30px; }
+.side { display: grid; gap: 14px; }
+.side h3 { margin: 0 0 8px; font: 400 44px/1 var(--f-head); text-transform: uppercase; display: flex; align-items: baseline; gap: 14px; }
+.side h3 small { font: 700 16px/1 var(--f-body); letter-spacing: .14em; color: var(--slate); }
+.side.right h3 { justify-content: flex-end; }
+.side .it { background: var(--army); color: var(--offwhite); padding: 16px 22px; border-radius: 3px; font: 600 20px/1.3 var(--f-body); position: relative; }
+.side.left .it::after, .side.right .it::before { content: ""; position: absolute; top: 50%; width: 46px; height: 2px; background: var(--army); }
+.side.left .it { margin-right: 46px; }
+.side.left .it::after { right: -46px; }
+.side.right .it { margin-left: 46px; background: var(--charcoal); }
+.side.right .it::before { left: -46px; background: var(--charcoal); }
+.side.right { text-align: left; }
+.hub { width: 260px; height: 260px; border-radius: 999px; background: var(--orange); color: var(--offwhite); display: grid; place-items: center; text-align: center; font: 400 44px/1 var(--f-head); text-transform: uppercase; position: relative; }
+.hub::before, .hub::after { content: ""; position: absolute; top: 50%; width: 1px; height: 340px; transform: translateY(-50%); }
+.hub svg { display: block; width: 110px; color: var(--offwhite); margin: 0 auto 14px; }
+
+/* 8-9 implantação x mensalidade */
+.split { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 52px; }
+.col { display: grid; gap: 0; align-content: start; }
+.col + .col { border-left: 1px solid var(--rule-dark); padding-left: 64px; }
+.col:first-child { padding-right: 64px; }
+.t-light .col + .col { border-color: var(--rule-light); }
+.col h3 { margin: 0 0 8px; font: 400 60px/1 var(--f-head); text-transform: uppercase; }
+.col .when { font: 700 16px/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--khaki); margin-bottom: 26px; }
+.t-light .col .when { color: var(--army); }
+.col ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.col li { font: 500 26px/1.35 var(--f-body); padding: 18px 0; border-bottom: 1px solid var(--rule-dark); display: flex; gap: 16px; align-items: baseline; }
+.t-light .col li { border-color: var(--rule-light); }
+.col li::before { content: ""; width: 9px; height: 9px; background: var(--orange); flex: none; transform: translateY(-3px); }
+.col.ongoing ul { grid-template-columns: 1fr 1fr; column-gap: 32px; }
+
+/* 10 investimento */
+.plans { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 48px; align-items: stretch; }
+.plan { background: var(--paper); border: 1px solid var(--rule-light); border-radius: 4px; padding: 36px 34px; display: flex; flex-direction: column; gap: 22px; }
+.plan h3 { margin: 0; font: 400 38px/1 var(--f-head); text-transform: uppercase; white-space: nowrap; }
+.plan .row { display: grid; gap: 6px; padding-top: 18px; border-top: 1px solid var(--rule-light); }
+.plan .k { font: 700 15px/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--slate); }
+.plan .v { font: 400 48px/1 var(--f-head); color: var(--charcoal); white-space: nowrap; }
+.plan .v small { font: 700 22px/1 var(--f-body); color: var(--slate); margin-left: 4px; }
+.plan .note { margin-top: auto; font: 600 18px/1.45 var(--f-body); color: var(--army); }
+.plan.best { background: var(--charcoal); color: var(--offwhite); border-color: var(--charcoal); position: relative; }
+.plan.best .v { color: var(--orange); }
+.plan.best .k, .plan.best .v small { color: var(--sage); }
+.plan.best .row { border-color: var(--rule-dark); }
+.plan.best .note { color: var(--coral); }
+.tag { position: absolute; top: -16px; left: 34px; background: var(--orange); color: var(--offwhite); font: 800 14px/1 var(--f-body); letter-spacing: .16em; text-transform: uppercase; padding: 9px 14px; border-radius: 2px; }
+.fine { margin-top: auto; padding-top: 24px; font: 600 19px/1.4 var(--f-body); color: var(--slate); }
+
+/* 11 garantia */
+.guar { flex: 1; display: grid; grid-template-columns: 1.6fr 1fr; gap: 64px; align-items: center; padding-block: 20px; }
+.guar .h1 { font-size: 74px; line-height: 1.14; }
+.guar .h1 u { text-decoration: none; background: var(--charcoal); color: var(--offwhite); padding: 0 .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.seal { width: 340px; height: 340px; border-radius: 999px; border: 3px solid var(--offwhite); display: grid; place-items: center; text-align: center; position: relative; justify-self: center; }
+.seal::before { content: ""; position: absolute; inset: 16px; border-radius: 999px; border: 1px dashed rgba(242,237,228,.7); }
+.seal .in { display: grid; gap: 6px; }
+.seal .six { font: 400 150px/.85 var(--f-head); }
+.seal .m { font: 700 22px/1 var(--f-body); letter-spacing: .2em; text-transform: uppercase; }
+.seal svg { width: 110px; margin: 0 auto 6px; color: var(--offwhite); }
+.terms { margin-top: 28px; display: grid; gap: 10px; font: 600 21px/1.45 var(--f-body); max-width: 36em; }
+.terms span { display: flex; gap: 14px; }
+.terms span::before { content: ""; width: 9px; height: 9px; background: var(--offwhite); flex: none; transform: translateY(9px); }
+.next { margin-top: auto; background: var(--charcoal); color: var(--offwhite); border-radius: 4px; padding: 26px 36px; display: flex; align-items: center; gap: 28px; }
+.next .k { font: 700 16px/1 var(--f-body); letter-spacing: .16em; text-transform: uppercase; color: var(--coral); }
+.next .hl { font-size: 32px; }
+.next label { margin-left: auto; display: flex; align-items: center; gap: 14px; font: 700 16px/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--sage); }
+.next input { font: 400 34px/1 var(--f-head); letter-spacing: .04em; color: var(--offwhite); background: transparent; border: 0; border-bottom: 2px solid var(--orange); width: 300px; padding: 4px 2px; outline: none; }
+.next input:focus-visible { border-bottom-color: var(--offwhite); }
+.next input::placeholder { color: var(--slate); }
+
+/* tráfego: Meta x Google */
+.vs { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 44px; }
+.ch { border: 1px solid var(--rule-dark); border-radius: 4px; padding: 40px 44px; display: grid; gap: 22px; align-content: start; }
+.ch.meta { background: var(--offwhite); color: var(--charcoal); border-color: var(--offwhite); }
+.ch h3 { margin: 0; font: 400 64px/1 var(--f-head); text-transform: uppercase; }
+.ch .sub { font: 700 16px/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--khaki); }
+.ch.meta .sub { color: var(--army); }
+.ch .path { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font: 700 19px/1 var(--f-body); }
+.ch .path span { border: 1.5px solid currentColor; border-radius: 999px; padding: 10px 18px; }
+.ch .path i { font-style: normal; color: var(--orange); font: 400 26px/1 var(--f-head); }
+.ch .path span.hot { background: var(--orange); border-color: var(--orange); color: var(--offwhite); }
+.ch ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.ch li { font: 500 23px/1.4 var(--f-body); padding: 14px 0; border-top: 1px solid var(--rule-dark); display: flex; gap: 16px; align-items: baseline; }
+.ch.meta li { border-color: var(--rule-light); }
+.ch li::before { content: ""; width: 9px; height: 9px; background: var(--orange); flex: none; transform: translateY(-3px); }
+
+/* tráfego: pacotes */
+.pk { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; align-items: stretch; }
+.pkg { background: var(--paper); border: 1px solid var(--rule-light); border-radius: 4px; padding: 32px 32px; display: flex; flex-direction: column; gap: 18px; }
+.pkg .lvl { font: 700 15px/1 var(--f-body); letter-spacing: .16em; text-transform: uppercase; color: var(--army); }
+.pkg h3 { margin: 0; font: 400 36px/1.02 var(--f-head); text-transform: uppercase; min-height: 2.04em; }
+.pkg .price { font: 400 46px/1 var(--f-head); color: var(--orange); white-space: nowrap; }
+.pkg .price small { font: 700 20px/1 var(--f-body); color: var(--slate); margin-left: 4px; }
+.pkg .setup { font: 700 18px/1 var(--f-body); color: var(--charcoal-2); }
+.pkg ul { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--rule-light); }
+.pkg li { font: 500 19px/1.4 var(--f-body); padding: 11px 0; border-bottom: 1px solid var(--rule-light); display: flex; gap: 12px; align-items: baseline; }
+.pkg li::before { content: "+"; font: 400 22px/1 var(--f-head); color: var(--orange); flex: none; width: 12px; }
+.pkg li.base { color: var(--slate); }
+.pkg li.base::before { content: "✓"; font: 700 16px/1 var(--f-body); color: var(--army); }
+.pkg.full { background: var(--charcoal); color: var(--offwhite); border-color: var(--charcoal); }
+.pkg.full .lvl { color: var(--coral); }
+.pkg.full .price small, .pkg.full .setup { color: var(--sage); }
+.pkg.full ul, .pkg.full li { border-color: var(--rule-dark); }
+.pkg.full li.base { color: var(--khaki); }
+.pkg.full li.base::before { color: var(--khaki); }
+
+/* resumo */
+.sum { flex: 1; display: grid; grid-template-columns: 1.35fr 1fr; gap: 28px; margin-top: 40px; align-items: stretch; }
+.box { background: var(--paper); border: 1px solid var(--rule-light); border-radius: 4px; padding: 36px 40px; display: flex; flex-direction: column; gap: 4px; }
+.box h3 { margin: 0 0 14px; font: 400 44px/1 var(--f-head); text-transform: uppercase; }
+.line { display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--rule-light); }
+.line .k { font: 600 21px/1.3 var(--f-body); }
+.line .v { font: 400 42px/1 var(--f-head); color: var(--charcoal); white-space: nowrap; text-align: right; }
+.line .v small { font: 700 18px/1 var(--f-body); color: var(--slate); margin-left: 4px; }
+.line .s { grid-column: 2; font: 700 16px/1 var(--f-body); color: var(--slate); text-align: right; letter-spacing: .04em; }
+.box.ai { background: var(--charcoal); color: var(--offwhite); border-color: var(--charcoal); }
+.box.ai .line { border-color: var(--rule-dark); grid-template-columns: 1fr; gap: 10px; }
+.box.ai .v, .box.ai .s { text-align: left; grid-column: 1; }
+.box.ai .k { color: var(--sage); font-size: 18px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+.box.ai .v { color: var(--orange); }
+.box.ai .v small, .box.ai .s { color: var(--sage); }
+.box .note { margin-top: auto; padding-top: 18px; font: 600 18px/1.45 var(--f-body); color: var(--army); }
+.box.ai .note { color: var(--coral); }
+
+/* controles */
+.ctrl { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 8px; align-items: center; z-index: 5; opacity: .35; transition: opacity 200ms; }
+.ctrl:hover, .ctrl:focus-within { opacity: 1; }
+.ctrl button { appearance: none; border: 1px solid var(--rule-dark); background: var(--charcoal-2); color: var(--offwhite); width: 38px; height: 38px; border-radius: 999px; font: 700 18px/1 var(--f-body); cursor: pointer; display: grid; place-items: center; }
+.ctrl button:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+.ctrl .count { font: 700 13px/1 var(--f-body); letter-spacing: .14em; color: var(--sage); min-width: 64px; text-align: center; font-variant-numeric: tabular-nums; }
+.progress { position: fixed; left: 0; right: 0; top: env(safe-area-inset-top, 0px); height: 3px; background: transparent; z-index: 5; }
+.progress i { display: block; height: 100%; width: 0; background: var(--orange); transition: width 260ms; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="alb" viewBox="0 0 881 225">
+    <path fill="currentColor" fill-rule="evenodd" d="M 462.273 40.581 C 458.182 44.677 456.058 50.334 456.433 56.112 C 456.464 56.559 456.464 57.012 456.496 57.471 C 457.12 67.324 465.272 75.002 475.142 75.002 C 514.496 75.002 606.323 74.999 606.323 74.999 C 611.196 74.999 615.881 73.118 619.41 69.743 L 687.062 5.15 C 690.498 1.844 695.121 0 699.899 0 L 806.094 0 C 811.029 0 815.776 1.959 819.243 5.447 C 819.243 5.447 860.44 46.649 879.399 65.627 C 880.961 67.199 881.429 69.558 880.586 71.608 C 879.742 73.661 877.744 74.999 875.526 74.999 C 823.272 74.999 634.184 74.999 634.184 74.999 C 629.186 74.999 624.439 76.974 620.909 80.493 C 620.909 80.493 573.372 128.064 556.943 144.495 C 553.413 148.017 548.635 149.998 543.668 149.998 C 524.491 149.998 476.485 149.998 476.485 149.998 C 476.485 149.998 474.33 154.329 472.081 158.829 C 468.958 165.076 468.958 172.426 472.081 178.672 C 473.33 181.201 474.579 183.676 475.423 185.36 C 476.047 186.638 475.797 188.182 474.798 189.194 C 467.489 196.504 439.004 225 439.004 225 C 439.004 225 410.457 196.429 403.179 189.163 C 402.18 188.169 401.961 186.654 402.586 185.397 C 403.429 183.713 404.678 181.219 405.928 178.672 C 409.051 172.426 409.051 165.076 405.928 158.829 C 403.679 154.329 401.524 149.998 401.524 149.998 L 334.309 149.998 C 329.343 149.998 324.595 148.029 321.097 144.526 C 304.699 128.126 257.099 80.493 257.099 80.493 C 253.57 76.974 248.822 74.999 243.825 74.999 C 243.825 74.999 48.521 74.999 3.763 74.999 C 2.232 74.999 0.858 74.083 0.296 72.677 C -0.297 71.274 0.015 69.655 1.108 68.58 C 18.318 51.365 64.2 5.447 64.2 5.447 C 67.698 1.959 72.414 0 77.349 0 L 178.109 0 C 182.888 0 187.511 1.844 190.947 5.15 L 258.599 69.743 C 262.128 73.118 266.813 74.999 271.685 74.999 C 271.685 74.999 363.013 75.018 402.273 75.027 C 412.175 75.027 420.358 67.34 421.014 57.459 C 421.732 46.037 422.575 33.259 422.575 33.259 C 422.575 24.634 429.572 17.634 438.192 17.634 C 440.098 17.634 436.412 17.634 438.192 17.634 C 448.874 17.634 465.085 20.037 471.238 13.878 C 473.674 11.465 475.86 9.14 477.703 7.072 C 479.545 5.003 482.107 3.759 484.886 3.622 C 487.635 3.484 490.322 4.462 492.352 6.337 C 492.352 6.328 492.352 6.328 492.352 6.328 C 493.507 7.491 493.507 9.359 492.352 10.512 C 492.352 10.512 472.768 30.103 462.273 40.581 Z"/>
+  </symbol>
+</svg>
+
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+<main class="viewport" id="viewport">
+<div class="stage" id="stage">
+
+  <!-- 1 CAPA -->
+  <section class="slide t-army cover on" aria-label="Capa">
+    <div class="brand"><svg viewBox="0 0 881 225" aria-hidden="true"><use href="#alb"/></svg>Albatroz Studio</div>
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 881 225"><use href="#alb"/></svg></div>
+    <div class="title">
+      <span class="eyebrow">Proposta comercial</span>
+      <h1 class="h1">Atendimento com IA<br>e tráfego pago</h1>
+      <p class="hl">Para empresas que já têm demanda e perdem venda na hora de responder.</p>
+    </div>
+    <div class="meta">
+      <span class="pill solid">2026</span>
+      <span class="pill">EUA · Dubai · Brasil</span>
+    </div>
+  </section>
+
+  <!-- 2 GANCHO -->
+  <section class="slide t-dark hook" aria-label="O problema">
+    <span class="eyebrow">Onde a venda se perde</span>
+    <h2 class="h1">O cliente chama. Quem responde <span class="accent">primeiro</span> fecha.</h2>
+    <p class="lead">Uma empresa de serviço perde dinheiro na mensagem sem resposta, na resposta que chega no dia seguinte, no cliente que esfria enquanto a equipe está ocupada. <b>A Albatroz junta anúncios que trazem o cliente e uma IA que responde em menos de um minuto, a qualquer hora.</b></p>
+    <div class="foot"><span class="brand"><svg viewBox="0 0 881 225" aria-hidden="true"><use href="#alb"/></svg>Albatroz Studio</span><span>02</span></div>
+  </section>
+
+  <!-- 3 NÚMEROS -->
+  <section class="slide t-light" aria-label="Números Albatroz">
+    <span class="eyebrow">Números Albatroz</span>
+    <h2 class="h2" style="margin-top:22px">Sete anos colocando cliente na porta de empresa de serviço</h2>
+    <div class="stats">
+      <div class="stat"><span class="big num">7+</span><span class="brl">anos</span><span class="lbl">em marketing digital e tráfego pago</span></div>
+      <div class="stat"><span class="big num">US$ 1,4 mi+</span><span class="brl num">R$ 7 milhões+</span><span class="lbl">em vendas geradas nos projetos digitais</span></div>
+      <div class="stat"><span class="big num">US$ 721 mil+</span><span class="brl num">R$ 3,6 milhões+</span><span class="lbl">investidos em anúncios para negócios locais</span></div>
+      <div class="stat"><span class="big num">3</span><span class="brl">países</span><span class="lbl">clientes nos EUA, em Dubai e no Brasil</span></div>
+    </div>
+    <div class="band">
+      <span class="from">até 2 dias</span><span class="arrow">→</span><span class="to">menos de 1 minuto</span>
+      <p>Tempo de resposta ao cliente, antes e depois da IA, em todas as empresas que atendemos.</p>
+    </div>
+  </section>
+
+  <!-- 4 CASES -->
+  <section class="slide t-light" aria-label="Cases">
+    <span class="eyebrow">Quem já roda com a gente</span>
+    <h2 class="h2" style="margin-top:22px">Resultados medidos na plataforma</h2>
+    <div class="cases">
+      <article class="case">
+        <span class="niche">Clínica de estética</span>
+        <span class="fig num">18.421<small>pessoas</small></span>
+        <p>atendidas no WhatsApp em 9 meses, sem aumentar a equipe de atendimento.</p>
+      </article>
+      <article class="case">
+        <span class="niche">Cirurgião plástico</span>
+        <span class="fig num">1.384<small>pessoas</small></span>
+        <p>atendidas em 9 meses, com lembrete de consulta enviado automaticamente.</p>
+      </article>
+      <article class="case">
+        <span class="niche">Cirurgião bucomaxilofacial</span>
+        <span class="fig num">1.804<small>pessoas</small></span>
+        <p>atendidas em 6 meses. A IA marca os casos urgentes e passa cada um para a secretária encaixar na agenda.</p>
+      </article>
+      <article class="case">
+        <span class="niche">Academias de jiu-jitsu · 7 unidades</span>
+        <span class="fig num">1.496<small>agendamentos</small></span>
+        <p>em 18 meses, com 6.610 pessoas atendidas. Alunos ativos foram de 292 para 423 em um ano.</p>
+      </article>
+      <article class="case">
+        <span class="niche">Construtora · Dubai e São Paulo</span>
+        <span class="fig">2 mercados</span>
+        <p>Atendimento com IA em dois números de WhatsApp, um em Dubai e outro em São Paulo, para um mercado em que o comprador não espera.</p>
+      </article>
+      <article class="case us">
+        <span class="niche">Limpeza residencial · EUA</span>
+        <span class="fig num">&lt; 60 s</span>
+        <p>Pedidos de fim de semana esperavam de 24 a 48 horas. Hoje todo pedido recebe resposta em menos de um minuto.</p>
+      </article>
+    </div>
+    <p class="also"><b>Também atendemos</b> pet shop · aluguel de iates · equipamentos técnicos</p>
+  </section>
+
+  <!-- 5 COMPROMISSO -->
+  <section class="slide t-army" aria-label="Compromisso">
+    <div class="commit">
+      <div>
+        <span class="eyebrow">Nosso compromisso</span>
+        <h2 class="h1" style="margin-top:26px;font-size:120px">Com a sua empresa</h2>
+      </div>
+      <ol>
+        <li><span class="n">1</span><div><p class="hl">Responder todo cliente em menos de um minuto, a qualquer hora.</p><p>Noite, domingo e feriado incluídos. Quem chama recebe resposta antes de procurar o concorrente.</p></div></li>
+        <li><span class="n">2</span><div><p class="hl">Colocar cliente novo na sua agenda toda semana.</p><p>Anúncios que trazem gente com intenção de compra, e uma IA que conduz cada conversa até o agendamento.</p></div></li>
+      </ol>
+    </div>
+    <div class="foot"><span class="brand"><svg viewBox="0 0 881 225" aria-hidden="true"><use href="#alb"/></svg>Albatroz Studio</span><span>05</span></div>
+  </section>
+
+  <!-- 6 PAI -->
+  <section class="slide t-dark" aria-label="O método PAI">
+    <span class="eyebrow">Como implantamos</span>
+    <div class="pai-head" style="margin-top:30px">
+      <span class="acr">PAI</span>
+      <p class="hl">Protocolo de Ativação de Inteligência em Vendas: o método que a Albatroz usa para colocar a IA para vender dentro da sua operação.</p>
+    </div>
+    <ol class="steps">
+      <li><b>Diagnóstico</b><span>Mapeamos como o cliente chega, quem responde e onde a venda se perde.</span></li>
+      <li><b>Treinamento</b><span>A IA aprende seus serviços, preços, regras e o jeito de falar da sua empresa.</span></li>
+      <li><b>Implantação</b><span>Entra no WhatsApp e nos canais onde seu cliente já fala com você.</span></li>
+      <li><b>Integração</b><span>Passa a conversa para a sua equipe na hora certa, com o histórico completo.</span></li>
+      <li><b>Otimização</b><span>Ajustamos todo mês com base nas conversas reais.</span></li>
+    </ol>
+    <p class="quote">A IA não substitui o vendedor. Ela multiplica a inteligência dele.</p>
+  </section>
+
+  <!-- 7 SERVIÇOS -->
+  <section class="slide t-light" aria-label="Serviços">
+    <span class="eyebrow">Serviços</span>
+    <div class="map">
+      <div class="side left">
+        <h3>Atendimento com IA</h3>
+        <div class="it">Atendimento 24 horas no WhatsApp</div>
+        <div class="it">Qualificação de cada contato</div>
+        <div class="it">Follow-up automático de quem sumiu</div>
+        <div class="it">Lembrete de consulta e agendamento</div>
+        <div class="it">Passagem para a equipe com histórico</div>
+      </div>
+      <div class="hub"><div><svg viewBox="0 0 881 225" aria-hidden="true"><use href="#alb"/></svg>Sua<br>empresa</div></div>
+      <div class="side right">
+        <h3>Tráfego pago</h3>
+        <div class="it">Anúncios no Meta: Facebook e Instagram</div>
+        <div class="it">Anúncios no Google</div>
+        <div class="it">Criativos em imagem e vídeo</div>
+        <div class="it">Página de captura</div>
+        <div class="it">Acompanhamento de resultado</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 IA: IMPLANTAÇÃO x MENSALIDADE -->
+  <section class="slide t-dark" aria-label="Atendimento com IA: o que está incluso">
+    <span class="eyebrow">Atendimento com IA · o que está incluso</span>
+    <div class="split">
+      <div class="col">
+        <h3>Implantação</h3>
+        <span class="when">Pagamento único</span>
+        <ul>
+          <li>Diagnóstico da operação de vendas</li>
+          <li>Treinamento da IA com serviços, preços e regras da empresa</li>
+          <li>Implantação no WhatsApp e nos canais de venda</li>
+          <li>Integração com a equipe e passagem para humano</li>
+          <li>Testes completos antes de ir ao ar</li>
+        </ul>
+      </div>
+      <div class="col ongoing">
+        <h3>Mensalidade</h3>
+        <span class="when">Todo mês</span>
+        <ul>
+          <li>Manutenção dos tokens</li>
+          <li>Atualização de modelos</li>
+          <li>Correções de vocabulário</li>
+          <li>Ajustes quando o produto muda</li>
+          <li>Atendimento de tickets</li>
+          <li>Treinamento adicional da IA</li>
+          <li>Suporte contínuo</li>
+          <li>Relatórios de atendimento</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 TRÁFEGO: IMPLANTAÇÃO x MENSALIDADE -->
+  <section class="slide t-light" aria-label="Tráfego pago: o que está incluso">
+    <span class="eyebrow">Tráfego pago · o que está incluso</span>
+    <div class="split">
+      <div class="col">
+        <h3>Implantação</h3>
+        <span class="when">Pagamento único</span>
+        <ul>
+          <li>Planejamento das campanhas</li>
+          <li>Configuração das contas Meta e Google e do pixel</li>
+          <li>Criação dos primeiros anúncios</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Mensalidade</h3>
+        <span class="when">Todo mês</span>
+        <ul>
+          <li>Ajuste dos anúncios</li>
+          <li>Leitura das métricas</li>
+          <li>Novas campanhas no ar</li>
+          <li>Acompanhamento de resultado</li>
+          <li>Otimização da landing page, quando houver</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 TRÁFEGO: META x GOOGLE -->
+  <section class="slide t-dark" aria-label="Tráfego pago: Meta ou Google">
+    <span class="eyebrow">Tráfego pago · onde anunciar</span>
+    <h2 class="h2" style="margin-top:22px">Meta ou Google?</h2>
+    <div class="vs">
+      <div class="ch meta">
+        <span class="sub">Facebook e Instagram</span>
+        <h3>Meta</h3>
+        <div class="path"><span>Anúncio</span><i>→</i><span class="hot">WhatsApp</span></div>
+        <ul>
+          <li>O anúncio leva a pessoa direto para o WhatsApp, onde a IA já responde.</li>
+          <li>Não precisa de landing page.</li>
+          <li>Normalmente é a opção mais barata para começar.</li>
+        </ul>
+      </div>
+      <div class="ch">
+        <span class="sub">Busca e mapa</span>
+        <h3>Google</h3>
+        <div class="path"><span>Busca</span><i>→</i><span>Landing page</span><i>→</i><span class="hot">Contato</span></div>
+        <ul>
+          <li>Aparece para quem está procurando o seu serviço naquele momento.</li>
+          <li>Precisa de landing page para transformar o clique em contato.</li>
+          <li>Pede mais gestão, por isso fica nos pacotes acima do básico.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 TRÁFEGO: PACOTES -->
+  <section class="slide t-light" aria-label="Tráfego pago: pacotes">
+    <span class="eyebrow">Tráfego pago · pacotes</span>
+    <h2 class="h2" style="margin-top:22px">Do anúncio à presença completa</h2>
+    <div class="pk">
+      <div class="pkg">
+        <span class="lvl">Pacote 1</span>
+        <h3>Só tráfego</h3>
+        <span class="price num">US$ 397 a 697<small>/mês</small></span>
+        <span class="setup">Sem setup</span>
+        <ul>
+          <li>Gestão das campanhas</li>
+          <li>Ajuste dos anúncios e leitura das métricas</li>
+          <li>Acompanhamento de resultado</li>
+        </ul>
+      </div>
+      <div class="pkg">
+        <span class="lvl">Pacote 2</span>
+        <h3>Tráfego + criativo + landing page</h3>
+        <span class="price num">US$ 697 a 997<small>/mês</small></span>
+        <span class="setup num">+ setup inicial de US$ 500</span>
+        <ul>
+          <li class="base">Tudo do pacote 1</li>
+          <li>Criativos em imagem e vídeo</li>
+          <li>Landing page para o Google</li>
+        </ul>
+      </div>
+      <div class="pkg full">
+        <span class="lvl">Pacote 3</span>
+        <h3>Presença completa</h3>
+        <span class="price num">US$ 997 a 1.500<small>/mês</small></span>
+        <span class="setup num">+ setup inicial de US$ 1.000</span>
+        <ul>
+          <li class="base">Tudo do pacote 2</li>
+          <li>Social media</li>
+          <li>Google Meu Negócio</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Dentro de cada faixa, o valor depende das plataformas. Só Meta fica na parte de baixo; com Google entram landing page e mais gestão.</p>
+  </section>
+
+  <!-- 12 INVESTIMENTO (RESUMO) -->
+  <section class="slide t-light" aria-label="Investimento">
+    <span class="eyebrow">Investimento · resumo</span>
+    <h2 class="h2" style="margin-top:22px">Escolha por onde começar</h2>
+    <div class="sum">
+      <div class="box">
+        <h3>Tráfego pago</h3>
+        <div class="line"><span class="k">Só tráfego</span><span class="v num">US$ 397 a 697<small>/mês</small></span></div>
+        <div class="line"><span class="k">Tráfego + criativo + landing page</span><span class="v num">US$ 697 a 997<small>/mês</small></span><span class="s num">+ setup US$ 500</span></div>
+        <div class="line"><span class="k">Presença completa</span><span class="v num">US$ 997 a 1.500<small>/mês</small></span><span class="s num">+ setup US$ 1.000</span></div>
+        <p class="note">Mais o investimento em anúncios, mínimo de US$ 400/mês, pago direto ao Meta e ao Google. Com garantia de resultado.</p>
+      </div>
+      <div class="box ai">
+        <h3>Atendimento com IA</h3>
+        <div class="line"><span class="k">Mensalidade</span><span class="v num">US$ 600 a 700<small>/mês</small></span><span class="s num">+ implantação US$ 1.000</span></div>
+        <div class="line"><span class="k">IA + tráfego juntos</span><span class="v num">a partir de US$ 1.000<small>/mês</small></span></div>
+        <p class="note">O anúncio traz o cliente e a IA responde na hora, a qualquer hora.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 GARANTIA -->
+  <section class="slide t-orange" aria-label="Garantia">
+    <span class="eyebrow">Garantia de resultado no tráfego</span>
+    <div class="guar">
+      <div>
+        <h2 class="h1">Se em 6 meses você não vender mais do que investiu, <u>trabalhamos de graça</u> até ultrapassar.</h2>
+        <div class="terms">
+          <span>Vale para o tráfego pago, com investimento mínimo de US$ 400/mês em anúncios, separado da mensalidade.</span>
+          <span>O atendimento com IA fica fora da garantia: ele responde a todo cliente que chegar, e o resultado acompanha o volume de entrada da sua empresa.</span>
+        </div>
+      </div>
+      <div class="seal" aria-hidden="true"><div class="in"><svg viewBox="0 0 881 225"><use href="#alb"/></svg><span class="six">6</span><span class="m">meses garantidos</span></div></div>
+    </div>
+    <div class="next">
+      <span class="k">Próximo passo</span>
+      <span class="hl">Reunião de onboarding e implantação</span>
+      <label for="onb">Data<input id="onb" type="text" placeholder="__/__ · __h" autocomplete="off"></label>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<nav class="ctrl" aria-label="Navegação dos slides">
+  <button id="prev" type="button" aria-label="Slide anterior">‹</button>
+  <span class="count" id="count">01 / 13</span>
+  <button id="next" type="button" aria-label="Próximo slide">›</button>
+  <button id="fs" type="button" aria-label="Tela cheia">⤢</button>
+</nav>
+
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var vp = document.getElementById('viewport');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.slide'));
+  var count = document.getElementById('count');
+  var bar = document.getElementById('bar');
+  var i = 0;
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+  function fit() {
+    var w = vp.clientWidth, h = vp.clientHeight;
+    var s = Math.min(w / 1600, h / 900) * 0.96;
+    stage.style.setProperty('--s', s);
+  }
+  function go(n) {
+    n = Math.max(0, Math.min(slides.length - 1, n));
+    slides[i].classList.remove('on');
+    i = n;
+    slides[i].classList.add('on');
+    count.textContent = pad(i + 1) + ' / ' + pad(slides.length);
+    bar.style.width = ((i + 1) / slides.length * 100) + '%';
+    if (location.hash !== '#s' + (i + 1)) { try { history.replaceState(null, '', '#s' + (i + 1)); } catch (e) {} }
+  }
+  function typing(e) { var t = e.target; return t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA'); }
+
+  document.addEventListener('keydown', function (e) {
+    if (typing(e)) { if (e.key === 'Escape') e.target.blur(); return; }
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].indexOf(e.key) > -1) { e.preventDefault(); go(i + 1); }
+    else if (['ArrowLeft', 'PageUp', 'Backspace'].indexOf(e.key) > -1) { e.preventDefault(); go(i - 1); }
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(slides.length - 1);
+    else if (e.key === 'f' || e.key === 'F') toggleFs();
+  });
+  document.getElementById('prev').addEventListener('click', function () { go(i - 1); });
+  document.getElementById('next').addEventListener('click', function () { go(i + 1); });
+
+  function toggleFs() {
+    try {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else { var p = document.documentElement.requestFullscreen(); if (p && p.catch) p.catch(function () {}); }
+    } catch (e) {}
+  }
+  document.getElementById('fs').addEventListener('click', toggleFs);
+
+  var x0 = null;
+  vp.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  vp.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+  });
+
+  window.addEventListener('resize', fit);
+  fit();
+  function fromHash() { var m = /^#s(\d+)$/.exec(location.hash); go(m ? parseInt(m[1], 10) - 1 : 0); }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body>
+</html>
