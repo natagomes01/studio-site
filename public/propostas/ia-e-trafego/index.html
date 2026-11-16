@@ -69,10 +69,22 @@ body {
 @media (prefers-reduced-motion: reduce) { .slide, .slide.on { transition: none; } }
 
 /* temas de slide */
-.t-army     { background: var(--army); color: var(--offwhite); }
-.t-dark     { background: var(--charcoal); color: var(--offwhite); }
-.t-light    { background: var(--offwhite); color: var(--charcoal); }
-.t-orange   { background: var(--orange); color: var(--offwhite); }
+.t-army     { background: var(--army); color: var(--offwhite); --halo: var(--army); }
+.t-dark     { background: var(--charcoal); color: var(--offwhite); --halo: var(--charcoal); }
+.t-light    { background: var(--offwhite); color: var(--charcoal); --halo: var(--offwhite); }
+.t-orange   { background: var(--orange); color: var(--offwhite); --halo: var(--orange); }
+
+/* Acento sobreposto: Anton com entrelinha curta faz o acento da linha de baixo encostar na letra
+   da linha de cima. Um contorno fino na cor do fundo, deslocado para cima, recorta o acento onde
+   ele cruza a letra; fora da sobreposição o contorno some no fundo. */
+.h1, .h2 {
+  text-shadow:
+    0 -2px 0 var(--halo),
+    1.5px -1.5px 0 var(--halo),
+    -1.5px -1.5px 0 var(--halo),
+    2px 0 0 var(--halo),
+    -2px 0 0 var(--halo);
+}
 
 /* tipografia */
 .eyebrow { font: 700 20px/1 var(--f-body); letter-spacing: .18em; text-transform: uppercase; display: flex; align-items: center; gap: 18px; }
@@ -209,7 +221,7 @@ body {
 /* 11 garantia */
 .guar { flex: 1; display: grid; grid-template-columns: 1.6fr 1fr; gap: 64px; align-items: center; padding-block: 20px; }
 .guar .h1 { font-size: 74px; line-height: 1.14; }
-.guar .h1 u { text-decoration: none; background: var(--charcoal); color: var(--offwhite); padding: 0 .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.guar .h1 u { text-shadow: 0 -2px 0 var(--charcoal), 1.5px -1.5px 0 var(--charcoal), -1.5px -1.5px 0 var(--charcoal), 2px 0 0 var(--charcoal), -2px 0 0 var(--charcoal); text-decoration: none; background: var(--charcoal); color: var(--offwhite); padding: 0 .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .seal { width: 340px; height: 340px; border-radius: 999px; border: 3px solid var(--offwhite); display: grid; place-items: center; text-align: center; position: relative; justify-self: center; }
 .seal::before { content: ""; position: absolute; inset: 16px; border-radius: 999px; border: 1px dashed rgba(242,237,228,.7); }
 .seal .in { display: grid; gap: 6px; }
